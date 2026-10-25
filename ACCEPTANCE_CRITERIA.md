@@ -81,10 +81,12 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [x] Tablet QA run 2026-10-25 at 768px, ~820px, 1024px against the live
       homepage — results recorded in `PROJECT_STATUS.md` §11. All 11 content
       sections pass at every width tested.
-- [ ] **Nav header fails at 768–~850px** (found by the tablet QA above): nav
-      links wrap and/or the Login/Book a Demo buttons are pushed off-screen.
-      Fix proposed, not yet applied — awaiting approval (see `DECISIONS_LOG.md`
-      and `PROJECT_STATUS.md` §11)
+- [x] **Nav header defect fixed and verified 2026-10-25** (found by the tablet
+      QA above): moved the desktop-nav breakpoint from `md:` to `lg:`, plus a
+      related fix for "Book a Demo" wrapping and ~19px overflow at exactly
+      1024px. Re-verified live at 375px/768px/~820px/1024px/1280px — no
+      overflow, no wrapping, Login/Book a Demo always one line. Details in
+      `PROJECT_STATUS.md` §11.
 - [x] **Pre-UAT checklist addition:** screenshots and illustrations use locked
       aspect ratios / explicit dimensions to avoid layout shift — verified by
       code review of `ScreenshotPlaceholder.tsx` and the 3 inline SVG sections

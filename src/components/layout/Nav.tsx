@@ -31,7 +31,7 @@ export default function Nav() {
             className="h-14 w-auto sm:h-16"
           />
         </Link>
-        <div className="hidden items-center gap-8 text-[14.5px] font-semibold md:flex">
+        <div className="hidden shrink-0 items-center gap-5 text-[14.5px] font-semibold whitespace-nowrap lg:flex xl:gap-8">
           {LINKS.map((l) => (
             <Link key={l.href} href={l.href} className="hover:text-gold-dark">
               {l.label}
@@ -45,13 +45,13 @@ export default function Nav() {
             aria-disabled="true"
             title="Login access coming soon"
             aria-label="Login (coming soon)"
-            className="hidden cursor-not-allowed rounded-full border-[1.5px] border-gray-200 px-5 py-2.5 text-[13.5px] font-semibold text-gray-400 md:inline-block"
+            className="hidden shrink-0 cursor-not-allowed rounded-full border-[1.5px] border-gray-200 px-5 py-2.5 text-[13.5px] font-semibold whitespace-nowrap text-gray-400 lg:inline-block"
           >
             Login
           </button>
           <Link
             href="/book-a-demo"
-            className="hidden rounded-full bg-gold px-5 py-2.5 text-[13.5px] font-semibold text-white transition hover:bg-gold-dark md:inline-block"
+            className="hidden shrink-0 rounded-full bg-gold px-5 py-2.5 text-[13.5px] font-semibold whitespace-nowrap text-white transition hover:bg-gold-dark lg:inline-block"
           >
             Book a Demo
           </Link>
@@ -59,7 +59,7 @@ export default function Nav() {
             aria-label="Toggle navigation menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="rounded-lg p-2 text-charcoal md:hidden"
+            className="rounded-lg p-2 text-charcoal lg:hidden"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
               <path d="M4 7h16M4 12h16M4 17h16" />
@@ -68,7 +68,7 @@ export default function Nav() {
         </div>
       </div>
       {open && (
-        <div className="flex flex-col gap-1 border-t border-gray-200 bg-white px-6 py-4 md:hidden">
+        <div className="flex flex-col gap-1 border-t border-gray-200 bg-white px-6 py-4 lg:hidden">
           {LINKS.map((l) => (
             <Link
               key={l.href}

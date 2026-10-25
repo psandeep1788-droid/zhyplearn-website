@@ -152,14 +152,34 @@ horizontal space for all of it until roughly 900–950px.
   entirely cut off off-screen (confirmed via zoomed screenshot).
 - Resolved by 1024px.
 
-**Proposed fix (not applied — reported for approval first, per instruction):**
-in `src/components/layout/Nav.tsx`, move the breakpoint at which the full
-desktop nav appears from `md:` (768px) to `lg:` (1024px) — i.e. the hamburger
-menu stays active through the whole 768–1023px tablet range, matching where
-this QA confirmed the layout first fits reliably. This is the standard,
-low-risk fix (no spacing/font redesign, no new behavior) and matches exactly
-where the content sections already flip to their desktop grid layouts
-(`lg:grid-cols-*`), so the nav and content breakpoints would line up.
+**Fix approved and applied (2026-10-25).** In `src/components/layout/Nav.tsx`,
+the desktop nav (links, Login, Book a Demo) and the mobile hamburger menu both
+moved from the `md:` breakpoint (768px) to `lg:` (1024px) — the hamburger menu
+now stays active through the whole 768–1023px tablet range. While testing the
+fix, a second, related issue was found and fixed in the same component: at
+exactly 1024px the "Book a Demo" button still wrapped to two lines and the
+page had ~19px of real horizontal overflow, because the nav's flex children
+had no `shrink-0`/`whitespace-nowrap`, so they compressed under tight space.
+Fixed by adding `shrink-0 whitespace-nowrap` to the nav links, Login button
+and Book a Demo link, and narrowing the links' gap from `gap-8` to `gap-5`
+below the `xl:` breakpoint (1280px), where it returns to `gap-8`. No links
+removed, no font sizes reduced — only spacing and flex-shrink behavior.
+
+**Re-verification results after the fix (2026-10-25), all against the live
+Cloudflare UAT deployment unless noted:**
+
+| Width | Nav header | Horizontal overflow (`scrollWidth` vs `clientWidth`, measured via JS) | Notes |
+|---|---|---|---|
+| **375px** | ✅ Pass — hamburger menu, unchanged | ✅ None | No regression; menu opens, closes, and a link click navigates + auto-closes, confirmed interactively |
+| **768px** | ✅ **Fixed** — hamburger menu, no wrapping | ✅ None | Menu opens/closes correctly (mouse-tested); toggle button is a native `<button>` (keyboard-operable by default, confirmed via `tabIndex`/tag inspection) |
+| **~820px** | ✅ **Fixed** — hamburger menu, no cut-off buttons | ✅ None | Menu opens/closes correctly; sticky header confirmed to stay pinned while scrolling through multiple sections |
+| **1024px** | ✅ **Fixed** — full desktop nav, Book a Demo on one line | ✅ None (was ~19px, now 0) | |
+| **1280px** | ✅ Pass — full desktop nav, comfortable spacing (`xl:gap-8`) | ✅ None | |
+
+Login button reconfirmed non-clickable after the change (still a genuine
+disabled `<button>`, no `href`). No console errors from app code at any width
+(one `<anonymous>` script error seen is unrelated browser-tooling noise, not
+from this site's code — consistent with earlier sessions).
 
 ## 12. Analytics & Conversion Tracking
 **Requires decision — reaffirmed open 2026-10-25.** Nothing installed (verified:
