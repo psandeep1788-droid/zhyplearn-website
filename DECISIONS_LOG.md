@@ -162,6 +162,15 @@ before writing anything below, per instruction; nothing here is assumed.
 - The word "AI" appears **7 times** in the visible hero viewport text (eyebrow,
   H1, subcopy, 3 check badges, 1 floating chip) — Doc B's "five positions"
   claim is accurate in direction, actual count is higher.
+- **Follow-up implemented 2026-10-25:** Sandeep approved a narrowly scoped
+  fix for the Final CTA defect and a reduction in hero "AI" density. Hero
+  subcopy changed from "...one AI-powered platform" to "...one connected
+  platform"; the floating UI chip changed from "AI-Assisted Creation" to
+  "Course Creation". The H1 (fixed positioning statement), eyebrow, and the
+  three capability badges ("Built-in GenAI", "AI Proctoring", "AI Authoring
+  Tool") were explicitly left unchanged to avoid touching locked copy or
+  creating inconsistent terminology with the Assessment section. No
+  performance/speed claims were introduced. Verified live, no regressions.
 - **New finding, not named in either document:** the homepage's main Final
   CTA (`src/components/sections/FinalCta.tsx`) and the Footer
   (`src/components/layout/Footer.tsx`) both use raw `mailto:`/`tel:` links
@@ -194,7 +203,7 @@ deferred pending decision/dependency · **E** = not recommended.
 
 | Recommendation (source) | Class | Status | Rationale / priority | Dependencies | Approval needed? |
 |---|---|---|---|---|---|
-| Final CTA / Footer bypass the real demo form via raw `mailto:`/`tel:` (found independently during this review) | **A** | Confirmed defect, not fixed | High priority — the homepage's primary conversion point skips the tested, validated lead-capture flow | None — low-risk fix (point both CTAs at `/book-a-demo`), ready to implement once approved | Yes — code change |
+| Final CTA / Footer bypass the real demo form via raw `mailto:`/`tel:` (found independently during this review) | **A** | **Fixed and deployed 2026-10-25** — Final CTA's primary button now links to `/book-a-demo`; Footer was already correct, unchanged | Resolved — verified live (navigation works, email/phone retained as secondary links, no wrapping, no console errors) | — | Approved and implemented |
 | Robust layouts for long text / missing assets (Doc A §1) | B | Needs verification — not stress-tested with edge-case content lengths (very long names, long chip labels) | Resilience item, not yet broken, but unverified | None | No — can verify in QA (Phase 6) |
 | Image compression (.webp/.avif) + CLS prevention (Doc A §1, Doc B roadmap #2) | A (CLS) done / B (compression) pending | CLS: **implemented & verified** — all placeholders and SVGs use explicit aspect-ratio/dimensions (code-reviewed). Compression: **not applicable yet** — no real raster screenshots exist to compress | Real screenshots aren't supplied yet | Sandeep supplies final product screenshots | No — only applies once real images arrive |
 | Third-party script sandboxing / async loading (Doc A §1) | **E** (not applicable now) | No third-party scripts exist (no Stripe/HubSpot/Calendly integrated) — nothing to sandbox | Would only become relevant if such an integration is later approved | N/A | N/A today |

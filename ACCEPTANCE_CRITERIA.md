@@ -76,13 +76,19 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [ ] **Visually reviewed side-by-side against the Artifact by Sandeep** — still
       outstanding; Claude's verification (build, lint, live-browser checks at
       desktop/mobile, console-error checks) is not a substitute
-- [ ] **Defect found 2026-10-25 (stakeholder audit reconciliation):** the
-      homepage's Final CTA (`FinalCta.tsx`) and Footer both use raw
-      `mailto:`/`tel:` links instead of routing to the real `/book-a-demo`
-      form — the header's own "Book a Demo" button correctly links there,
-      only these two don't. Fix proposed (point both at `/book-a-demo`), not
-      yet applied — awaiting approval. See `DECISIONS_LOG.md` → "Stakeholder
-      Audit Reconciliation"
+- [x] **Defect fixed and verified 2026-10-25** (found during stakeholder audit
+      reconciliation): the homepage's Final CTA (`FinalCta.tsx`) now links its
+      primary button to `/book-a-demo` ("Book a Demo", matching the header's
+      wording), with email and phone retained as smaller secondary text links
+      in the same section. Footer was already correct, left unchanged.
+      Verified live: the button navigates to the real form, email/phone links
+      still work, no wrapping at 375px or desktop, no console errors.
+- [x] **Hero "AI" density reduced 2026-10-25** (stakeholder audit): subcopy
+      changed from "...one AI-powered platform" to "...one connected
+      platform"; floating chip changed from "AI-Assisted Creation" to "Course
+      Creation". H1, eyebrow, the three capability badges, both CTAs, and the
+      dashboard mockup are unchanged — verified by diff and live check. No
+      performance/speed claims introduced.
 - [x] Works at mobile and desktop widths without layout breakage — verified via
       live browser checks at 375px and desktop on every stage
 - [x] Tablet QA run 2026-10-25 at 768px, ~820px, 1024px against the live

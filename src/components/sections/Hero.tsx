@@ -25,7 +25,7 @@ export default function Hero() {
           </h1>
           <p className="max-w-[520px] text-lg text-gray-700">
             Create engaging learning experiences, deliver interactive training, and bring content,
-            assessment and immersive learning together in one AI-powered platform.
+            assessment and immersive learning together in one connected platform.
           </p>
           <div className="mt-1.5 flex flex-wrap gap-3.5">
             <a
@@ -136,7 +136,7 @@ export default function Hero() {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DD8F16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M12 2.5l1.8 5.6L19.4 10l-5.6 1.9L12 17.5l-1.8-5.6L4.6 10l5.6-1.9z" />
               </svg>
-              <span className="text-[12.5px] font-bold text-charcoal">AI-Assisted Creation</span>
+              <span className="text-[12.5px] font-bold text-charcoal">Course Creation</span>
             </div>
             <div className="animate-float absolute -top-4 -left-5 hidden items-center gap-2.5 rounded-2xl border border-gray-200 bg-white px-4 py-3 whitespace-nowrap shadow-[0_14px_32px_rgba(26,26,26,0.14)] [animation-delay:1.4s] sm:flex">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DD8F16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

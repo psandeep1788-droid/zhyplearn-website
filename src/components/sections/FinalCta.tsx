@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function FinalCta() {
   return (
     <section
@@ -15,16 +17,19 @@ export default function FinalCta() {
           Experience the power of GenAI with ZhypLearn.
         </p>
         <div className="mt-1.5 flex flex-wrap justify-center gap-3.5">
-          <a
-            href="mailto:elearning@Zhypility.com"
+          <Link
+            href="/book-a-demo"
             className="rounded-full bg-white px-7 py-3.5 text-[15px] font-semibold text-charcoal transition hover:-translate-y-px hover:bg-gray-100"
           >
-            Schedule a Demo
+            Book a Demo
+          </Link>
+        </div>
+        <div className="mt-1 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13.5px] font-medium text-white/85">
+          <a href="mailto:elearning@Zhypility.com" className="hover:text-white">
+            Email elearning@Zhypility.com
           </a>
-          <a
-            href="tel:9321315629"
-            className="rounded-full border-[1.5px] border-white/55 px-7 py-3.5 text-[15px] font-semibold text-white transition hover:bg-white/14"
-          >
+          <span aria-hidden="true">·</span>
+          <a href="tel:9321315629" className="hover:text-white">
             Call 9321315629
           </a>
         </div>
