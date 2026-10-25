@@ -1,16 +1,95 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const LINKS = [
-  { href: "/#platform", label: "Platform" },
+const PRODUCT_LINKS = [
+  { href: "/#platform", label: "Platform Overview" },
   { href: "/#creation", label: "AI Capabilities" },
-  { href: "/#showcase", label: "In Action" },
+  { href: "/#showcase", label: "See It in Action" },
+];
+
+const NAV_LINKS = [
   { href: "/#solutions", label: "Solutions" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
+
+function ProductDropdown() {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    function handleClickOutside(e: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        triggerRef.current?.focus();
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
+
+  return (
+    <div ref={containerRef} className="relative">
+      <button
+        ref={triggerRef}
+        type="button"
+        aria-expanded={open}
+        aria-haspopup="true"
+        aria-controls="product-menu"
+        onClick={() => setOpen((v) => !v)}
+        className="flex items-center gap-1.5 hover:text-gold-dark"
+      >
+        Product
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+          className={`transition-transform ${open ? "rotate-180" : ""}`}
+        >
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </button>
+      {open && (
+        <div
+          id="product-menu"
+          className="absolute top-full left-0 mt-2.5 min-w-[220px] overflow-hidden rounded-2xl border border-gray-200 bg-white py-1.5 shadow-[0_14px_32px_rgba(26,26,26,0.14)]"
+        >
+          {PRODUCT_LINKS.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="block px-4 py-2.5 text-[14.5px] font-semibold text-charcoal-soft transition hover:bg-gray-100 hover:text-gold-dark"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -32,7 +111,8 @@ export default function Nav() {
           />
         </Link>
         <div className="hidden shrink-0 items-center gap-5 text-[14.5px] font-semibold whitespace-nowrap lg:flex xl:gap-8">
-          {LINKS.map((l) => (
+          <ProductDropdown />
+          {NAV_LINKS.map((l) => (
             <Link key={l.href} href={l.href} className="hover:text-gold-dark">
               {l.label}
             </Link>
@@ -69,7 +149,17 @@ export default function Nav() {
       </div>
       {open && (
         <div className="flex flex-col gap-1 border-t border-gray-200 bg-white px-6 py-4 lg:hidden">
-          {LINKS.map((l) => (
+          {PRODUCT_LINKS.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="border-b border-gray-100 py-3 font-semibold"
+            >
+              {l.label}
+            </Link>
+          ))}
+          {NAV_LINKS.map((l) => (
             <Link
               key={l.href}
               href={l.href}

@@ -12,6 +12,37 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [x] Demo form returns an honest error (not a fake success) when Neon/Resend
       aren't configured — verified against the live UAT URL, not just locally
 
+## Header Navigation — Product Dropdown (2026-10-26 addition) — done
+- [x] Desktop nav (≥1024px) collapsed to: Product (dropdown) · Solutions ·
+      About · Contact · Login · Book a Demo — reduced from 6 flat items to 4,
+      easing horizontal pressure at the 1024px breakpoint
+- [x] Dropdown reuses existing destinations only — no new pages: Platform
+      Overview → `/#platform`, AI Capabilities → `/#creation`, See It in
+      Action → `/#showcase` — all 3 verified live by clicking through
+- [x] Semantic `<button>` trigger with `aria-expanded`, `aria-haspopup="true"`,
+      `aria-controls="product-menu"` — verified via DOM inspection, both
+      open and closed states
+- [x] Opens via click and Enter/Space (native button activation); closes on
+      **Escape with focus returned to the trigger** (verified:
+      `document.activeElement === trigger` after Escape) and on
+      **click-outside** (verified via DOM state after an outside click)
+- [x] Panel items are real `<Link>`s, keyboard-reachable via Tab with a
+      visible focus ring (confirmed `:focus-visible` + screenshot), each
+      navigates correctly and closes the dropdown afterward
+- [x] Mobile/tablet hamburger menu (≤1023px) lists all 3 Product links flat,
+      alongside Solutions/About/Contact — no nested accordion, verified at
+      375px
+- [x] No horizontal overflow at 375px/768px/820px/1024px/1280px — measured
+      via `scrollWidth`/`clientWidth`, not visual guess
+- [x] Login still disabled, no `href`, `aria-disabled="true"` — reconfirmed
+      unchanged
+- [x] Book a Demo still routes to `/book-a-demo` — reconfirmed unchanged
+- [x] No mega-menu, no Pricing/Resources/Customers/Integrations added
+- [x] `git diff --stat` confirms only `Nav.tsx` changed
+- [x] Build and lint clean; no console errors (one `<anonymous>` script
+      error is unrelated browser-tooling noise, consistent with every prior
+      round this session)
+
 ## Header Branding — done (commit `80ad1f2`)
 - [x] Official Zhypility InfoSolutions logo file received and saved at
       `public/zhypility-logo.webp` (byte-identical copy verified via `cmp`)
