@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --color-gold: #f5a623;
+  --color-gold-dark: #dd8f16;
+  --color-charcoal: #1a1a1a;
+  --color-charcoal-soft: #2b2b2b;
+  --color-gray-700: #4b5563;
+  --color-gray-500: #6b7280;
+  --color-gray-200: #e5e7eb;
+  --color-gray-100: #f5f6f8;
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--color-gold);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-soft: var(--color-charcoal-soft);
+  --color-gray-700: var(--color-gray-700);
+  --color-gray-500: var(--color-gray-500);
+  --color-gray-200: var(--color-gray-200);
+  --color-gray-100: var(--color-gray-100);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-poppins);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  color: var(--color-charcoal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
