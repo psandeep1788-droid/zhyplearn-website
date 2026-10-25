@@ -5,6 +5,8 @@ import AIContentCreation from "@/components/sections/AIContentCreation";
 import Engagement from "@/components/sections/Engagement";
 import Assessment from "@/components/sections/Assessment";
 import Multilingual from "@/components/sections/Multilingual";
+import PlatformManagement from "@/components/sections/PlatformManagement";
+import Showcase from "@/components/sections/Showcase";
 
 export const metadata: Metadata = {
   title: "ZhypLearn — AI-Powered Learning. Reimagined.",
@@ -21,6 +23,8 @@ export default function HomePage() {
       <Engagement />
       <Assessment />
       <Multilingual />
+      <PlatformManagement />
+      <Showcase />
     </>
   );
 }
