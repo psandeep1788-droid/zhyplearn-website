@@ -35,6 +35,21 @@ later decision superseded an earlier one, that is noted explicitly (see
 - Palette: sophisticated gold / white / charcoal (refined from the logo: gold
   ~#F5A623–#F7A828, charcoal ~#1A1A1A–#2B2B2B, light gray ~#F5F6F8).
 - Typography: Poppins (display/headings), Inter (body).
+- **Header branding (2026-10-25 — supersedes all previous header-branding
+  decisions):**
+  - The header must show the **official Zhypility InfoSolutions company logo**,
+    not the "ZhypLearn" text wordmark previously used.
+  - No "ZhypLearn" text displayed alongside the logo in the header.
+  - Logo's original design, colors, proportions, and clarity must be preserved
+    exactly — no recoloring, redrawing, or stylizing.
+  - Must be appropriately sized and responsive at desktop, tablet, and mobile
+    widths.
+  - Logo is clickable, linking to the homepage.
+  - **Asset received 2026-10-25:** official transparent logo file supplied by
+    Sandeep, saved byte-identical (verified via `cmp`) at
+    `public/zhypility-logo.webp` (WebP, 1500×456, alpha transparency confirmed).
+    **Not yet wired into the header** — implementation deliberately not started,
+    per Sandeep's explicit "do not modify the live website yet" instruction.
 - Visual language: layered compositions, subtle gold glow fields, soft shadows,
   hover-lift micro-interactions, smooth scroll, restrained animation that respects
   `prefers-reduced-motion`.

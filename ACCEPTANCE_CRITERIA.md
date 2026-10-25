@@ -12,6 +12,16 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [x] Demo form returns an honest error (not a fake success) when Neon/Resend
       aren't configured — verified against the live UAT URL, not just locally
 
+## Header Branding (Phase 3) — partially met
+- [x] Official Zhypility InfoSolutions logo file received and saved at
+      `public/zhypility-logo.webp` (byte-identical copy verified via `cmp`)
+- [ ] Header shows the logo only — no "ZhypLearn" text alongside it
+- [ ] Logo rendered pixel-faithful to the supplied file: no recoloring, redrawing,
+      or altered proportions
+- [ ] Logo is a clickable link to `/`
+- [ ] Logo renders correctly and legibly at mobile, tablet, and desktop widths
+- [ ] Visually reviewed by Sandeep against the actual supplied file, not assumed
+
 ## Demo-Request Workflow (Phase 2) — not yet met
 - [ ] A real submission on the live site creates a row in the Neon database
 - [ ] A real submission triggers a Resend email to elearning@Zhypility.com
