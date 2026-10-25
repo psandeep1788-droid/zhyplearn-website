@@ -25,14 +25,19 @@ Nothing here is silently replaced — superseded items are marked as such, not d
   and logo display size increased after initial testing showed the full lockup
   (mark + wordmark + tagline) was illegible at the first size tried. Verified
   live on desktop and mobile before and after deploy.
-  **Footer implemented (2026-10-25):** same logo-instead-of-text change applied
-  to the footer, plus removal of the now-redundant separate "Empowering Your
-  Learning Journey" `<p>` (the tagline is already inside the logo image), per
-  Sandeep's explicit follow-up instructions. Legibility against the charcoal
-  background verified directly via browser screenshot/zoom at desktop and
-  375px mobile widths — gray elements read clearly, not washed out. Build and
-  lint both pass. Live Cloudflare UAT verification pending in this same
-  session (see Acceptance Criteria).
+  **Footer implemented and deployed (2026-10-25, commits `5505a4b`,
+  `2f717eb`):** same logo-instead-of-text change applied to the footer, plus
+  removal of the now-redundant separate "Empowering Your Learning Journey"
+  `<p>` (the tagline is already inside the logo image), per Sandeep's explicit
+  follow-up instructions. A follow-up report that the logo looked "stretched"
+  was correctly diagnosed: the footer's `flex-col` container defaults to
+  `align-items: stretch`, which forced the image to fill the column's width
+  and distort its aspect ratio (the header never hit this, since it's a row
+  layout) — fixed with `self-start`. Legibility against the charcoal
+  background verified via browser screenshot/zoom at desktop and 375px mobile
+  widths. Build and lint pass. Re-verified live on the Cloudflare UAT
+  deployment (desktop + mobile, no console errors, robots.txt still
+  disallows indexing) after `wrangler login` was re-authenticated.
 
 ## SCORM Capabilities
 - **2026-10-25 — product owner confirmed two specific capabilities**, superseding

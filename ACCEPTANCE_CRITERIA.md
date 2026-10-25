@@ -24,7 +24,7 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [ ] Visually reviewed by Sandeep himself against the actual supplied file —
       **outstanding; Claude's verification is not a substitute for yours**
 
-## Footer Branding (2026-10-25 addition) — done, pending live verification
+## Footer Branding (2026-10-25 addition) — done (commit `2f717eb`)
 - [x] Footer "ZhypLearn" text (and the separate "Empowering Your Learning
       Journey" paragraph) replaced with the same official logo
 - [x] Logo legible against the footer's dark (charcoal) background — verified
@@ -32,9 +32,10 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       gray triangle shapes and "INFOSOLUTIONS" subtext read clearly, not washed
       out
 - [x] Same fidelity rule as header: plain `<img>`, not `next/image`, no
-      recoloring/re-encoding
-- [ ] Verified on live Cloudflare UAT deployment (local verification done;
-      live check pending this same session)
+      recoloring/re-encoding, correct aspect ratio (fixed a flex-stretch bug
+      that initially distorted it)
+- [x] Verified on live Cloudflare UAT deployment, desktop and mobile — no
+      console errors, robots.txt still disallows indexing
 
 ## Demo-Request Workflow (Phase 2) — not yet met
 - [ ] A real submission on the live site creates a row in the Neon database
