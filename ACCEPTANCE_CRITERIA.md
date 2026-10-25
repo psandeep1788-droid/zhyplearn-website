@@ -76,6 +76,13 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [ ] **Visually reviewed side-by-side against the Artifact by Sandeep** — still
       outstanding; Claude's verification (build, lint, live-browser checks at
       desktop/mobile, console-error checks) is not a substitute
+- [ ] **Defect found 2026-10-25 (stakeholder audit reconciliation):** the
+      homepage's Final CTA (`FinalCta.tsx`) and Footer both use raw
+      `mailto:`/`tel:` links instead of routing to the real `/book-a-demo`
+      form — the header's own "Book a Demo" button correctly links there,
+      only these two don't. Fix proposed (point both at `/book-a-demo`), not
+      yet applied — awaiting approval. See `DECISIONS_LOG.md` → "Stakeholder
+      Audit Reconciliation"
 - [x] Works at mobile and desktop widths without layout breakage — verified via
       live browser checks at 375px and desktop on every stage
 - [x] Tablet QA run 2026-10-25 at 768px, ~820px, 1024px against the live

@@ -29,7 +29,13 @@ later decision superseded an earlier one, that is noted explicitly (see
   model or other business decisions.
 - "Courz Builder" is a confirmed **feature within ZhypLearn** (AI-assisted Level-1
   eLearning authoring with SCORM output), presented publicly as **"ZhypLearn Courz
-  Builder"** — never as a separate product name.
+  Builder"** — never as a separate product name. **Reaffirmed 2026-10-25:** a
+  stakeholder document proposed renaming this to "AI Authoring Workspace" —
+  **deferred**, since this is the product's own established feature name, not
+  a marketing-copy choice; changing it needs Sandeep's explicit product-naming
+  decision, not a website-copy update. See `DECISIONS_LOG.md` → "Stakeholder
+  Audit Reconciliation" for the full nomenclature table (6 proposals
+  evaluated, exact stakeholder wording preserved).
 - **SCORM capabilities — confirmed by product owner (2026-10-25), supersedes the
   earlier "unconfirmed" status:**
   1. **SCORM Package Upload** — customers can upload SCORM packages to ZhypLearn.

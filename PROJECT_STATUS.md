@@ -52,6 +52,18 @@ Cloudflare UAT deployment, desktop and mobile, no console errors.
   statements, with the 11 missing product screenshots shown as clearly labelled
   placeholder frames pending Sandeep's final images. **Outstanding:** Sandeep's
   own visual review against the Artifact — not yet done.
+- **Stakeholder audit reconciliation (2026-10-25):** two third-party review
+  documents were checked against the actual code before recording anything —
+  full register in `DECISIONS_LOG.md` → "Stakeholder Audit Reconciliation".
+  Headline findings: (1) a real defect — the Final CTA and Footer route
+  through raw `mailto:`/`tel:` links instead of the real `/book-a-demo` form,
+  not yet fixed; (2) "Explore the Platform" was independently verified safe
+  (anchor scroll to an existing section, not a dead link or auth dashboard),
+  contrary to one stakeholder document's concern; (3) the sticky header claim
+  in the same document was inaccurate — the header was already sticky before
+  this review. Full nomenclature decision table (6 proposed renames) also
+  recorded there — 1 approved, 5 deferred or not recommended, none applied to
+  code yet.
 - About/Contact/Privacy: placeholder copy only — **Planned, not implemented.**
 
 ## 4. Technology Stack & Architecture

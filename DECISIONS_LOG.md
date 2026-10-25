@@ -137,6 +137,79 @@ Sandeep reviewed the classification above and made these final calls:
   the Artifact (not a Claude substitute, per `ACCEPTANCE_CRITERIA.md`), and
   final approved product screenshots to replace the 11 placeholders.
 
+## Stakeholder Audit Reconciliation (2026-10-25)
+Sandeep supplied two third-party documents — "ZhypLearn Website Audit & Master
+Strategy" (**Doc A**) and "ZhypLearn Website Design Audit & Nomenclature
+Strategy" (**Doc B**) — for reconciliation against this project's existing
+docs, not as a new roadmap. Verified against the actual current code/live site
+before writing anything below, per instruction; nothing here is assumed.
+
+**Verified first (evidence, not assumption):**
+- `src/components/layout/Nav.tsx` already uses `sticky top-0` — the header
+  is already sticky. Doc B's claim that the site "completely avoids... a
+  hidden navigation toggle" is **inaccurate** — the mobile hamburger menu
+  exists and is correct, standard behavior below `lg:` (1024px); it does not
+  hide "core links," it's the responsive pattern already fixed in commit
+  `185dc45`.
+- "Explore the Platform" (`src/components/sections/Hero.tsx:38`) links to
+  `href="#platform"` — a same-page anchor scroll to the existing Platform
+  strip section. It is **not** a dead link, routing loop, or blank
+  authentication dashboard. Doc B's "Ambiguous Action Boundaries" risk does
+  **not apply** to the current implementation.
+- Exactly **11** screenshot placeholders exist ("Product screenshot — coming
+  soon"): 2 in AI Content Creation, 1 in Engagement, 8 in Showcase — matches
+  both documents' "over 10" claim.
+- The word "AI" appears **7 times** in the visible hero viewport text (eyebrow,
+  H1, subcopy, 3 check badges, 1 floating chip) — Doc B's "five positions"
+  claim is accurate in direction, actual count is higher.
+- **New finding, not named in either document:** the homepage's main Final
+  CTA (`src/components/sections/FinalCta.tsx`) and the Footer
+  (`src/components/layout/Footer.tsx`) both use raw `mailto:`/`tel:` links
+  ("Schedule a Demo" → `mailto:`, "Call ..." → `tel:`) instead of routing to
+  the actual `/book-a-demo` page, which has the validated, tested demo form
+  with database persistence and email notification. The header's own "Book a
+  Demo" button correctly links to `/book-a-demo` — only the Final CTA section
+  and Footer bypass it. This means the site's most prominent conversion point
+  currently skips the built lead-capture system. Flagged as a real defect,
+  not fixed in this documentation-only pass (see action register).
+
+### Nomenclature decision table
+Exact wording preserved from both source documents, which differ slightly on
+two rows (noted). No proposal was substituted with different wording of my
+own.
+
+| # | Current label | Doc A proposed | Doc B proposed | Stakeholder rationale | Assessment | Decision |
+|---|---|---|---|---|---|---|
+| 1 | Platform / AI Capabilities / In Action | "Product (Unified Mega Menu)" | "Product (Drop Panel)" | Collapses overlapping tabs into one scannable module map | Legitimate nav-clutter concern, but this is a real IA/component build (dropdown menu, keyboard/focus handling, mobile adaptation), not a label swap. No functionality lost if destinations are preserved. | **Deferred — future enhancement**, needs its own design/build effort, not a documentation-only change |
+| 2 | In Action | — (folded into "Product") | "Resources / Tour" | Signals dedicated documentation/visual-validation channels | No "Resources" content (docs, blog, case studies) exists on the site to populate such a menu — adding the label without content would be an empty promise. The section it currently points to (`#showcase`) is itself mostly placeholder screenshots today. | **Not recommended as "Resources"** (no content to support it) — **deferred** as "Tour" pending real, non-placeholder showcase content |
+| 3 | ZhypLearn Courz Builder | "AI Authoring Workspace" | "AI Authoring Workspace" | Removes "dated 'z' styling", reads as premium enterprise label | This is the actual **product's established feature name**, used consistently per `MASTER_REQUIREMENTS.md` §1 ("ZhypLearn Courz Builder... presented publicly as 'ZhypLearn Courz Builder'"). Renaming it only on the marketing site risks a mismatch with what the real product calls itself. This is a product-naming decision, not a copy-polish decision. | **Deferred — requires Sandeep's explicit product-naming decision**, not a marketing-copy call |
+| 4 | Intelligent Assessment | "Smart Assessments" | "Smart Assessments" | More modern, accessible descriptor | Pure tone/phrasing change — does not imply new capability or claim, low risk | **Recommended for approval** |
+| 5 | Assessment & Verification | "Integrity & Compliance Control" | "Integrity & Compliance" | Aligns with corporate procurement/compliance language | This implies regulatory/compliance certification or systemic security guarantees that are **not verified**. The current section already carries an explicit, deliberate disclaimer ("AI Proctoring supports assessment integrity; it is not a guarantee against all forms of misconduct.") — adopting "Compliance Control" language would contradict that disclaimer and overstate the actual, confirmed capability (AI Proctoring + Quizzes only). | **Not recommended** as proposed. Would need verified compliance certifications or features before reconsidering — evidence, not phrasing, is the blocker |
+| 6 | Explore the Platform (CTA) | "Take a Product Tour" | "Take a Product Tour" | Sets realistic expectations vs. an unbuilt sandbox | Verified: the button currently does a same-page anchor scroll to a **static** content grid (§1 above) — not a guided or interactive tour. Relabeling it "Take a Product Tour" would **overstate** what actually happens, the opposite of the stakeholders' own stated goal ("manage expectations", "set realistic bounds"). | **Not recommended as a literal rename** given the current static destination. Revisit only if an actual guided/interactive tour experience is later built (future scope) |
+
+### Consolidated action register
+Classification: **A** = required before Phase 3 acceptance · **B** = required
+before production launch · **C** = recommended future enhancement · **D** =
+deferred pending decision/dependency · **E** = not recommended.
+
+| Recommendation (source) | Class | Status | Rationale / priority | Dependencies | Approval needed? |
+|---|---|---|---|---|---|
+| Final CTA / Footer bypass the real demo form via raw `mailto:`/`tel:` (found independently during this review) | **A** | Confirmed defect, not fixed | High priority — the homepage's primary conversion point skips the tested, validated lead-capture flow | None — low-risk fix (point both CTAs at `/book-a-demo`), ready to implement once approved | Yes — code change |
+| Robust layouts for long text / missing assets (Doc A §1) | B | Needs verification — not stress-tested with edge-case content lengths (very long names, long chip labels) | Resilience item, not yet broken, but unverified | None | No — can verify in QA (Phase 6) |
+| Image compression (.webp/.avif) + CLS prevention (Doc A §1, Doc B roadmap #2) | A (CLS) done / B (compression) pending | CLS: **implemented & verified** — all placeholders and SVGs use explicit aspect-ratio/dimensions (code-reviewed). Compression: **not applicable yet** — no real raster screenshots exist to compress | Real screenshots aren't supplied yet | Sandeep supplies final product screenshots | No — only applies once real images arrive |
+| Third-party script sandboxing / async loading (Doc A §1) | **E** (not applicable now) | No third-party scripts exist (no Stripe/HubSpot/Calendly integrated) — nothing to sandbox | Would only become relevant if such an integration is later approved | N/A | N/A today |
+| SCORM 1.2 / 2004 ingestion validation (Doc A §1, Doc B risk #3) | **D** | Deferred — **this is product/backend engineering verification, not a website task.** The two approved marketing statements remain the only claims made; no version-specific claim exists on the site to correct | Needs the LMS product-engineering team to test real SCORM ingestion, not this website's code | Yes — product-team confirmation, not a website decision |
+| Hero headline rewrite to "Train Teams and Build Branded Courses 10x Faster with Agentic AI" (Doc A §2) | **E** (as literally proposed) | The "10x Faster" claim has **no supporting evidence** — directly conflicts with the standing "no fabricated statistics" rule | A benefit-led headline direction has some merit for a future copy pass, but any numeric claim needs real data first | Yes — only if Sandeep can supply or approve a verified benchmark; otherwise rejected as written |
+| Customer Logo Ribbon under hero (Doc A §2) | **D** | Deferred — no client has been confirmed as authorized for public logo display. (Prior project history: a real client's branded tenant was explicitly kept confidential, never approved for public marketing use.) | Needs Sandeep to confirm specific clients and obtain their permission | Yes — client-by-client authorization |
+| Replace placeholder text with higher-fidelity vector/wireframe mockups (Doc A §2, Doc B risk #1) | **C** | Recommended future enhancement — current placeholders are already "premium, clearly labelled" (your own prior approval), not raw broken-image text. A higher-fidelity illustrative treatment is a polish option, not a defect | Should not delay for real screenshots — can be done independently | Yes — design direction call, and clarify these stay clearly illustrative, never presented as genuine screenshots |
+| Multi-step inline form + real-time calendar engine (HubSpot/Calendly) (Doc A §2) | **D**, partially **E** | Directly conflicts with your explicit recent decision to keep the custom form and not introduce a calendar tool/new account. Recorded as a conflict, not silently adopted. | Calendar-tool decision already answered "no, for now" in the Pre-UAT checklist follow-up | Yes, if you want to revisit that decision — otherwise no action |
+| CRM lead routing + mandatory corporate-email verification (Doc A §4) | **E** | Directly conflicts with your explicit decision: no CRM/lead-management dashboard in the marketing site, and personal emails must not be blocked (only a gentle suggestion) | — | No — conflicts with a decision already made; would need you to explicitly reverse it |
+| Global nav refactor: Product / Solutions / Resources / Pricing (Doc A §4, Doc B risk "Missing SaaS Index") | **D** | Pricing nav item blocked entirely on the undefined pricing model (existing standing decision). "Solutions" already exists as a homepage section, not a nav dropdown. "Resources" has no content yet (see nomenclature row 2) | Pricing model approval; content for Resources | Yes — multi-part, needs your prioritization |
+| Interactive WebXR fallbacks for AR/VR blocks (Doc A §4) | **C** | The current Multilingual & Immersive section already uses a static illustrative SVG, not a live WebXR embed — so there's no WebXR content requiring a fallback today. Relevant only if a real interactive AR/VR demo is later built | None today | No — not applicable until WebXR content exists |
+| Dynamic/compressed sticky sub-bar on scroll (Doc B roadmap #1) | **C** | The header is **already sticky** (verified — see above); a shrinking/compressing animation on scroll is a polish enhancement, not a gap | None | No |
+| Footer/CTA programmatic scheduler module (Doc B roadmap #3) | **D**, see Final CTA defect above | Same conflict as the Doc A calendar-tool item — the immediate, approved fix is routing the existing raw links to `/book-a-demo`, not adding a new scheduler tool | Calendar-tool decision | Yes, for the scheduler-tool part; the `/book-a-demo` routing fix (category A above) does not need new approval beyond this report |
+| Analytics for demo-CTA engagement, enquiry conversion, nav/tour engagement (Doc A implied, your own point 7) | **D** | Still open — same unresolved analytics decision from the Pre-UAT checklist round, scope reaffirmed: demo-CTA engagement, successful enquiries, landing-to-enquiry conversion, without exposing personal data. Cloudflare Web Analytics is your stated starting preference, not yet assessed for capability fit or confirmed | Needs a capability/privacy assessment before approval | Yes |
+
 ## Tablet QA Findings (2026-10-25)
 Tested the live homepage at 768px, ~820px, and 1024px per Sandeep's approved
 Plan B. All 11 content sections pass at every width. **One real defect found:**

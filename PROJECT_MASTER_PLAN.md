@@ -70,6 +70,24 @@ to a phase above, and none should be started without a separate approval:
   documented, not implemented; blocked on the product team's login URL and
   session/auth design
 
+**Added from the stakeholder audit reconciliation (2026-10-25)** — full
+register and rationale in `DECISIONS_LOG.md` → "Stakeholder Audit
+Reconciliation":
+- Global nav mega-menu ("Product" consolidating Platform/AI Capabilities/In
+  Action) — real IA/component build, not a copy change
+- A dedicated "Resources" nav section — no content exists yet to populate it
+- "Pricing" nav item — same blocker as the pricing/billing item above
+- Customer logo ribbon under the hero — blocked on confirmed client
+  authorization, none exists yet
+- Higher-fidelity illustrative mockups in place of the current labelled
+  placeholders — a polish option, current placeholders already meet the
+  "premium, clearly labelled" bar you approved
+- CRM/lead-management integration, mandatory corporate-email verification —
+  **not recommended**, conflicts with your explicit decisions to keep the
+  custom form and not block personal emails
+- Interactive WebXR fallback — not applicable; no live WebXR content exists
+  to need a fallback
+
 ---
 
 ## Immediate Next Step (pending this audit's approval)
