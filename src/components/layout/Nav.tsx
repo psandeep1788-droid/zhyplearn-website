@@ -17,9 +17,19 @@ export default function Nav() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-[76px] max-w-6xl items-center justify-between gap-4 px-6">
-        <Link href="/" className="font-display text-xl font-bold text-gold-dark">
-          ZhypLearn
+      <div className="mx-auto flex h-[92px] max-w-6xl items-center justify-between gap-4 px-6">
+        <Link href="/" aria-label="Zhypility InfoSolutions — Home" className="flex shrink-0 items-center">
+          {/* Served as-is from /public, not through next/image, so the
+              original file is never re-encoded or resized server-side --
+              required: "do not re-encode or modify the source image." */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/zhypility-logo.webp"
+            alt="Zhypility InfoSolutions"
+            width={1500}
+            height={456}
+            className="h-14 w-auto sm:h-16"
+          />
         </Link>
         <div className="hidden items-center gap-8 text-[14.5px] font-semibold md:flex">
           {LINKS.map((l) => (
