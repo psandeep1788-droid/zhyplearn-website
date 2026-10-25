@@ -18,6 +18,15 @@ later decision superseded an earlier one, that is noted explicitly (see
 - Tagline: **"Empowering Your Learning Journey."**
 - Objective: a production-ready marketing website that attracts enterprise customers
   and generates qualified demo requests — not a rebuild of the LMS product itself.
+- **Marketing-site boundary (reaffirmed 2026-10-25):** no learner/admin login,
+  dashboard, account creation, subscription, billing, checkout, or invented
+  pricing belongs on this site. A disabled "Login" button exists in the header
+  as a placeholder for the real LMS portal, with no URL invented — see
+  `DECISIONS_LOG.md` → "Pre-UAT Design Checklist Alignment" for the full
+  reconciliation of a third-party technical checklist against this boundary,
+  including which items are in current scope, which are future enhancements
+  needing separate approval, and which are blocked on an undefined pricing
+  model or other business decisions.
 - "Courz Builder" is a confirmed **feature within ZhypLearn** (AI-assisted Level-1
   eLearning authoring with SCORM output), presented publicly as **"ZhypLearn Courz
   Builder"** — never as a separate product name.

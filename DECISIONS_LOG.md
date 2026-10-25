@@ -39,6 +39,39 @@ Nothing here is silently replaced — superseded items are marked as such, not d
   deployment (desktop + mobile, no console errors, robots.txt still
   disallows indexing) after `wrangler login` was re-authenticated.
 
+## Pre-UAT Design Checklist Alignment (2026-10-25)
+Sandeep supplied a third-party technical reference, "SaaS LMS Marketing
+Website — Pre-UAT Design Checklist" (12 checkpoint items across Funnel & Lead
+Capture, LMS & Product Showcases, Pricing & Subscription Models, and
+Responsive & Display Assets). Reconciled against this project's existing
+requirements rather than treated as a new roadmap. Classification key:
+**A** = required now (current site/UAT) · **B** = required before production
+launch · **C** = future enhancement, needs separate approval · **D** = deferred,
+blocked on a business/product/integration decision not yet made. Status is
+evidence-based (code read directly, or live-browser-verified this session),
+never assumed.
+
+| # | Checklist item | Class | Status | Rationale / phase | Dependency |
+|---|---|---|---|---|---|
+| 1 | Demo Scheduling Flow (embedded calendar states) | D | The existing custom demo-request **form** (not a calendar widget) is Implemented & verified — Phase 2 foundation, honest-failure behavior confirmed live. Upgrading to an embedded Calendly/HubSpot-style calendar is a different, bigger feature. | No phase assigned until approved — not Phase 2 scope as originally defined | Needs Sandeep's decision on a scheduling tool, and a new third-party account (Sandeep creates it, not Claude) |
+| 2 | Product Handoff (marketing ↔ `app.*` URLs/session params) | D (implementation) | **Documented now** (this entry) per Sandeep's instruction; **not implemented** — no login URL, no session/SSO architecture exists. Matches the standing Login-button decision: real URL only when supplied, never invented. | Phase 4+ (Supporting Pages) at the earliest, once the LMS product side defines the handoff | Blocked on the actual LMS login URL and session/auth design — owned by the product team, not this website |
+| 3 | Form Fields & Validation (inline errors, required fields, corporate-email blocking) | A | **Implemented but not fully verified.** Verified by reading `DemoRequestForm.tsx`/`validation.ts` directly: required fields + email-format validation exist client-side (HTML5) and server-side (Zod), plus honeypot + rate-limiting. **Gaps found:** only one generic error banner, not per-field inline states; no corporate/business-email-domain blocking exists at all. | Phase 2 (Demo-Request Workflow) | Corporate-email-only policy needs Sandeep's decision (should a personal Gmail/Yahoo address be blocked, or just discouraged?) before it's built |
+| 4 | Post-Action Success Views (dedicated confirmation page for tracking pixels) | A (core) / D (tracking) | **Core requirement implemented & verified**: success is shown inline only after the lead is actually validated and stored, never faked — verified live earlier in the project. **Not implemented:** a separate, dedicated confirmation URL to host analytics/conversion pixels. | Phase 2 core: done. Dedicated tracking page: Phase 5 (SEO) at the earliest | Blocked on the still-open Analytics decision (see "Decisions Needed" below) — no analytics tool chosen yet |
+| 5 | Interactive Features (mini-course preview, feature calculators) | C | Explicitly named in Sandeep's own instruction as an optional future enhancement, not automatic scope. Not started. | Unscheduled — future phase, needs separate approval | None blocking; purely an approval decision |
+| 6 | Media & Canvas Frameworks (locked aspect ratios, no layout shift) | A | **Implemented & verified.** Every `ScreenshotPlaceholder` instance and all 3 inline SVG illustrations (hero, assessment, multilingual) declare explicit `aspect-ratio`/`width`/`height`/`viewBox` — confirmed by code review and live-browser checks across every Phase 3 build stage. | Phase 3 (Homepage) — already met | None |
+| 7 | Audience Pathing Navigation (separate landing paths per cohort) | C | Current single-homepage Solutions section already segments by audience (Enterprises/SMEs/Educational Institutions) within one page. Dedicated landing pages per cohort is a larger change, already logged as a future proposal in `MASTER_REQUIREMENTS.md` §9. | Unscheduled — future phase, needs separate approval | None blocking; purely an approval decision |
+| 8 | Billing Switch Interactions (Monthly/Annual toggle) | D | No pricing page or pricing model exists. Directly prohibited for now by Sandeep's standing rule against invented pricing. | No phase — blocked until a pricing model exists | Needs a confirmed pricing/subscription model from Sandeep |
+| 9 | System Cap Transparency (e.g. "Max 50 active learners") | D | No tier/capacity limits have been confirmed by the product owner. Stating any number now would violate the standing "no fabricated capabilities or statistics" rule. | No phase — blocked | Needs confirmed tier limits from the product owner |
+| 10 | Enterprise Funnel Branching (tier-specific form fields) | D | Depends on items 8 and 9 (pricing/tiers) being decided first, plus confirmed B2B routing rules. | No phase — blocked | Needs the pricing model and B2B routing rules first |
+| 11 | Breakpoints for Complex UI (pricing grids, comparison tables) | A (general) / D (pricing-specific) | **General responsive-grid requirement already implemented & verified**: Platform strip, Showcase gallery, Solutions and How It Works all reflow correctly at tested breakpoints, confirmed live at mobile (375px) and desktop. **Pricing grids / feature-comparison tables don't exist** — blocked on item 8. | Phase 3 general case: met. Pricing-specific case: no phase | Blocked on a pricing model existing at all |
+| 12 | Font & Headline Scalability (fluid sizing, no overlap on small laptop/tablet) | A | **Implemented but not fully verified.** Headings use fixed per-breakpoint sizes (e.g. `text-[26px] sm:text-[30px]`), not true fluid/`clamp()` scaling. Only mobile (375px) and desktop (1280px+) have been live-tested this session — the ~768–1024px tablet/small-laptop range the checklist specifically names has **not** been separately verified. | Phase 3/6 (Homepage / QA) | None — this is a verification task Claude can complete without further approval, just hasn't been done yet |
+
+**Explicitly out of scope for now** (per Sandeep's instructions, restated for
+clarity): no subscription billing, checkout, invented pricing, unsupported
+learner limits, or other unconfirmed commercial claims anywhere on the site.
+This remains ZhypLearn's marketing website, not the LMS SaaS application
+itself — no learner login, dashboard, or in-product functionality is in scope.
+
 ## Phase 3 — Homepage Implementation (2026-10-25)
 - **Plan approved, then implemented in 4 staged commits**, each built, linted,
   visually verified (desktop + mobile, live browser) and deployed to UAT before
@@ -174,3 +207,16 @@ Nothing here is silently replaced — superseded items are marked as such, not d
    AI-Powered Course Creation with SCORM Output). See "SCORM Capabilities" above.
    Version/tracking/reporting/scoring details remain unconfirmed and must not be
    claimed.
+5. **Demo scheduling approach** (from the Pre-UAT Design Checklist). Keep the
+   current custom form, or move to an embedded calendar tool (Calendly/
+   HubSpot)? The latter needs a new third-party account Sandeep would create.
+6. **Corporate-email-only policy for the demo form.** Should a personal
+   Gmail/Yahoo/etc. address be blocked outright, just discouraged, or left as
+   is? No domain-blocking exists today.
+7. **Pricing/subscription model** — entirely undefined. Blocks 3 checklist
+   items outright (billing toggle, tier-limit transparency, enterprise funnel
+   branching). No work should start here without Sandeep's explicit business
+   decision.
+8. **Tablet-width (~768–1024px) verification of the Phase 3 homepage** has not
+   been done — only mobile (375px) and desktop (1280px+) were live-tested.
+   No external blocker; just not yet scheduled.

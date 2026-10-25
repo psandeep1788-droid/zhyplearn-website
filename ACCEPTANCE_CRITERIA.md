@@ -43,6 +43,17 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [ ] If the email fails, the lead is still saved and no error is shown that implies
       the lead was lost
 - [ ] Spam test: submitting with the honeypot field filled does not create a row
+- [x] Required-field and email-format validation, client- and server-side —
+      verified by reading `DemoRequestForm.tsx`/`validation.ts` directly
+- [ ] **Pre-UAT checklist addition (2026-10-25):** inline, per-field error
+      states — currently only one generic error banner exists, not per-field
+- [ ] **Pre-UAT checklist addition:** corporate/business-email-only enforcement
+      — **blocked**, Sandeep has not decided whether this is required (see
+      Decisions Needed in `DECISIONS_LOG.md`)
+- [ ] **Pre-UAT checklist addition:** a dedicated post-submission confirmation
+      page for hosting analytics/conversion tracking — the inline "never fake
+      success" requirement above is already met; a separate trackable page is
+      **blocked** on the still-open analytics-tool decision
 
 ## Homepage (Phase 3) — implemented, pending Sandeep's own review
 - [x] Every section from the approved Artifact exists on the real site, in the same
@@ -56,8 +67,12 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       outstanding; Claude's verification (build, lint, live-browser checks at
       desktop/mobile, console-error checks) is not a substitute
 - [x] Works at mobile and desktop widths without layout breakage — verified via
-      live browser checks at 375px and desktop on every stage; tablet not
-      separately tested
+      live browser checks at 375px and desktop on every stage
+- [ ] **Pre-UAT checklist addition (2026-10-25):** verified at tablet / small-
+      laptop width (~768–1024px) — not yet tested, no blocker, just outstanding
+- [x] **Pre-UAT checklist addition:** screenshots and illustrations use locked
+      aspect ratios / explicit dimensions to avoid layout shift — verified by
+      code review of `ScreenshotPlaceholder.tsx` and the 3 inline SVG sections
 - [x] All animations (`pulse-glow`, `float`, hover-lift) respect
       `prefers-reduced-motion` — via the existing global reduced-motion rule in
       `globals.css`, unchanged
@@ -77,6 +92,31 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [x] **Marketing-website scope preserved**: no login form, dashboard,
       account/subscription/billing flow, or invented login URL was built; the
       Artifact's "LMS Login" nav button was omitted per Sandeep's instruction
+
+## Header Login Button (2026-10-25 addition) — done
+- [x] Login button added to desktop nav and mobile menu, alongside Book a Demo
+- [x] Genuine disabled `<button>` — no `href`, not clickable, not
+      keyboard-focusable — verified via live DOM inspection and a failed
+      click test on the deployed site, not assumed
+- [x] No login page, form, dashboard, or auth logic added; no URL invented
+- [x] One-line change to activate once a real login URL is supplied
+
+## Deferred / Future Scope (Pre-UAT Design Checklist, 2026-10-25)
+Not part of any current phase — listed here so they are not mistaken for
+missed work. See `DECISIONS_LOG.md` for the full classification and
+rationale per item.
+- Interactive course-preview widgets / feature calculators (**C** — future,
+  needs separate approval)
+- Audience-specific landing pages per cohort, beyond the homepage's existing
+  Solutions section (**C** — future, needs separate approval)
+- Embedded calendar scheduling tool in place of the current form (**D** —
+  blocked on a tool decision + new third-party account)
+- Pricing/billing toggle, tier-limit transparency, enterprise funnel branching
+  (**D** — blocked entirely on an undefined pricing model; nothing here may be
+  built, including a default/placeholder price, until Sandeep confirms one)
+- Product Handoff to the LMS login portal (URLs, session parameters) —
+  documented in `DECISIONS_LOG.md`, **not implemented**; blocked on the real
+  login URL and session/auth design from the product team
 
 ## Supporting Pages (Phase 4) — not yet met
 - [ ] About, Contact, Privacy have final, reviewed copy (not placeholder text)

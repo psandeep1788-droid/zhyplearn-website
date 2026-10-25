@@ -109,12 +109,20 @@ field, in-memory rate limiter, no secrets in any committed file (grep-checked
 before every commit), demo form's "don't fake success" rule verified live. Real
 screenshot redaction work from earlier is currently **moot** — Sandeep's later
 instruction paused real-screenshot use entirely in favor of placeholders.
+**Gaps found during the 2026-10-25 Pre-UAT checklist review** (see
+`DECISIONS_LOG.md`): no per-field inline error states (one generic banner
+only), no corporate/business-email-domain enforcement — the latter requires
+Sandeep's decision before it can be built.
 
 ## 11. Performance, Accessibility & Responsive Design
-**Not verified.** `next/image`/`next/font` conventions are in place in the code
-that exists, but there is no real content yet to meaningfully test performance or
-accessibility against (Lighthouse, axe, etc. would be testing a placeholder page).
-Scheduled for Phase 6.
+**Partially verified.** Now that the Phase 3 homepage is live, this is testable
+against real content (it wasn't when this was last written). Verified via live
+browser checks: mobile (375px) and desktop (1280px+) both work without layout
+breakage, screenshot/illustration placeholders use locked aspect ratios so
+swapping in real images won't shift layout (Pre-UAT checklist item, confirmed
+by code review). **Not yet verified:** the ~768–1024px tablet/small-laptop
+range specifically; headings use fixed per-breakpoint sizes, not true fluid
+`clamp()` scaling. Formal Lighthouse/axe audit remains scheduled for Phase 6.
 
 ## 12. Analytics & Conversion Tracking
 **Requires decision.** Nothing installed (verified: no analytics packages in

@@ -55,6 +55,23 @@ Revisit analytics approach (see Decisions Needed), monitor, iterate. **Not start
 
 ---
 
+## Unscheduled / Deferred Items (Pre-UAT Design Checklist, 2026-10-25)
+Reconciled against a third-party technical checklist Sandeep supplied; full
+classification and rationale in `DECISIONS_LOG.md`. None of these are assigned
+to a phase above, and none should be started without a separate approval:
+- Embedded calendar scheduling tool (replacing the current form) — needs a
+  tool decision and a new third-party account
+- Interactive course-preview widgets / feature calculators
+- Audience-specific landing pages per cohort (beyond the homepage's existing
+  Solutions section)
+- Pricing/billing toggle, tier-limit transparency, enterprise funnel branching
+  — blocked entirely on an undefined pricing model
+- Product Handoff to the LMS login portal (real URLs, session parameters) —
+  documented, not implemented; blocked on the product team's login URL and
+  session/auth design
+
+---
+
 ## Immediate Next Step (pending this audit's approval)
 Resume Phase 2 (account creation, already in motion) and/or begin Phase 3 (homepage
 build-out) — **whichever Sandeep approves first.** Both can proceed in parallel
