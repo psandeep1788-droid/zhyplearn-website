@@ -24,7 +24,7 @@ const SOLUTIONS = [
       </>
     ),
     points: [
-      "Run a professional learning program without a dedicated L&D team",
+      "Deliver professional learning programs with greater ease",
       "AI authoring cuts the time to build your first course",
       "Setup that scales with your team as you grow",
     ],

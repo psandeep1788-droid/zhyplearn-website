@@ -63,6 +63,18 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       other file touched, no existing footer content removed or altered
 - [x] Build and lint clean, no console errors
 
+## Solutions Copy Revision (2026-10-25 addition) — done
+- [x] "Run a professional learning program without a dedicated L&D team"
+      (SMEs card, `Solutions.tsx`) replaced with the approved wording
+      "Deliver professional learning programs with greater ease" — codebase
+      search confirmed this was the only occurrence anywhere in `src/`
+- [x] No other sections or bullet points changed — `git diff --stat` shows a
+      single-line change in one file
+- [x] No unverified capability/performance/outcome claims introduced
+- [x] Verified at mobile (375px) and desktop (1280px) — layout, typography,
+      spacing unchanged, no console errors
+- [x] Build and lint clean
+
 ## Demo-Request Workflow (Phase 2) — not yet met
 - [ ] A real submission on the live site creates a row in the Neon database
 - [ ] A real submission triggers a Resend email to elearning@Zhypility.com
