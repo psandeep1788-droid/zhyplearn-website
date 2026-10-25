@@ -14,7 +14,7 @@ import FinalCta from "@/components/sections/FinalCta";
 export const metadata: Metadata = {
   title: "ZhypLearn — AI-Powered Learning. Reimagined.",
   description:
-    "ZhypLearn is Zhypility InfoSolutions' AI-powered Learning Management System. Create engaging learning experiences, deliver interactive training, and bring content, assessment and immersive learning together in one platform.",
+    "ZhypLearn is Zhypility InfoSolutions' AI-powered Learning Management System for enterprises, SMEs and educational institutions — AI-powered course creation with SCORM output, SCORM package upload, interactive and immersive learning, AI-proctored assessment, and multilingual delivery.",
 };
 
 export default function HomePage() {
