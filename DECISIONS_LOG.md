@@ -72,6 +72,33 @@ learner limits, or other unconfirmed commercial claims anywhere on the site.
 This remains ZhypLearn's marketing website, not the LMS SaaS application
 itself — no learner login, dashboard, or in-product functionality is in scope.
 
+### Follow-up decisions on the checklist items (2026-10-25)
+Sandeep reviewed the classification above and made these final calls:
+1. **Demo form stays custom** — no calendar-embed tool, no new account. Sales
+   coordinates scheduling after an enquiry comes in.
+2. **No personal-email blocking** — any valid email is accepted; a business/
+   institutional address may be gently suggested, never enforced.
+3. **Form improvements approved as planned work** (not yet built — see the
+   implementation plan presented alongside this entry): per-field inline
+   validation, retained server-side validation, an explicit confirmation
+   state, and the existing "never show success on failure" rule kept intact.
+   Database persistence and email-notification behavior must be verified
+   before the form is called production-ready — not assumed from the code
+   alone.
+4. **Pricing/subscriptions reaffirmed deferred** — see Decision #7 above.
+5. **Analytics reaffirmed open** — see Decision #9 above; requirement
+   clarified to cover demo-CTA engagement and successful-enquiry measurement
+   without exposing personal information.
+6. **Tablet QA added to acceptance criteria** — see Decision #8 above and
+   `ACCEPTANCE_CRITERIA.md`.
+7. **Future integrations documented, not built**: the calendar-scheduling
+   tool (if later approved) and the LMS Product Handoff (real login URL,
+   session parameters) both remain documentation-only until their
+   dependencies are confirmed — no implementation, no invented URLs.
+8. **Explicitly confirmed still out of scope**: interactive course previews,
+   pricing functionality, audience-specific landing pages, or any unrelated
+   feature — none of this follow-up authorizes building them.
+
 ## Phase 3 — Homepage Implementation (2026-10-25)
 - **Plan approved, then implemented in 4 staged commits**, each built, linted,
   visually verified (desktop + mobile, live browser) and deployed to UAT before
@@ -207,16 +234,27 @@ itself — no learner login, dashboard, or in-product functionality is in scope.
    AI-Powered Course Creation with SCORM Output). See "SCORM Capabilities" above.
    Version/tracking/reporting/scoring details remain unconfirmed and must not be
    claimed.
-5. **Demo scheduling approach** (from the Pre-UAT Design Checklist). Keep the
-   current custom form, or move to an embedded calendar tool (Calendly/
-   HubSpot)? The latter needs a new third-party account Sandeep would create.
-6. **Corporate-email-only policy for the demo form.** Should a personal
-   Gmail/Yahoo/etc. address be blocked outright, just discouraged, or left as
-   is? No domain-blocking exists today.
-7. **Pricing/subscription model** — entirely undefined. Blocks 3 checklist
-   items outright (billing toggle, tier-limit transparency, enterprise funnel
-   branching). No work should start here without Sandeep's explicit business
-   decision.
-8. **Tablet-width (~768–1024px) verification of the Phase 3 homepage** has not
-   been done — only mobile (375px) and desktop (1280px+) were live-tested.
-   No external blocker; just not yet scheduled.
+5. ~~Demo scheduling approach~~ — **Resolved 2026-10-25**: keep the existing
+   custom form. No embedded calendar tool, no new third-party account. The
+   sales team coordinates actual scheduling after receiving an enquiry.
+6. ~~Corporate-email-only policy for the demo form~~ — **Resolved 2026-10-25**:
+   do not block personal email domains (Gmail, etc.) — any valid email address
+   is accepted. A polite, non-blocking suggestion toward a business/
+   institutional email may be shown where appropriate, as a hint only, never
+   as a validation failure.
+7. **Pricing/subscription model** — still entirely undefined, **reaffirmed
+   2026-10-25**: blocks the same 3 checklist items (billing toggle, tier-limit
+   transparency, enterprise funnel branching), plus all pricing switches,
+   subscription tiers, learner-limit claims, and billing functionality.
+   Nothing here may be built — including a placeholder or default — until the
+   commercial model is formally approved.
+8. **Tablet-width (~768–1024px) QA** — **scheduled, not yet done.** Added to
+   `ACCEPTANCE_CRITERIA.md` as a concrete requirement: test representative
+   widths (768px, ~820px, 1024px) against the live Phase 3 homepage and record
+   the results. No blocker; implementation plan presented alongside this
+   decision (see Decisions Log entry below).
+9. **Analytics approach** — **kept open 2026-10-25, scope clarified**: must
+   measure demo-CTA engagement and successful enquiry submissions without
+   exposing personal information. Not decided until options, privacy
+   implications, implementation effort, and any cost are assessed and
+   presented for approval. Supersedes/narrows Decision #1 above.

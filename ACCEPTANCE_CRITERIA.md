@@ -46,14 +46,24 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [x] Required-field and email-format validation, client- and server-side —
       verified by reading `DemoRequestForm.tsx`/`validation.ts` directly
 - [ ] **Pre-UAT checklist addition (2026-10-25):** inline, per-field error
-      states — currently only one generic error banner exists, not per-field
-- [ ] **Pre-UAT checklist addition:** corporate/business-email-only enforcement
-      — **blocked**, Sandeep has not decided whether this is required (see
-      Decisions Needed in `DECISIONS_LOG.md`)
+      states — currently only one generic error banner exists, not per-field;
+      **approved as planned work**, not yet built (see implementation plan)
+- [x] **Decided 2026-10-25:** no personal-email-domain blocking. Any valid
+      email is accepted; a business/institutional address may be gently
+      suggested as a hint, never enforced as a validation failure — approved
+      as planned work alongside the inline-validation item above
+- [ ] **Decided 2026-10-25:** an explicit, distinct confirmation state after a
+      successful submission (clearer than today's inline message) —
+      **approved as planned work**; the existing "never show success on
+      failure" rule must be preserved exactly
+- [ ] **Before the form is called production-ready:** verify an actual
+      database row is created and the email notification fires — code review
+      alone is not sufficient evidence (reaffirmed 2026-10-25)
 - [ ] **Pre-UAT checklist addition:** a dedicated post-submission confirmation
-      page for hosting analytics/conversion tracking — the inline "never fake
-      success" requirement above is already met; a separate trackable page is
-      **blocked** on the still-open analytics-tool decision
+      *page* for hosting analytics/conversion tracking — still **blocked** on
+      the open analytics-tool decision (scope clarified 2026-10-25: must
+      measure demo-CTA engagement and successful enquiries without exposing
+      personal information)
 
 ## Homepage (Phase 3) — implemented, pending Sandeep's own review
 - [x] Every section from the approved Artifact exists on the real site, in the same
@@ -68,8 +78,12 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       desktop/mobile, console-error checks) is not a substitute
 - [x] Works at mobile and desktop widths without layout breakage — verified via
       live browser checks at 375px and desktop on every stage
-- [ ] **Pre-UAT checklist addition (2026-10-25):** verified at tablet / small-
-      laptop width (~768–1024px) — not yet tested, no blocker, just outstanding
+- [ ] **Decided 2026-10-25 — tablet QA, not yet done:** test representative
+      widths across the 768–1024px range — **768px** (portrait tablet /
+      `md:` breakpoint edge), **~820px** (mid-range tablet), and **1024px**
+      (landscape tablet / small laptop) — against the live homepage, and
+      record the results (layout breakage, text overlap, nav behavior) in
+      `PROJECT_STATUS.md`
 - [x] **Pre-UAT checklist addition:** screenshots and illustrations use locked
       aspect ratios / explicit dimensions to avoid layout shift — verified by
       code review of `ScreenshotPlaceholder.tsx` and the 3 inline SVG sections

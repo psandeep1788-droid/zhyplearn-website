@@ -111,8 +111,12 @@ screenshot redaction work from earlier is currently **moot** — Sandeep's later
 instruction paused real-screenshot use entirely in favor of placeholders.
 **Gaps found during the 2026-10-25 Pre-UAT checklist review** (see
 `DECISIONS_LOG.md`): no per-field inline error states (one generic banner
-only), no corporate/business-email-domain enforcement — the latter requires
-Sandeep's decision before it can be built.
+only), no corporate/business-email-domain enforcement. **Decided same day:**
+keep the custom form (no calendar-embed tool), do not block personal email
+domains (a gentle business-email suggestion is fine, never enforced), and add
+per-field inline validation plus a clearer confirmation state — all approved
+as planned work, not yet built. Database persistence and email notification
+must be independently verified before the form is called production-ready.
 
 ## 11. Performance, Accessibility & Responsive Design
 **Partially verified.** Now that the Phase 3 homepage is live, this is testable
@@ -122,13 +126,20 @@ breakage, screenshot/illustration placeholders use locked aspect ratios so
 swapping in real images won't shift layout (Pre-UAT checklist item, confirmed
 by code review). **Not yet verified:** the ~768–1024px tablet/small-laptop
 range specifically; headings use fixed per-breakpoint sizes, not true fluid
-`clamp()` scaling. Formal Lighthouse/axe audit remains scheduled for Phase 6.
+`clamp()` scaling. **Decided 2026-10-25:** tablet QA added to
+`ACCEPTANCE_CRITERIA.md` with specific widths to test (768px, ~820px, 1024px)
+and results to be recorded here once run. Formal Lighthouse/axe audit remains
+scheduled for Phase 6.
 
 ## 12. Analytics & Conversion Tracking
-**Requires decision.** Nothing installed (verified: no analytics packages in
-`package.json`, no tracking code in `src/`). The original plan (Vercel Analytics)
-no longer applies now that hosting is Cloudflare, not Vercel. Needs a fresh
-recommendation and your approval before anything is installed.
+**Requires decision — reaffirmed open 2026-10-25.** Nothing installed (verified:
+no analytics packages in `package.json`, no tracking code in `src/`). The
+original plan (Vercel Analytics) no longer applies now that hosting is
+Cloudflare, not Vercel. **Scope clarified by Sandeep:** must measure demo-CTA
+engagement and successful enquiry submissions without exposing personal
+information. Needs a fresh recommendation — options, privacy implications,
+implementation effort, and any cost — presented for approval before anything
+is installed.
 
 ## 13. Testing & Quality Assurance
 **Planned, not implemented.** No automated test files exist anywhere in the repo
