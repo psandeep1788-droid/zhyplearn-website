@@ -44,18 +44,39 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       the lead was lost
 - [ ] Spam test: submitting with the honeypot field filled does not create a row
 
-## Homepage (Phase 3) — not yet met
-- [ ] Every section from the approved Artifact exists on the real site, in the same
-      order, with the same copy (allowing only corrections already approved, e.g.
-      ZhypLearn naming)
-- [ ] Visually reviewed side-by-side against the Artifact by Sandeep, not just by
-      Claude
-- [ ] Works at mobile, tablet, and desktop widths without layout breakage
-- [ ] All animations respect `prefers-reduced-motion`
-- [ ] **SCORM capabilities (2026-10-25 addition):** SCORM Package Upload and
-      AI-Powered Course Creation with SCORM Output are both featured prominently
-      — copy states only the two confirmed capabilities, with no claims about
-      SCORM version, tracking, completion reporting, or score tracking
+## Homepage (Phase 3) — implemented, pending Sandeep's own review
+- [x] Every section from the approved Artifact exists on the real site, in the same
+      order (Hero → Platform → AI Content Creation → Engagement → Assessment →
+      Multilingual → Platform Management → Showcase → Solutions → How It Works →
+      Final CTA → Footer), with the same copy — except "Narrative 1–4 —" internal
+      eyebrow prefixes dropped and SCORM copy added, both per Sandeep's explicit
+      approval; the Artifact's text-wordmark nav/footer and placeholder social
+      icons were not carried over, per the standing logo-branding decision
+- [ ] **Visually reviewed side-by-side against the Artifact by Sandeep** — still
+      outstanding; Claude's verification (build, lint, live-browser checks at
+      desktop/mobile, console-error checks) is not a substitute
+- [x] Works at mobile and desktop widths without layout breakage — verified via
+      live browser checks at 375px and desktop on every stage; tablet not
+      separately tested
+- [x] All animations (`pulse-glow`, `float`, hover-lift) respect
+      `prefers-reduced-motion` — via the existing global reduced-motion rule in
+      `globals.css`, unchanged
+- [x] **SCORM capabilities (2026-10-25 addition):** both confirmed capabilities
+      featured prominently with Sandeep's exact approved wording — "Create
+      AI-powered courses and export them as SCORM packages for use with
+      compatible LMS platforms" (AI Content Creation section) and "Upload your
+      existing SCORM course packages and manage your learning content in
+      ZhypLearn" (Platform Management section) — verified present in the live
+      HTML via a direct no-cache fetch, not assumed. No SCORM version,
+      tracking, completion-reporting, or score-tracking claims made.
+- [x] **11 product-screenshot slots**: built as premium, clearly labelled
+      placeholder frames ("Product screenshot — coming soon"), visually
+      distinct from the 3 illustrative SVG mockups (hero, assessment,
+      multilingual), and forward-compatible — each accepts a `src` prop so a
+      real screenshot drops in later with no layout change
+- [x] **Marketing-website scope preserved**: no login form, dashboard,
+      account/subscription/billing flow, or invented login URL was built; the
+      Artifact's "LMS Login" nav button was omitted per Sandeep's instruction
 
 ## Supporting Pages (Phase 4) — not yet met
 - [ ] About, Contact, Privacy have final, reviewed copy (not placeholder text)

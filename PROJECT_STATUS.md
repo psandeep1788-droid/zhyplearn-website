@@ -20,12 +20,16 @@ confirmation 2026-10-25 — see `DECISIONS_LOG.md`. Not yet reflected in live co
 details remain **not verified** and must not be claimed.
 
 ## 2. Design Direction
-**Partially complete.** The approved Artifact exists and is the governing reference.
-The deployed site currently shows a **placeholder homepage**, not the full approved
-design — verified by reading `src/app/page.tsx` directly and by viewing the live UAT
-URL. Design tokens (gold/charcoal/white, Poppins/Inter) are wired into
-`globals.css` and verified rendering correctly on the live site. Full section-by-
-section build-out: **Planned, not implemented** (Phase 3).
+**Largely complete.** The approved Artifact exists and is the governing reference.
+The full homepage build-out (Phase 3) is now live on the UAT URL, ported
+section-by-section from the Artifact's actual source (re-read directly, not from
+memory) — same colors, typography, card/chip styling, and CSS animations
+(pulse-glow, float, hover-lift). Design tokens (gold/charcoal/white, Poppins/
+Inter) confirmed already fully wired in `globals.css` before this phase began.
+A real contrast bug was found and fixed during this phase: an unlayered CSS rule
+was silently overriding `text-white` on the dark Solutions section (see
+Decisions Log) — re-verified fixed on desktop and mobile, live. **Outstanding:**
+Sandeep's own side-by-side review against the Artifact.
 
 **Header branding: Confirmed complete** (commit `80ad1f2`) — official logo
 replaces "ZhypLearn" text, verified live on desktop + mobile, logo-link verified,
@@ -39,9 +43,15 @@ Cloudflare UAT deployment, desktop and mobile, no console errors.
 **Partially complete.**
 - All 5 routes exist and return 200 on the live UAT URL (verified directly):
   `/`, `/about`, `/contact`, `/book-a-demo`, `/privacy`.
-- Homepage sections (Platform strip, 4 AI-capability sections, Showcase gallery,
-  Solutions, How It Works): **Planned, not implemented** on the real site — they
-  exist only in the approved Artifact, not yet ported to Next.js.
+- **Homepage (Phase 3): Implemented and deployed to UAT (2026-10-25).** All 11
+  sections from the approved Artifact are live — Hero, Platform strip, AI
+  Content Creation, Engagement, Assessment, Multilingual, Platform Management,
+  Showcase gallery, Solutions, How It Works, Final CTA — built in 4 staged
+  commits, each verified via build, lint, live-browser checks (desktop +
+  mobile, no console errors) before deploying. Includes the two approved SCORM
+  statements, with the 11 missing product screenshots shown as clearly labelled
+  placeholder frames pending Sandeep's final images. **Outstanding:** Sandeep's
+  own visual review against the Artifact — not yet done.
 - About/Contact/Privacy: placeholder copy only — **Planned, not implemented.**
 
 ## 4. Technology Stack & Architecture

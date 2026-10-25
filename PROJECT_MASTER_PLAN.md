@@ -27,7 +27,9 @@ submission saves and notifies correctly. **Status: blocked on account creation.*
 
 ### Phase 3 — Premium Homepage Implementation
 Port the full approved Artifact design into the real Next.js site, section by
-section. **Status: not started** (explicitly gated until this audit is approved).
+section. **Status: implemented and deployed to UAT (2026-10-25)** — see
+`ACCEPTANCE_CRITERIA.md` for the full checklist. Outstanding: Sandeep's own
+visual review, and final product screenshots to replace the placeholder frames.
 
 ### Phase 4 — Supporting Pages & Content
 Final, reviewed copy for About, Contact, Privacy. **Not started.**

@@ -39,6 +39,44 @@ Nothing here is silently replaced — superseded items are marked as such, not d
   deployment (desktop + mobile, no console errors, robots.txt still
   disallows indexing) after `wrangler login` was re-authenticated.
 
+## Phase 3 — Homepage Implementation (2026-10-25)
+- **Plan approved, then implemented in 4 staged commits**, each built, linted,
+  visually verified (desktop + mobile, live browser) and deployed to UAT before
+  the next stage began: (1) Hero/Platform/AI Content Creation/Engagement, (2)
+  Assessment/Multilingual, (3) Platform Management/Showcase, (4) Solutions/How
+  It Works/Final CTA.
+- **Sandeep's plan-approval decisions, applied exactly:** placeholder frames
+  (not a wait) for the 11 missing screenshots, forward-compatible with a `src`
+  prop; the two SCORM statements used verbatim as Sandeep wrote them; the
+  Artifact's old text-wordmark nav/footer, "BY ZHYPILITY INFOSOLUTIONS" line
+  and placeholder (`#`) social icons were **not** carried over — the real,
+  already-built logo-based `Nav.tsx`/`Footer.tsx` are the source of truth; the
+  Artifact's "LMS Login" nav button was omitted (no login URL supplied, none
+  invented); "Narrative 1–4 —" eyebrow prefixes dropped for customer-facing
+  labels.
+- **Real bug found and fixed during stage 4:** `globals.css` had an unlayered
+  `h1,h2,h3 { color: charcoal }` rule. In Tailwind v4's CSS cascade-layers
+  setup, unlayered CSS always wins over layered utility classes regardless of
+  specificity — so `text-white` on the dark Solutions section was silently
+  overridden, making "Solutions Built Around You" and the card headings nearly
+  invisible. Fixed by wrapping the rule in `@layer base`; re-verified all prior
+  sections were unaffected, on both the local build and the live deployment.
+- **Mid-build scope clarification (Sandeep):** reinforced that this is a
+  marketing website, not a SaaS product rebuild — no login, dashboard, account,
+  subscription, billing, or onboarding functionality. Confirmed and stated
+  explicitly that nothing built drifts into that territory: the 3 SVG mockups
+  are labelled illustrative, the 11 screenshot slots are labelled placeholders,
+  no login URL was invented.
+- **Verification discipline note:** a mid-build live check appeared to show the
+  final 3 sections missing from production. Root cause was a stale client-side
+  tab reused across several deploy stages (Next.js soft-navigation on a
+  hash-only URL change doesn't refetch). Confirmed via a fresh no-cache
+  `fetch()` and a brand-new tab that the deployed content was correct —
+  documented here so this isn't mistaken for a real deployment gap later.
+- **Outstanding before Phase 3 is "done":** Sandeep's own visual review against
+  the Artifact (not a Claude substitute, per `ACCEPTANCE_CRITERIA.md`), and
+  final approved product screenshots to replace the 11 placeholders.
+
 ## SCORM Capabilities
 - **2026-10-25 — product owner confirmed two specific capabilities**, superseding
   the earlier blanket "unconfirmed" status:
