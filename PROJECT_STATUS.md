@@ -29,9 +29,12 @@ section build-out: **Planned, not implemented** (Phase 3).
 
 **Header branding: Confirmed complete** (commit `80ad1f2`) — official logo
 replaces "ZhypLearn" text, verified live on desktop + mobile, logo-link verified,
-no console errors. **Footer branding: in progress** (this session) — same change,
-plus removing the now-redundant separate "Empowering Your Learning Journey" text
-line, since the logo image already contains that tagline.
+no console errors. **Footer branding: Confirmed complete locally, pending live
+verification** (this session) — same logo change applied, plus the redundant
+separate "Empowering Your Learning Journey" text line removed since the logo
+image already contains that tagline; legibility against the charcoal background
+verified via browser screenshot at desktop and mobile widths; build and lint
+pass; live Cloudflare UAT check pending.
 
 ## 3. Website Pages & Homepage Sections
 **Partially complete.**

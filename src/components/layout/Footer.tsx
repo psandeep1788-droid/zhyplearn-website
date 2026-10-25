@@ -5,8 +5,17 @@ export default function Footer() {
     <footer className="bg-charcoal py-14 text-white/72">
       <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-12 px-6">
         <div className="flex min-w-[220px] flex-1 flex-col gap-3">
-          <span className="font-display text-xl font-bold text-gold">ZhypLearn</span>
-          <p className="text-[13.5px] font-semibold text-gold">Empowering Your Learning Journey</p>
+          {/* Same source file as the header, served as-is (no next/image,
+              no re-encoding). Tagline text removed separately below since
+              the logo image already contains it. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/zhypility-logo.webp"
+            alt="Zhypility InfoSolutions — Empowering Your Learning Journey"
+            width={1500}
+            height={456}
+            className="h-14 w-auto"
+          />
         </div>
         <div className="flex flex-col gap-3 text-sm">
           <strong className="text-[13px] tracking-wide text-white">COMPANY</strong>

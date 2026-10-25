@@ -25,9 +25,14 @@ Nothing here is silently replaced — superseded items are marked as such, not d
   and logo display size increased after initial testing showed the full lockup
   (mark + wordmark + tagline) was illegible at the first size tried. Verified
   live on desktop and mobile before and after deploy.
-  **Footer extension requested (2026-10-25):** same logo-instead-of-text change,
-  now also for the footer — **not yet implemented**, pending a legibility check
-  against the footer's dark background (see Acceptance Criteria).
+  **Footer implemented (2026-10-25):** same logo-instead-of-text change applied
+  to the footer, plus removal of the now-redundant separate "Empowering Your
+  Learning Journey" `<p>` (the tagline is already inside the logo image), per
+  Sandeep's explicit follow-up instructions. Legibility against the charcoal
+  background verified directly via browser screenshot/zoom at desktop and
+  375px mobile widths — gray elements read clearly, not washed out. Build and
+  lint both pass. Live Cloudflare UAT verification pending in this same
+  session (see Acceptance Criteria).
 
 ## SCORM Capabilities
 - **2026-10-25 — product owner confirmed two specific capabilities**, superseding

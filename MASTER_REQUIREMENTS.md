@@ -60,10 +60,12 @@ later decision superseded an earlier one, that is noted explicitly (see
     the logo in place of the "ZhypLearn" text, clickable, linking home. Verified
     directly on the live Cloudflare UAT deployment (desktop + mobile, no console
     errors, logo link confirmed working).
-  - **Footer branding (2026-10-25, same rule extended by Sandeep):** the footer's
-    "ZhypLearn" text is also to be replaced with the same logo — footer has a dark
-    (charcoal) background, so legibility of the logo's gray elements against it
-    must be visually verified before this is considered done.
+  - **Footer branding (2026-10-25, same rule extended by Sandeep) — implemented:**
+    the footer's "ZhypLearn" text and the separate "Empowering Your Learning
+    Journey" line are replaced with the same logo image. Legibility of the
+    logo's gray elements against the charcoal background verified directly via
+    browser screenshot (desktop and 375px mobile) — not assumed. Live
+    Cloudflare UAT verification pending in this same session.
 - Visual language: layered compositions, subtle gold glow fields, soft shadows,
   hover-lift micro-interactions, smooth scroll, restrained animation that respects
   `prefers-reduced-motion`.
