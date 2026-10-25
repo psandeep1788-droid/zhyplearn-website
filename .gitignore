@@ -44,3 +44,6 @@ next-env.d.ts
 # Cloudflare / OpenNext build output
 .open-next/
 .wrangler/
+
+# Session-internal, not project source
+.claude/scheduled_tasks.lock

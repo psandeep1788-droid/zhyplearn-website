@@ -12,15 +12,25 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [x] Demo form returns an honest error (not a fake success) when Neon/Resend
       aren't configured — verified against the live UAT URL, not just locally
 
-## Header Branding (Phase 3) — partially met
+## Header Branding — done (commit `80ad1f2`)
 - [x] Official Zhypility InfoSolutions logo file received and saved at
       `public/zhypility-logo.webp` (byte-identical copy verified via `cmp`)
-- [ ] Header shows the logo only — no "ZhypLearn" text alongside it
-- [ ] Logo rendered pixel-faithful to the supplied file: no recoloring, redrawing,
-      or altered proportions
-- [ ] Logo is a clickable link to `/`
-- [ ] Logo renders correctly and legibly at mobile, tablet, and desktop widths
-- [ ] Visually reviewed by Sandeep against the actual supplied file, not assumed
+- [x] Header shows the logo only — no "ZhypLearn" text alongside it
+- [x] Logo rendered pixel-faithful to the supplied file: served via plain `<img>`,
+      not `next/image`, so the source is never re-encoded/resized
+- [x] Logo is a clickable link to `/` — verified by clicking it live
+- [x] Logo renders correctly and legibly at mobile (375px) and desktop widths —
+      verified live, both locally and on the Cloudflare UAT deployment
+- [ ] Visually reviewed by Sandeep himself against the actual supplied file —
+      **outstanding; Claude's verification is not a substitute for yours**
+
+## Footer Branding (2026-10-25 addition) — not yet met
+- [ ] Footer "ZhypLearn" text replaced with the same official logo
+- [ ] Logo legible against the footer's dark (charcoal) background — specifically
+      verify the logo's gray elements (the "INFOSOLUTIONS" subtext, gray triangle
+      shapes) don't wash out on the dark background
+- [ ] Same fidelity rule as header: no recoloring/re-encoding
+- [ ] Verified on live deployment, desktop and mobile
 
 ## Demo-Request Workflow (Phase 2) — not yet met
 - [ ] A real submission on the live site creates a row in the Neon database
@@ -37,6 +47,10 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       Claude
 - [ ] Works at mobile, tablet, and desktop widths without layout breakage
 - [ ] All animations respect `prefers-reduced-motion`
+- [ ] **SCORM capabilities (2026-10-25 addition):** SCORM Package Upload and
+      AI-Powered Course Creation with SCORM Output are both featured prominently
+      — copy states only the two confirmed capabilities, with no claims about
+      SCORM version, tracking, completion reporting, or score tracking
 
 ## Supporting Pages (Phase 4) — not yet met
 - [ ] About, Contact, Privacy have final, reviewed copy (not placeholder text)

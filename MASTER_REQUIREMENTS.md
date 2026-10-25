@@ -21,8 +21,16 @@ later decision superseded an earlier one, that is noted explicitly (see
 - "Courz Builder" is a confirmed **feature within ZhypLearn** (AI-assisted Level-1
   eLearning authoring with SCORM output), presented publicly as **"ZhypLearn Courz
   Builder"** — never as a separate product name.
-- SCORM support status: **unconfirmed** — excluded from public claims until Sandeep
-  confirms.
+- **SCORM capabilities — confirmed by product owner (2026-10-25), supersedes the
+  earlier "unconfirmed" status:**
+  1. **SCORM Package Upload** — customers can upload SCORM packages to ZhypLearn.
+  2. **AI-Powered Course Creation with SCORM Output** — ZhypLearn's AI course
+     creation (Courz Builder) produces SCORM as an output format.
+  - These two capabilities **may be stated publicly**, including on the homepage.
+  - **Still unverified — do not state or imply any of the following** until
+    separately confirmed: specific SCORM version(s) supported (e.g. 1.2 vs 2004),
+    learner-tracking functionality, completion reporting, score tracking, or any
+    other SCORM-adjacent capability beyond the two confirmed items above.
 
 ## 2. Design Direction & Approved Visual References
 
@@ -48,8 +56,14 @@ later decision superseded an earlier one, that is noted explicitly (see
   - **Asset received 2026-10-25:** official transparent logo file supplied by
     Sandeep, saved byte-identical (verified via `cmp`) at
     `public/zhypility-logo.webp` (WebP, 1500×456, alpha transparency confirmed).
-    **Not yet wired into the header** — implementation deliberately not started,
-    per Sandeep's explicit "do not modify the live website yet" instruction.
+  - **Implemented and deployed 2026-10-25** (commit `80ad1f2`): header now shows
+    the logo in place of the "ZhypLearn" text, clickable, linking home. Verified
+    directly on the live Cloudflare UAT deployment (desktop + mobile, no console
+    errors, logo link confirmed working).
+  - **Footer branding (2026-10-25, same rule extended by Sandeep):** the footer's
+    "ZhypLearn" text is also to be replaced with the same logo — footer has a dark
+    (charcoal) background, so legibility of the logo's gray elements against it
+    must be visually verified before this is considered done.
 - Visual language: layered compositions, subtle gold glow fields, soft shadows,
   hover-lift micro-interactions, smooth scroll, restrained animation that respects
   `prefers-reduced-motion`.

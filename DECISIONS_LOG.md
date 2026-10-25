@@ -14,6 +14,32 @@ Nothing here is silently replaced — superseded items are marked as such, not d
 - Design direction: Sana Labs reviewed for *principles only* (editorial rhythm,
   narrative-over-feature-lists, layered hero composition) — no Sana text, graphics,
   or branding was copied. Confirmed originality maintained throughout.
+- **Header/footer branding changed (2026-10-25) — supersedes the text-wordmark
+  approach:** header must show the official Zhypility InfoSolutions logo image,
+  not "ZhypLearn" text. Logo file received as a verified real attachment (an
+  earlier inline chat paste with no file path was explicitly rejected and
+  re-requested, to avoid using a possibly re-encoded copy), saved byte-identical
+  to `public/zhypility-logo.webp`. **Header implemented and deployed** (commit
+  `80ad1f2`) — served via plain `<img>`, not `next/image`, specifically so the
+  source file is never re-encoded or resized. Nav height increased 76px→92px
+  and logo display size increased after initial testing showed the full lockup
+  (mark + wordmark + tagline) was illegible at the first size tried. Verified
+  live on desktop and mobile before and after deploy.
+  **Footer extension requested (2026-10-25):** same logo-instead-of-text change,
+  now also for the footer — **not yet implemented**, pending a legibility check
+  against the footer's dark background (see Acceptance Criteria).
+
+## SCORM Capabilities
+- **2026-10-25 — product owner confirmed two specific capabilities**, superseding
+  the earlier blanket "unconfirmed" status:
+  1. SCORM Package Upload.
+  2. AI-Powered Course Creation with SCORM Output.
+- Explicitly **not** confirmed and must not be claimed: SCORM version(s), learner
+  tracking, completion reporting, score tracking, or any other SCORM-adjacent
+  functionality. These two are a narrower, confirmed subset of "SCORM support" —
+  not a blanket confirmation of everything SCORM-related.
+- Homepage must feature these two prominently once Phase 3 (homepage
+  implementation) begins — not a reason to delay that phase.
 
 ## Real Product Screenshots
 - Sandeep supplied 19 real screenshots. Audit found they showed a named client's
@@ -95,4 +121,8 @@ Nothing here is silently replaced — superseded items are marked as such, not d
    requests/day** (resets midnight UTC), 1,000 req/min burst cap, 10ms CPU time per
    request. Far beyond what a marketing site needs at launch. Source:
    [developers.cloudflare.com/workers/platform/limits](https://developers.cloudflare.com/workers/platform/limits)
-4. **SCORM support status** — still unconfirmed by Sandeep.
+4. ~~SCORM support status — still unconfirmed by Sandeep~~ — **Resolved
+   2026-10-25**: two specific capabilities confirmed (SCORM Package Upload;
+   AI-Powered Course Creation with SCORM Output). See "SCORM Capabilities" above.
+   Version/tracking/reporting/scoring details remain unconfirmed and must not be
+   claimed.

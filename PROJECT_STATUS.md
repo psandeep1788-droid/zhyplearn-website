@@ -13,7 +13,11 @@ item below is assessed on its own evidence, not inferred from "the site is live.
 **Confirmed complete.** Positioning statement, tagline, product/company name
 separation, and the "Courz Builder is a feature, not a product" rule are all
 reflected in the live site copy (`src/app/page.tsx`, `src/components/layout/*`).
-SCORM status: **Requires decision** (unconfirmed, correctly excluded from copy).
+SCORM status: **Confirmed complete** for two specific capabilities (SCORM
+Package Upload; AI-Powered Course Creation with SCORM Output), per product-owner
+confirmation 2026-10-25 — see `DECISIONS_LOG.md`. Not yet reflected in live copy
+(homepage is still a placeholder — Phase 3). Version/tracking/reporting/scoring
+details remain **not verified** and must not be claimed.
 
 ## 2. Design Direction
 **Partially complete.** The approved Artifact exists and is the governing reference.
@@ -22,6 +26,12 @@ design — verified by reading `src/app/page.tsx` directly and by viewing the li
 URL. Design tokens (gold/charcoal/white, Poppins/Inter) are wired into
 `globals.css` and verified rendering correctly on the live site. Full section-by-
 section build-out: **Planned, not implemented** (Phase 3).
+
+**Header branding: Confirmed complete** (commit `80ad1f2`) — official logo
+replaces "ZhypLearn" text, verified live on desktop + mobile, logo-link verified,
+no console errors. **Footer branding: in progress** (this session) — same change,
+plus removing the now-redundant separate "Empowering Your Learning Journey" text
+line, since the logo image already contains that tagline.
 
 ## 3. Website Pages & Homepage Sections
 **Partially complete.**
