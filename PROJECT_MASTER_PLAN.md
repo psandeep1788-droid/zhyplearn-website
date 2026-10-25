@@ -88,6 +88,18 @@ Reconciliation":
 - Interactive WebXR fallback — not applicable; no live WebXR content exists
   to need a fallback
 
+**Added from the third stakeholder document (2026-10-25)** — full detail in
+`DECISIONS_LOG.md` → "Third Stakeholder Document Reconciliation":
+- Parent-organization (Zhypility InfoSolutions) logo ribbon under the hero —
+  lower risk than the earlier client-logo proposal (no third-party
+  authorization needed), but still a new design element needing a placement
+  decision
+- "Platform Management" section rename — "Admin Control Center" deferred
+  pending clarification (keep it purely descriptive); "**Core LMS**"
+  **rejected** — would brand a marketing-site section as the actual LMS
+  product, conflicting with the project's own not-the-application-itself
+  boundary
+
 ---
 
 ## Immediate Next Step (pending this audit's approval)

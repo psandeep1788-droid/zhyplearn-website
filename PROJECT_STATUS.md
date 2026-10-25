@@ -52,9 +52,21 @@ Cloudflare UAT deployment, desktop and mobile, no console errors.
   statements, with the 11 missing product screenshots shown as clearly labelled
   placeholder frames pending Sandeep's final images. **Outstanding:** Sandeep's
   own visual review against the Artifact — not yet done.
-- **Stakeholder audit reconciliation (2026-10-25):** two third-party review
-  documents were checked against the actual code before recording anything —
-  full register in `DECISIONS_LOG.md` → "Stakeholder Audit Reconciliation".
+- **Stakeholder audit reconciliation (2026-10-25):** three third-party review
+  documents (two together, then a third separately) were checked against the
+  actual code before recording anything — full register in
+  `DECISIONS_LOG.md` → "Stakeholder Audit Reconciliation" and "Third
+  Stakeholder Document Reconciliation". The third document repeated most of
+  the first two's recommendations (same decisions stand) and added two new
+  ones: merging "Smart Assessments" with an "Integrity Suite" addition
+  (partially rejected, same rationale as before) and renaming "Platform
+  Management" to "Admin Control Center"/"Core LMS" ("Core LMS" rejected as a
+  direct marketing-site-vs-product scope conflict).
+- **Final CTA / Hero copy changes re-verified live (2026-10-25):** commit
+  `39edf97` confirmed as the current repo tip; the live site's actual HTML
+  re-checked via a fresh no-cache fetch — "one connected platform", "Course
+  Creation" chip, and the Final CTA's `/book-a-demo` link are all present
+  exactly as previously reported, Footer unchanged, no console errors.
   Headline findings: (1) a real defect — the Final CTA and Footer route
   through raw `mailto:`/`tel:` links instead of the real `/book-a-demo` form,
   not yet fixed; (2) "Explore the Platform" was independently verified safe

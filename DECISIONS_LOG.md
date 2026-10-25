@@ -137,6 +137,53 @@ Sandeep reviewed the classification above and made these final calls:
   the Artifact (not a Claude substitute, per `ACCEPTANCE_CRITERIA.md`), and
   final approved product screenshots to replace the 11 placeholders.
 
+## Third Stakeholder Document Reconciliation (2026-10-25)
+Sandeep supplied a third document, "ZhypLearn: 360° Comprehensive Website
+Audit & Strategy" (**Doc C**), for reconciliation against the existing
+docs and the two prior reconciliation rounds below. PDF read in full (2
+pages, confirmed complete). Access to the repo and all 5 governing documents
+confirmed. **Note:** the pasted task instructions this round cut off mid-way
+through section B; proceeded using the same reconciliation pattern as the
+two prior rounds (clear precedent, documentation-only, low risk), flagged to
+Sandeep rather than guessed at silently.
+
+**Fresh verification (not recalled from memory — re-checked live, right now):**
+- Confirmed via `git log`: commits `39edf97` and `2b068d1` are exactly as
+  reported — `39edf97` is still the current tip of both local and
+  `origin/main`, working tree clean.
+- Re-fetched the live site with `cache: 'no-store'` and inspected the actual
+  HTML: hero subcopy reads "one connected platform" (old "AI-powered
+  platform" phrase absent); floating chip reads "Course Creation" (old
+  "AI-Assisted Creation" absent); Final CTA's only button is `<a
+  href="/book-a-demo">Book a Demo</a>`, followed by the secondary
+  `mailto:`/`tel:` links; Footer's COMPANY column still has its own working
+  `/book-a-demo` link, unchanged. All exactly as previously reported.
+- Live-clicked the Final CTA button in this session: confirmed it lands on
+  `/book-a-demo` with no console errors.
+
+**Doc C's recommendations, reconciled (full detail below). Three of its five
+sections substantially repeat Doc A/B from the first reconciliation round —
+noted as repeats, not re-litigated from scratch:**
+
+| Doc C item | Status |
+|---|---|
+| "Explore the Platform" → "Take a Product Tour" | **Repeat of Doc A/B.** Decision unchanged: not recommended as a literal rename while the button still does a static anchor-scroll, not a guided tour. |
+| Mega-menu consolidation (Platform/AI Capabilities/In Action → "Product"/"Features") | **Repeat of Doc A/B.** Decision unchanged: deferred, real nav-IA build, not a documentation change. |
+| "Pricing" nav tab | **Repeat of Doc A/B.** Decision unchanged: blocked entirely on the undefined pricing model. |
+| Sticky header / "Sticky CTA Headers" | **Repeat of Doc B's inaccurate claim.** The header (`Nav.tsx`) already uses `sticky top-0` — re-confirmed again this round. Nothing to implement. |
+| 11 "Coming Soon" placeholders | **Repeat of Doc A/B.** Decision unchanged: current placeholders already meet the "premium, clearly labelled" bar Sandeep approved; higher-fidelity illustrative mockups remain a future polish option (C), not a defect. |
+| Hero H1 → "Train Teams and Build Branded Courses 10x Faster with Agentic AI" | **Repeat of Doc A, word-for-word.** Decision unchanged: the "10x Faster" claim has no supporting evidence — **not recommended**. The approved, fixed H1 is untouched. |
+| CRM/Calendly-integrated multi-step lead form | **Repeat of Doc A.** Decision unchanged: conflicts with Sandeep's explicit decision to keep the custom form and not adopt a calendar tool. |
+
+**New items from Doc C, not seen in the first two documents:**
+
+| # | Doc C proposal (exact wording) | Current label | Assessment | Decision |
+|---|---|---|---|---|
+| 1 | "Intelligent Assessment" → **"Smart Assessments & Integrity Suite"** | Intelligent Assessment (Platform strip card) | Doc C **merges** two previously-separate proposals from round 1 into one: "Smart Assessments" (already approved) and an "Integrity Suite" addition that functions like round 1's rejected "Integrity & Compliance Control" — it implies broader security/compliance capability than the confirmed AI Proctoring + Quizzes feature set, and the Assessment section already carries a deliberate disclaimer that this would contradict. **The two source documents are inconsistent with each other here** — recorded, not silently resolved. | "Smart" portion: **approved** (consistent with round 1). "& Integrity Suite" portion: **not recommended**, same rationale as round 1's "Integrity & Compliance Control" rejection |
+| 2 | "Platform Management" → **"Admin Control Center"** / **"Core LMS"** | Platform Management (homepage section heading) | Verified against `PlatformManagement.tsx`: the section is 3 static, descriptive cards (Create & Organise / Deliver & Assess / Review Progress) — no interactive admin panel exists. "**Core LMS**" is a direct scope-boundary risk — it would brand a marketing-site section as the actual LMS product, contradicting this project's own standing rule that the website is not the application itself. "Admin Control Center" is a milder copy change but still implies more interactivity than the static cards actually have. | "Core LMS": **not recommended** — scope-boundary conflict. "Admin Control Center": **deferred/needs clarification** — acceptable only if kept purely descriptive, not implying a real control panel |
+| 3 | "Partner Logo Ribbon... leverage parent organization footprints (Zhypility InfoSolutions)" | — (new hero element) | Distinct from round 1's "Customer Logo Ribbon" proposal: this one uses the **parent company's own branding** (already approved for footer use per `MASTER_REQUIREMENTS.md`), not third-party client logos needing separate authorization. Lower risk than round 1's version, but still new scope — a visual ribbon element under the hero doesn't exist today and needs a design decision | **Deferred** — future enhancement, needs a design/placement decision, not blocked on client permissions like round 1's version was |
+| 4 | "Asynchronous Review Integration" — customer quotes/G2/LinkedIn reviews "as the software lifecycle advances" | — | No real customer reviews exist yet to display — Doc C's own phrasing already acknowledges this is future-dependent, consistent with the standing "no fabricated testimonials" rule. Nothing to do today | **Deferred** — correctly contingent on real reviews existing in the future, not a current gap |
+
 ## Stakeholder Audit Reconciliation (2026-10-25)
 Sandeep supplied two third-party documents — "ZhypLearn Website Audit & Master
 Strategy" (**Doc A**) and "ZhypLearn Website Design Audit & Nomenclature
