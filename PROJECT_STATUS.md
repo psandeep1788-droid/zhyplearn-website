@@ -67,6 +67,14 @@ Cloudflare UAT deployment, desktop and mobile, no console errors.
   re-checked via a fresh no-cache fetch — "one connected platform", "Course
   Creation" chip, and the Final CTA's `/book-a-demo` link are all present
   exactly as previously reported, Footer unchanged, no console errors.
+- **Fourth stakeholder document reconciled (2026-10-25)** — `DECISIONS_LOG.md`
+  → "Fourth Stakeholder Document Reconciliation". **Important:** this
+  document's "client feedback" section contained no real customer quotes —
+  it was a hypothetical template with unattributed example statistics,
+  flagged and confirmed with Sandeep rather than treated as genuine social
+  proof. Everything else in it repeats the prior three documents (decisions
+  unchanged); one new nomenclature variant ("Platform Management" →
+  "Enterprise Admin Control Center") deferred on the same basis as before.
   Headline findings: (1) a real defect — the Final CTA and Footer route
   through raw `mailto:`/`tel:` links instead of the real `/book-a-demo` form,
   not yet fixed; (2) "Explore the Platform" was independently verified safe
