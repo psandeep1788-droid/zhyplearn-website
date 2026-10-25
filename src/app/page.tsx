@@ -7,6 +7,9 @@ import Assessment from "@/components/sections/Assessment";
 import Multilingual from "@/components/sections/Multilingual";
 import PlatformManagement from "@/components/sections/PlatformManagement";
 import Showcase from "@/components/sections/Showcase";
+import Solutions from "@/components/sections/Solutions";
+import HowItWorks from "@/components/sections/HowItWorks";
+import FinalCta from "@/components/sections/FinalCta";
 
 export const metadata: Metadata = {
   title: "ZhypLearn — AI-Powered Learning. Reimagined.",
@@ -25,6 +28,9 @@ export default function HomePage() {
       <Multilingual />
       <PlatformManagement />
       <Showcase />
+      <Solutions />
+      <HowItWorks />
+      <FinalCta />
     </>
   );
 }

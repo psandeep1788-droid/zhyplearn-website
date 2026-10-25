@@ -37,11 +37,13 @@ body {
   color: var(--foreground);
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-display), system-ui, sans-serif;
-  color: var(--color-charcoal);
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    color: var(--color-charcoal);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
