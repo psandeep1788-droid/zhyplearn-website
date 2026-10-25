@@ -78,12 +78,13 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       desktop/mobile, console-error checks) is not a substitute
 - [x] Works at mobile and desktop widths without layout breakage — verified via
       live browser checks at 375px and desktop on every stage
-- [ ] **Decided 2026-10-25 — tablet QA, not yet done:** test representative
-      widths across the 768–1024px range — **768px** (portrait tablet /
-      `md:` breakpoint edge), **~820px** (mid-range tablet), and **1024px**
-      (landscape tablet / small laptop) — against the live homepage, and
-      record the results (layout breakage, text overlap, nav behavior) in
-      `PROJECT_STATUS.md`
+- [x] Tablet QA run 2026-10-25 at 768px, ~820px, 1024px against the live
+      homepage — results recorded in `PROJECT_STATUS.md` §11. All 11 content
+      sections pass at every width tested.
+- [ ] **Nav header fails at 768–~850px** (found by the tablet QA above): nav
+      links wrap and/or the Login/Book a Demo buttons are pushed off-screen.
+      Fix proposed, not yet applied — awaiting approval (see `DECISIONS_LOG.md`
+      and `PROJECT_STATUS.md` §11)
 - [x] **Pre-UAT checklist addition:** screenshots and illustrations use locked
       aspect ratios / explicit dimensions to avoid layout shift — verified by
       code review of `ScreenshotPlaceholder.tsx` and the 3 inline SVG sections

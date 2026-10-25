@@ -137,6 +137,19 @@ Sandeep reviewed the classification above and made these final calls:
   the Artifact (not a Claude substitute, per `ACCEPTANCE_CRITERIA.md`), and
   final approved product screenshots to replace the 11 placeholders.
 
+## Tablet QA Findings (2026-10-25)
+Tested the live homepage at 768px, ~820px, and 1024px per Sandeep's approved
+Plan B. All 11 content sections pass at every width. **One real defect found:**
+the sticky nav header (`Nav.tsx`) switches from the mobile hamburger menu to
+the full desktop row at Tailwind's `md:` breakpoint (768px), but there isn't
+enough width for 6 links + Login + Book a Demo until roughly 900–950px — at
+768px the links wrap and the buttons are pushed off-screen entirely; at 820px
+the links fit but Book a Demo is still cut off. Resolved by 1024px. Reported
+with a proposed fix (move the breakpoint from `md:` to `lg:`, matching where
+the content sections already switch to their desktop grid layouts) and
+**not implemented** — Sandeep asked to see proposed fixes before any code
+change from this QA pass. Full detail in `PROJECT_STATUS.md` §11.
+
 ## SCORM Capabilities
 - **2026-10-25 — product owner confirmed two specific capabilities**, superseding
   the earlier blanket "unconfirmed" status:

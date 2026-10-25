@@ -124,12 +124,42 @@ against real content (it wasn't when this was last written). Verified via live
 browser checks: mobile (375px) and desktop (1280px+) both work without layout
 breakage, screenshot/illustration placeholders use locked aspect ratios so
 swapping in real images won't shift layout (Pre-UAT checklist item, confirmed
-by code review). **Not yet verified:** the ~768–1024px tablet/small-laptop
-range specifically; headings use fixed per-breakpoint sizes, not true fluid
-`clamp()` scaling. **Decided 2026-10-25:** tablet QA added to
-`ACCEPTANCE_CRITERIA.md` with specific widths to test (768px, ~820px, 1024px)
-and results to be recorded here once run. Formal Lighthouse/axe audit remains
-scheduled for Phase 6.
+by code review). Headings use fixed per-breakpoint sizes, not true fluid
+`clamp()` scaling — not yet a problem in practice (see tablet QA below), but
+noted for a future pass. Formal Lighthouse/axe audit remains scheduled for
+Phase 6.
+
+### Tablet QA results (2026-10-25)
+Tested the live homepage at https://zhyplearn-website.psandeep1788.workers.dev/
+at 768px, ~820px, and 1024px, scrolling through all 11 sections plus the
+footer at each width. Screenshots taken as evidence at every step (held in
+this session, not committed to the repo as files).
+
+| Width | Nav header | Hero → Footer (11 sections + footer) | Console errors |
+|---|---|---|---|
+| **768px** | ❌ **Fail** — see defect below | ✅ Pass — all grids, chips, screenshot placeholders, Solutions (dark bg, white text), How It Works, Final CTA all reflow correctly, no overlap | None |
+| **~820px** | ❌ **Fail** — same defect, narrower | ✅ Pass — not re-checked section-by-section (nav defect dominates; content already confirmed at 768px and 1024px bracket this width) | None |
+| **1024px** | ⚠️ **Pass with a minor cosmetic note** — nav fits, but "Book a Demo" wraps to two lines inside its pill button instead of staying on one line | ✅ Pass — Platform strip (4-col), Showcase (3-col), Solutions (3-col), How It Works (4-col) all hit their full desktop grid layout correctly | None |
+
+**Defect found — sticky nav header, 768–~850px:** the nav's links switch from
+the mobile hamburger menu to the full desktop row (all 6 links + Login +
+Book a Demo) at Tailwind's `md:` breakpoint (768px), but there isn't enough
+horizontal space for all of it until roughly 900–950px.
+- At 768px: "AI Capabilities" and "In Action" wrap to two lines each, and
+  "Contact" plus both header buttons are pushed completely off-screen
+  (confirmed via screenshot + a horizontal scrollbar appearing on the page).
+- At ~820px: nav links fit on one line, but the Book a Demo button is still
+  entirely cut off off-screen (confirmed via zoomed screenshot).
+- Resolved by 1024px.
+
+**Proposed fix (not applied — reported for approval first, per instruction):**
+in `src/components/layout/Nav.tsx`, move the breakpoint at which the full
+desktop nav appears from `md:` (768px) to `lg:` (1024px) — i.e. the hamburger
+menu stays active through the whole 768–1023px tablet range, matching where
+this QA confirmed the layout first fits reliably. This is the standard,
+low-risk fix (no spacing/font redesign, no new behavior) and matches exactly
+where the content sections already flip to their desktop grid layouts
+(`lg:grid-cols-*`), so the nav and content breakpoints would line up.
 
 ## 12. Analytics & Conversion Tracking
 **Requires decision — reaffirmed open 2026-10-25.** Nothing installed (verified:
