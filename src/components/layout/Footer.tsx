@@ -14,7 +14,7 @@ export default function Footer() {
             alt="Zhypility InfoSolutions — Empowering Your Learning Journey"
             width={1500}
             height={456}
-            className="h-14 w-auto"
+            className="h-14 w-auto self-start"
           />
         </div>
         <div className="flex flex-col gap-3 text-sm">
