@@ -38,6 +38,13 @@ no console errors. **Footer branding: Confirmed complete** (commits `5505a4b`,
 Journey" text line removed, a flex-stretch distortion bug fixed, legibility
 against the charcoal background verified; re-verified directly on the live
 Cloudflare UAT deployment, desktop and mobile, no console errors.
+**Footer social icons added (2026-10-25):** LinkedIn/YouTube/Instagram/
+Facebook/X under "CONNECT WITH US", with explicitly temporary platform-
+homepage destinations (not Zhypility's/ZhypLearn's real profiles) pending
+Sandeep supplying verified URLs before launch — see `DECISIONS_LOG.md` for
+the decision supersession this represents (an earlier round had removed
+placeholder social icons; this is a deliberate, explicit reversal of that,
+not an oversight).
 
 ## 3. Website Pages & Homepage Sections
 **Partially complete.**

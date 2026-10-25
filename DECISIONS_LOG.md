@@ -137,6 +137,34 @@ Sandeep reviewed the classification above and made these final calls:
   the Artifact (not a Claude substitute, per `ACCEPTANCE_CRITERIA.md`), and
   final approved product screenshots to replace the 11 placeholders.
 
+## Footer Social Media Icons — Explicit Decision Reversal (2026-10-25)
+Earlier in this project, the Artifact's original placeholder social icons
+(linking to `#`) were dropped when the footer was rebuilt around the real
+Zhypility logo, and a later instruction explicitly reinforced removing any
+placeholder social links that don't point to verified profiles.
+
+Sandeep has now **explicitly and knowingly reversed that** for this specific
+case: "We do not have the final social media profile URLs ready, so use
+temporary placeholder links that can be replaced later." This is not an
+oversight or a silent override — it's a direct, scoped instruction that:
+- uses real platform homepages (linkedin.com, youtube.com, instagram.com,
+  facebook.com, x.com), not invented or fake URLs
+- is explicitly labelled as temporary in the request itself
+- requires a code comment and centralized config stating they must be
+  replaced with verified official profile URLs before production launch
+
+Implemented exactly as specified: `SOCIAL_LINKS` config array in
+`Footer.tsx` with the required comment, 5 icons (LinkedIn, YouTube,
+Instagram, Facebook, X) under a "CONNECT WITH US" heading in the footer's
+first column. No new dependency — continues the project's existing
+hand-written inline-SVG icon pattern (no icon library exists to reuse
+instead). Accessible names, keyboard focus, and `noopener noreferrer` on the
+external links all verified live, not assumed.
+
+**Outstanding dependency:** Sandeep must supply the verified official
+LinkedIn/YouTube/Instagram/Facebook/X profile URLs before production launch;
+the current `https://www.*.com/` homepage links must not go live as-is.
+
 ## Fourth Stakeholder Document Reconciliation (2026-10-25)
 A fourth document, "ZhypLearn 360° Comprehensive Website Audit & Client
 Feedback Strategy" (**Doc D**), was supplied with the message "attached

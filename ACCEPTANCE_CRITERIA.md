@@ -37,6 +37,32 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [x] Verified on live Cloudflare UAT deployment, desktop and mobile — no
       console errors, robots.txt still disallows indexing
 
+## Footer Social Media Icons (2026-10-25 addition) — done
+- [x] 5 icons added (LinkedIn, YouTube, Instagram, Facebook, X) under a
+      "CONNECT WITH US" heading in the footer's first column, matching the
+      existing gold/charcoal/white design system and icon style used
+      elsewhere on the site
+- [x] Destinations centralized in a named `SOCIAL_LINKS` config array in
+      `Footer.tsx`, each marked with a code comment as **temporary platform
+      homepages, not verified official profiles** — must be replaced before
+      production launch
+- [x] No new dependency added — reuses the project's existing hand-written
+      inline-SVG icon pattern (no icon library exists in this project to
+      "reuse" instead)
+- [x] Each icon has an accessible name (`aria-label`: "LinkedIn", "YouTube",
+      etc.) — not relying on icon shape alone
+- [x] Keyboard accessible and a visible focus ring confirmed — **tested with
+      real keyboard Tab navigation** (not just `tabIndex` inspection):
+      `document.activeElement.matches(':focus-visible')` returned `true` on
+      the X icon after Shift+Tab, with the gold outline visible in a
+      screenshot
+- [x] External links open in a new tab with `rel="noopener noreferrer"`
+- [x] Verified at mobile (375px) and desktop (1280px) — icons wrap cleanly,
+      no overlap, existing footer columns/content/copyright unchanged
+- [x] `git diff --stat` confirms only additive changes to `Footer.tsx` — no
+      other file touched, no existing footer content removed or altered
+- [x] Build and lint clean, no console errors
+
 ## Demo-Request Workflow (Phase 2) — not yet met
 - [ ] A real submission on the live site creates a row in the Neon database
 - [ ] A real submission triggers a Resend email to elearning@Zhypility.com
