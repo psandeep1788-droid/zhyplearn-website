@@ -12,6 +12,32 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [x] Demo form returns an honest error (not a fake success) when Neon/Resend
       aren't configured — verified against the live UAT URL, not just locally
 
+## Hero Headline — Single-Line & Full-Stop Fix (2026-10-26 addition) — done
+- [x] "ZhypLearn: A New Era of" renders as a single line at desktop widths —
+      verified via `getBoundingClientRect().height` returning 45px (one
+      line box, not ~90px for two) at 1200px, 1280px, and 1920px viewports
+- [x] "AI-Powered Learning" (no trailing full stop) confirmed via
+      `textContent` inspection live — gold, bold, kept at the original
+      44px desktop size (unchanged), still the visually larger/emphasized
+      line
+- [x] First line reduced to 38px at desktop only (`sm:text-[38px]`); mobile
+      size (34px, both lines) is completely unchanged from before this fix
+- [x] Tablet (768px): both lines render on one line each, no overflow
+      (`scrollWidth`/`clientWidth` both 753px)
+- [x] Mobile (375px): headline wraps naturally across 4 visual lines with
+      no orphaned single word, no overflow (`scrollWidth`/`clientWidth`
+      both 375px), no trailing period
+- [x] CTA unchanged: "Book a Demo" still links to `/book-a-demo`, verified
+      live
+- [x] Illustration, background, animations, secondary CTA, capability
+      checkmarks, supporting paragraph all unchanged — `git diff` shows
+      only the H1's markup/size classes changed in `Hero.tsx`, no other
+      file touched
+- [x] `npm run build` and `npm run lint` both exit 0
+- [x] No new console errors in a fresh tab (only the pre-existing dev-only
+      CSP/eval warning)
+- [x] `git diff --stat` confirms exactly one file changed: `Hero.tsx`
+
 ## Hero Headline & Site-Wide Copy Polish (2026-10-26 addition) — done
 - [x] Hero eyebrow reads "The Future of Enterprise Learning" — verified live
       via DOM text content

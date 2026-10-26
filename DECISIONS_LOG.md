@@ -165,6 +165,41 @@ external links all verified live, not assumed.
 LinkedIn/YouTube/Instagram/Facebook/X profile URLs before production launch;
 the current `https://www.*.com/` homepage links must not go live as-is.
 
+## Hero Headline — Single-Line Fix & Full-Stop Removal (2026-10-26)
+Sandeep reviewed the live hero (screenshot supplied) and flagged two issues
+with the headline implemented earlier this session: "ZhypLearn: A New Era
+of" was wrapping across 2 lines at desktop width instead of staying on one
+line, and "AI-Powered Learning." still carried a trailing full stop he
+wanted removed.
+
+**Fix:** measured actual rendered text widths against the hero's real
+desktop column width (494px, stable from ~1200px viewport upward, confirmed
+via `getBoundingClientRect`) before choosing a size — "ZhypLearn: A New Era
+of" fits at 38px with ~30px of margin, while "AI-Powered Learning" (now
+without its full stop) still fits at the original 44px with ~18px margin.
+Split the H1 into two independently-sized `block` spans instead of one
+shared size class, so the charcoal line could shrink slightly at desktop
+while the gold line keeps its original, more prominent size — this also
+reinforces the gold phrase as "the main visual highlight," per the original
+Task 1 brief. Mobile sizing is completely unchanged (both lines still 34px,
+identical to what was already live); natural wrapping on mobile/tablet is
+expected and matches Sandeep's explicit instruction. The existing
+non-breaking space between "Era" and "of" (added in the prior round to
+avoid an orphaned word) was kept as a safety net for narrower widths.
+
+**Verified, not just changed:** actually measured text-vs-column widths at
+1200/1280/1920px before picking 38px (not a guess), then confirmed live
+that the line box height for "ZhypLearn: A New Era of" stays at a single
+line's height (45px, not ~90px for two lines) at 1200px, 1920px, and
+tablet (768px) width, and that mobile still wraps naturally with no
+horizontal overflow.
+
+**Scope note:** the metadata `<title>`/OG/Twitter strings (synced to the
+hero headline in the prior round) still carry the trailing full stop —
+Sandeep's instruction this round was explicitly scoped to "the homepage
+hero section," so metadata was left untouched rather than assumed. Flagged
+to Sandeep for a decision on whether to sync it too.
+
 ## Hero Headline & Site-Wide Copy Polish (2026-10-26)
 Sandeep approved, via a two-phase Plan → Review → Approve process, a new
 Hero headline and a site-wide em dash/copy polish pass.

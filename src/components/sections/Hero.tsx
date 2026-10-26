@@ -18,10 +18,9 @@ export default function Hero() {
           <span className="inline-flex items-center gap-2 text-[13px] font-bold tracking-wide text-gold-dark uppercase">
             The Future of Enterprise Learning
           </span>
-          <h1 className="font-display text-[34px] leading-[1.18] font-bold text-charcoal sm:text-[44px]">
-            ZhypLearn: A New Era{" "}of
-            <br />
-            <span className="text-gold">AI-Powered Learning.</span>
+          <h1 className="font-display leading-[1.18] font-bold text-charcoal">
+            <span className="block text-[34px] sm:text-[38px]">ZhypLearn: A New Era{" "}of</span>
+            <span className="block text-[34px] text-gold sm:text-[44px]">AI-Powered Learning</span>
           </h1>
           <p className="max-w-[520px] text-lg text-gray-700">
             ZhypLearn brings learning management, engaging learner experiences, and AI-powered
