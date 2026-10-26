@@ -108,8 +108,8 @@ How It Works), matching the approved Artifact exactly:
 Nav → Hero → Platform strip (4 capability groups) → AI-Powered Content Creation →
 Engaging & Personal Learning → Assessment & Verification → Multilingual & Immersive
 Learning → Platform Management & Business Value → "See ZhypLearn in Action" gallery →
-Solutions (Enterprise / SME / Education) → How It Works → Final CTA → Footer (with
-Our Presence).
+Solutions (Enterprise / SME / Education) → How It Works → **FAQs (added
+2026-10-26, see `DECISIONS_LOG.md`)** → Final CTA → Footer (with Our Presence).
 
 ## 4. Technology Stack & Architecture
 

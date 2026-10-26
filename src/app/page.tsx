@@ -9,6 +9,7 @@ import PlatformManagement from "@/components/sections/PlatformManagement";
 import Showcase from "@/components/sections/Showcase";
 import Solutions from "@/components/sections/Solutions";
 import HowItWorks from "@/components/sections/HowItWorks";
+import FAQs from "@/components/sections/FAQs";
 import FinalCta from "@/components/sections/FinalCta";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function HomePage() {
       <Showcase />
       <Solutions />
       <HowItWorks />
+      <FAQs />
       <FinalCta />
     </>
   );

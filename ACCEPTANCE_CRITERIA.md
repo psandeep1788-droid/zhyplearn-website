@@ -168,6 +168,53 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       resolve to the real UAT domain; `X-Powered-By` absent; zero console
       errors on the deployed production build
 
+## FAQs Section (2026-10-26 addition) — done
+- [x] New section inserted in `src/app/page.tsx` immediately after `<HowItWorks />`
+      and before `<FinalCta />` — no other section reordered; `git diff --stat`
+      confirms only `src/app/page.tsx` (2-line addition) and the new
+      `src/components/sections/FAQs.tsx` file were touched
+- [x] Eyebrow label and visible H2 heading both read exactly "FAQs" — verified
+      live via DOM inspection (`#faqs span` and `#faqs h2` both return `"FAQs"`)
+- [x] Light-gray section background (`bg-gray-100`), white rounded accordion
+      cards with subtle gray borders, gold-dark accents (eyebrow, chevron,
+      hover state) and existing typography — matches the established pattern
+      from `AIContentCreation.tsx`/`Assessment.tsx`/`HowItWorks.tsx`, no new
+      visual language introduced
+- [x] All 8 questions implemented with the approved copy (see below);
+      Q3/Q4 SCORM answers reproduced **exactly**, byte-for-byte, from the
+      approved wording
+- [x] Independent expand/collapse verified live: two different items opened
+      simultaneously (`aria-expanded="true"` on both at once), confirming no
+      single-open/auto-close behavior
+- [x] Keyboard operation verified live: `Enter` opens a focused item, `Space`
+      closes it, focus remains on the trigger button throughout, and a
+      visible focus outline renders (`outline: rgb(229,151,0) auto 1px` —
+      browser default `:focus-visible`, same mechanism relied on elsewhere
+      on this site)
+- [x] ARIA wiring verified live: each question is an `<h3>` wrapping a
+      `<button aria-expanded aria-controls id="faq-trigger-N">`; each answer
+      is `<div role="region" aria-labelledby="faq-trigger-N" id="faq-panel-N">`;
+      `aria-controls`/`id` pairs confirmed to match via DOM inspection
+- [x] Reduced-motion: the only animation is the chevron's `rotate-180`
+      transition, which inherits the site's existing global
+      `prefers-reduced-motion` rule in `globals.css` automatically — no new
+      exemption needed. The answer panel itself is conditionally rendered
+      (same approach as the Nav dropdown/mobile menu), not CSS-animated, so
+      there is no additional motion to govern.
+- [x] Restrained text CTA below the accordion ("Still have questions? Book a
+      demo and we'll walk through it with you.") links to `/book-a-demo` —
+      confirmed via `find` against the live DOM
+- [x] No horizontal overflow at 375px (mobile) or 768px (tablet) — measured
+      via `scrollWidth`/`clientWidth`, both before and after expanding an item
+- [x] `npm run build` and `npm run lint` both exit 0
+- [x] No console errors from the component itself — one stray
+      `getComputedStyle` error seen in the first test tab was confirmed to be
+      residue from this session's own manual JS test calls (reproduced clean
+      in a fresh tab), consistent with the same browser-tooling-noise pattern
+      documented earlier in this project
+- [x] No dependency installed, no unrelated section modified, no production
+      config touched
+
 ## Demo-Request Workflow (Phase 2) — not yet met
 - [ ] A real submission on the live site creates a row in the Neon database
 - [ ] A real submission triggers a Resend email to elearning@Zhypility.com

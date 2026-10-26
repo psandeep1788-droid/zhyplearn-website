@@ -165,6 +165,41 @@ external links all verified live, not assumed.
 LinkedIn/YouTube/Instagram/Facebook/X profile URLs before production launch;
 the current `https://www.*.com/` homepage links must not go live as-is.
 
+## FAQs Section (2026-10-26)
+Sandeep approved a new FAQs section for the homepage after a two-round
+read-only proposal (placement, design, and all 8 questions/answers reviewed
+and finalized before any code was written). Implemented exactly as approved:
+
+- New `src/components/sections/FAQs.tsx`, inserted in `src/app/page.tsx`
+  between `HowItWorks` and `FinalCta` — no other section reordered or
+  touched.
+- Both the eyebrow label and the visible H2 read "FAQs" (not "FAQ"), per
+  Sandeep's explicit decision — intentionally simpler than other sections'
+  eyebrow + distinct-headline pattern, applied only here as instructed.
+- All 8 answers trace to language already approved and live elsewhere on
+  the site (the site description in `layout.tsx`, the AI-content-creation
+  formats and SCORM statements in `AIContentCreation.tsx`, the SCORM-upload
+  statement in `PlatformManagement.tsx`, and the three organization segments
+  in `Solutions.tsx`) — nothing new was asserted. The two SCORM answers
+  (Q3/Q4) are reproduced exactly, unedited, from the originally approved
+  wording.
+- No separately-supplied FAQ copy document was ever found, across two
+  rounds of searching the project repo, Downloads, Desktop, and this
+  session's scratchpad — explicitly confirmed to Sandeep rather than
+  assumed away.
+- Accordion reuses the existing disclosure pattern already built for the
+  Nav "Product" dropdown (native `<button aria-expanded>` semantics, no
+  custom key handling needed) rather than introducing a new interaction
+  pattern or dependency. Each item expands/collapses independently — no
+  auto-closing of siblings.
+- No animation library or CSS height-transition trick was added for the
+  expand/collapse; the panel is conditionally rendered (same approach as
+  the Nav dropdown/mobile menu), so the only motion is the chevron's
+  rotation, which already inherits the site's global
+  `prefers-reduced-motion` rule.
+
+Full verification evidence in `ACCEPTANCE_CRITERIA.md` → "FAQs Section".
+
 ## Technical Remediation F-1–F-6 (2026-10-26)
 Sandeep approved 6 technical fixes from the read-only comprehensive audit,
 scoped strictly to: F-1 sitemap/JSON-LD/production-detection, F-2 honeypot
