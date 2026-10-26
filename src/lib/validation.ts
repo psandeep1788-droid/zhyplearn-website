@@ -13,3 +13,16 @@ export const demoRequestSchema = z.object({
 });
 
 export type DemoRequestFormValues = z.infer<typeof demoRequestSchema>;
+
+export const contactRequestSchema = z.object({
+  name: z.string().trim().min(2, "Please enter your name").max(120),
+  email: z.string().trim().email("Please enter a valid email address").max(200),
+  phone: z.string().trim().min(6, "Please enter a valid phone number").max(30),
+  subject: z.string().trim().min(2, "Please enter a subject").max(160),
+  message: z.string().trim().min(10, "Please add a few details").max(2000),
+  // Honeypot field — see demoRequestSchema for why this is intentionally
+  // unconstrained and checked separately before this schema runs.
+  website: z.string().optional(),
+});
+
+export type ContactRequestFormValues = z.infer<typeof contactRequestSchema>;
