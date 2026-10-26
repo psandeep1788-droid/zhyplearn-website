@@ -106,7 +106,7 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       spacing unchanged, no console errors
 - [x] Build and lint clean
 
-## Technical Remediation F-1–F-6 (2026-10-26 addition) — done, local verification; live UAT re-check pending deploy in this same session
+## Technical Remediation F-1–F-6 (2026-10-26 addition) — done, verified locally and on live UAT
 - [x] **F-1 (sitemap/JSON-LD/production detection):** `isProductionDeploy()`/
       `siteUrl()` now read explicit `SITE_URL`/`IS_PRODUCTION` Cloudflare `vars`
       instead of Netlify's `CONTEXT` var. Locally (no vars set, matching a
@@ -114,9 +114,12 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       resolve to `http://localhost:3000` — the correct same-origin fallback,
       not a hardcoded wrong domain — and `robots.txt` still returns
       `Disallow: /`. `wrangler.jsonc` sets `SITE_URL` to the real UAT Workers
-      domain with `IS_PRODUCTION` intentionally omitted. **Live UAT
-      re-verification of the actual UAT domain in the sitemap/JSON-LD is
-      pending the deploy step below.**
+      domain with `IS_PRODUCTION` intentionally omitted. **Confirmed live on
+      the deployed UAT site** (deployed version
+      `7dcfa246-ef89-429e-a075-c81ba15b4b5c`): `sitemap.xml` and the JSON-LD
+      `url` both resolve to
+      `https://zhyplearn-website.psandeep1788.workers.dev`, `robots.txt`
+      still returns `Disallow: /`.
 - [x] **F-2 (honeypot validation order):** confirmed via live POST testing
       against the dev server — a valid submission is correctly rejected only
       by real field errors; an invalid submission (short name, bad email)
@@ -155,6 +158,15 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       `src/app/api/demo-request/route.ts`, `src/app/layout.tsx`,
       `src/components/sections/Hero.tsx`, `src/lib/env.ts`,
       `src/lib/validation.ts`, `wrangler.jsonc`
+- [x] **Deployed to UAT and re-verified live (2026-10-26, commit `155339b`,
+      deploy version `7dcfa246-ef89-429e-a075-c81ba15b4b5c`):** all 6
+      security headers + CSP present on the live response; Product dropdown
+      and mobile menu both work under the live CSP; all 3 demo-form cases
+      (valid → honest 503, invalid → 400, honeypot → silent 200) reproduced
+      against the live API; all 5 Book a Demo links verified live, one
+      clicked through to confirm real navigation; OG/Twitter/JSON-LD all
+      resolve to the real UAT domain; `X-Powered-By` absent; zero console
+      errors on the deployed production build
 
 ## Demo-Request Workflow (Phase 2) — not yet met
 - [ ] A real submission on the live site creates a row in the Neon database

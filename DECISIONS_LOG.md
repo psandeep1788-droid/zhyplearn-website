@@ -188,12 +188,13 @@ honeypot) tested live against the CSP with no breakage; all 5 "Book a Demo"
 instances confirmed routing to the same `/book-a-demo` destination; OG/
 Twitter metadata present and text-only; `X-Powered-By` confirmed absent.
 
-**Known, called-out limitation:** this round's sitemap/JSON-LD/header checks
-were run against the local dev server, not the live UAT deployment, because
-the fix (F-1) specifically depends on Cloudflare-only env vars that don't
-exist locally. The actual UAT-domain values are re-verified live immediately
-after this change is deployed — see the entry immediately below once that
-step completes, or `PROJECT_STATUS.md` if it hasn't yet.
+**Deployed and re-verified live on UAT** (commit `155339b`, deploy version
+`7dcfa246-ef89-429e-a075-c81ba15b4b5c`,
+`https://zhyplearn-website.psandeep1788.workers.dev`): sitemap/JSON-LD/OG/
+Twitter now resolve to the real UAT domain (not localhost); robots.txt still
+disallows indexing; all headers present; dropdown, mobile menu, and all 3
+demo-form cases reproduced against the live site with identical results to
+local testing; zero console errors on the deployed production build.
 
 **Pre-existing, unrelated observation (not a defect introduced here):** a
 dev-only Next.js console warning ("eval() is not supported... make sure
