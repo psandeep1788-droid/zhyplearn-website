@@ -21,18 +21,30 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "Invalid request body." }, { status: 400 });
   }
 
+  // Honeypot check runs before schema validation — a strict schema check
+  // here would reject a filled honeypot with a revealing validation error
+  // instead of the intended silent fake success, which defeats the point
+  // (a bot that fills every field, including the hidden one, would learn
+  // exactly what tripped it). Read loosely and defensively: any non-empty
+  // string means a bot filled every field, including the hidden one.
+  if (
+    body &&
+    typeof body === "object" &&
+    "website" in body &&
+    typeof (body as Record<string, unknown>).website === "string" &&
+    (body as Record<string, unknown>).website !== ""
+  ) {
+    // Pretend success so bots don't learn to adapt, but never store or
+    // email anything.
+    return NextResponse.json({ ok: true });
+  }
+
   const parsed = demoRequestSchema.safeParse(body);
   if (!parsed.success) {
     return NextResponse.json(
       { ok: false, error: parsed.error.issues[0]?.message ?? "Invalid submission." },
       { status: 400 },
     );
-  }
-
-  // Honeypot tripped — pretend success so bots don't learn to adapt, but
-  // never store or email anything.
-  if (parsed.data.website) {
-    return NextResponse.json({ ok: true });
   }
 
   if (!isDatabaseConfigured()) {

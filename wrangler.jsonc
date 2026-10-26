@@ -5,6 +5,13 @@
   "upload_source_maps": true,
   "compatibility_date": "2026-10-25",
   "compatibility_flags": ["nodejs_compat"],
+  // IS_PRODUCTION intentionally omitted here — absent means "not production"
+  // (src/lib/env.ts defaults to false), which preserves noindex on this UAT
+  // deployment. Only set IS_PRODUCTION="true" and update SITE_URL to the
+  // real domain as part of a separately-approved production launch.
+  "vars": {
+    "SITE_URL": "https://zhyplearn-website.psandeep1788.workers.dev"
+  },
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"

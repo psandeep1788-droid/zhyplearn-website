@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const CHECKS = ["Reimagined UI", "Built-in GenAI", "AI Proctoring", "AI Authoring Tool"];
 
 export default function Hero() {
@@ -28,12 +30,12 @@ export default function Hero() {
             assessment and immersive learning together in one connected platform.
           </p>
           <div className="mt-1.5 flex flex-wrap gap-3.5">
-            <a
-              href="#demo"
+            <Link
+              href="/book-a-demo"
               className="rounded-full bg-gold px-7 py-3.5 text-[15px] font-semibold text-white transition hover:-translate-y-px hover:bg-gold-dark hover:shadow-[0_10px_28px_rgba(245,166,35,0.38)]"
             >
               Book a Demo
-            </a>
+            </Link>
             <a
               href="#platform"
               className="rounded-full border-[1.5px] border-charcoal px-7 py-3.5 text-[15px] font-semibold text-charcoal transition hover:bg-charcoal hover:text-white"

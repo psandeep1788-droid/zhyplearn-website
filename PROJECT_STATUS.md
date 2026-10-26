@@ -133,12 +133,11 @@ exists yet.
   and verified present in the live site's HTML/response.
 - **Confirmed working:** non-production deploys return `Disallow: /` — verified
   directly against the live UAT URL.
-- **Requires decision / technical risk:** the production-vs-preview check in
-  `src/lib/env.ts` (`isProductionDeploy()`) reads `process.env.CONTEXT`, which is a
-  **Netlify** environment variable. Cloudflare does not set this. Right now this
-  means the site *always* evaluates as "not production" — harmless today (we want
-  noindex on the UAT URL anyway) but it must be fixed with the correct Cloudflare
-  signal before this logic can be trusted at real launch. Flagged in Risks.
+- **Resolved 2026-10-26 (F-1):** the production-vs-preview check in
+  `src/lib/env.ts` (`isProductionDeploy()`) now reads explicit Cloudflare
+  `vars` (`IS_PRODUCTION`/`SITE_URL` in `wrangler.jsonc`) instead of
+  Netlify's `CONTEXT`, which Cloudflare never set. See `DECISIONS_LOG.md`
+  "Technical Remediation F-1–F-6" for verification evidence.
 - Keyword map: directional only, **not verified** against a real search-volume
   tool, as originally disclosed.
 

@@ -6,9 +6,10 @@ export const demoRequestSchema = z.object({
   company: z.string().trim().min(2, "Please enter your company name").max(160),
   message: z.string().trim().min(10, "Please add a few details").max(2000),
   // Honeypot field: real visitors never fill this in (hidden via CSS).
-  // Any non-empty value here means a bot filled every field, including
-  // the hidden one — reject without revealing why.
-  website: z.string().max(0).optional().or(z.literal("")),
+  // Checked separately in the route handler *before* this schema runs, so
+  // a bot filling it gets a silent fake success instead of a revealing
+  // validation error — this field is intentionally unconstrained here.
+  website: z.string().optional(),
 });
 
 export type DemoRequestFormValues = z.infer<typeof demoRequestSchema>;

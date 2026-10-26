@@ -106,6 +106,56 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       spacing unchanged, no console errors
 - [x] Build and lint clean
 
+## Technical Remediation F-1–F-6 (2026-10-26 addition) — done, local verification; live UAT re-check pending deploy in this same session
+- [x] **F-1 (sitemap/JSON-LD/production detection):** `isProductionDeploy()`/
+      `siteUrl()` now read explicit `SITE_URL`/`IS_PRODUCTION` Cloudflare `vars`
+      instead of Netlify's `CONTEXT` var. Locally (no vars set, matching a
+      non-production deploy), `sitemap.xml` and the Organization JSON-LD both
+      resolve to `http://localhost:3000` — the correct same-origin fallback,
+      not a hardcoded wrong domain — and `robots.txt` still returns
+      `Disallow: /`. `wrangler.jsonc` sets `SITE_URL` to the real UAT Workers
+      domain with `IS_PRODUCTION` intentionally omitted. **Live UAT
+      re-verification of the actual UAT domain in the sitemap/JSON-LD is
+      pending the deploy step below.**
+- [x] **F-2 (honeypot validation order):** confirmed via live POST testing
+      against the dev server — a valid submission is correctly rejected only
+      by real field errors; an invalid submission (short name, bad email)
+      returns the expected 400 with a field message; a honeypot-filled
+      submission returns `{"ok":true}` with HTTP 200 and does not reach
+      validation, storage, or email. (A repeat honeypot POST immediately
+      after returned 429 from the pre-existing rate limiter — expected,
+      unrelated behavior, not a defect.)
+- [x] **F-3 (Hero CTA routing):** `Hero.tsx`'s "Book a Demo" now uses
+      `next/link` to `/book-a-demo`, matching the other 4 instances (Nav
+      desktop, Nav mobile, Final CTA, Footer) — all 5 confirmed via code
+      search to point at the same route.
+- [x] **F-4 (OG/Twitter metadata):** live HTML fetch confirms `og:title`,
+      `og:description`, `og:url`, `og:site_name`, `og:type`, `twitter:card`,
+      `twitter:title`, `twitter:description` all present, text-only (no
+      invented image), using the same `siteUrl()`-derived absolute URL as the
+      JSON-LD.
+- [x] **F-5 (security headers + CSP):** live header fetch confirms
+      `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`,
+      `Strict-Transport-Security`, `Permissions-Policy`, and
+      `Content-Security-Policy` all present. Functionally tested against the
+      CSP: desktop Product dropdown opens/closes (click + Escape), mobile
+      hamburger menu opens with all links, and the demo API route responds
+      correctly to all 3 submission cases above — no CSP violation broke any
+      of this. (Dev-only note: the CSP's absence of `unsafe-eval` triggers a
+      benign Next.js dev-mode console warning about React's debug `eval()`
+      and blocks the dev-only HMR websocket; both are explicitly dev-tooling
+      only — React's own message confirms `eval()` is never used in
+      production — and do not affect the production build or any real
+      feature.)
+- [x] **F-6 (X-Powered-By removed):** `poweredByHeader: false` confirmed —
+      header grep returns no match on the live dev response.
+- [x] `npm run build` and `npm run lint` both exit 0
+- [x] `git diff --stat` confirms exactly the 8 approved files changed, no
+      scope creep: `.env.example`, `next.config.ts`,
+      `src/app/api/demo-request/route.ts`, `src/app/layout.tsx`,
+      `src/components/sections/Hero.tsx`, `src/lib/env.ts`,
+      `src/lib/validation.ts`, `wrangler.jsonc`
+
 ## Demo-Request Workflow (Phase 2) — not yet met
 - [ ] A real submission on the live site creates a row in the Neon database
 - [ ] A real submission triggers a Resend email to elearning@Zhypility.com
@@ -222,8 +272,9 @@ rationale per item.
 - [ ] Each has a unique, correct `<title>` and meta description
 
 ## SEO (Phase 5) — not yet met
-- [ ] `isProductionDeploy()` correctly detects real Cloudflare production vs. preview
-      (current Netlify-only check fixed)
+- [x] **Fixed 2026-10-26 (F-1):** `isProductionDeploy()` now reads explicit
+      Cloudflare `vars` (`IS_PRODUCTION`/`SITE_URL`) instead of Netlify's
+      `CONTEXT` — see Technical Remediation F-1–F-6 above for evidence
 - [ ] Sitemap URLs resolve to the real production domain once connected
 - [ ] Organization schema validates with Google's Rich Results Test
 - [ ] No fabricated statistics, ratings, or claims anywhere in metadata or schema

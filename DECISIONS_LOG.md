@@ -165,6 +165,43 @@ external links all verified live, not assumed.
 LinkedIn/YouTube/Instagram/Facebook/X profile URLs before production launch;
 the current `https://www.*.com/` homepage links must not go live as-is.
 
+## Technical Remediation F-1–F-6 (2026-10-26)
+Sandeep approved 6 technical fixes from the read-only comprehensive audit,
+scoped strictly to: F-1 sitemap/JSON-LD/production-detection, F-2 honeypot
+validation order, F-3 Hero CTA routing, F-4 OG/Twitter metadata, F-5 security
+headers/CSP, F-6 removing `X-Powered-By`. No header-nav, section-redesign,
+About/Contact/Privacy copy, Neon/Resend setup, social-URL, screenshot, or
+DNS/production changes were in scope, and none were made.
+
+**Implemented across exactly 8 files** (`.env.example`, `next.config.ts`,
+`src/app/api/demo-request/route.ts`, `src/app/layout.tsx`,
+`src/components/sections/Hero.tsx`, `src/lib/env.ts`, `src/lib/validation.ts`,
+`wrangler.jsonc`) — confirmed via `git diff --stat`, no other file touched.
+
+**Verification performed this session** (full detail in
+`ACCEPTANCE_CRITERIA.md`'s new "Technical Remediation F-1–F-6" section):
+build and lint clean; sitemap/JSON-LD/robots checked against the local dev
+server (correct non-production fallback behavior); all 6 security headers
+and the new CSP present on a live response; Product dropdown, mobile
+hamburger menu, and all 3 demo-form submission cases (valid/invalid/
+honeypot) tested live against the CSP with no breakage; all 5 "Book a Demo"
+instances confirmed routing to the same `/book-a-demo` destination; OG/
+Twitter metadata present and text-only; `X-Powered-By` confirmed absent.
+
+**Known, called-out limitation:** this round's sitemap/JSON-LD/header checks
+were run against the local dev server, not the live UAT deployment, because
+the fix (F-1) specifically depends on Cloudflare-only env vars that don't
+exist locally. The actual UAT-domain values are re-verified live immediately
+after this change is deployed — see the entry immediately below once that
+step completes, or `PROJECT_STATUS.md` if it hasn't yet.
+
+**Pre-existing, unrelated observation (not a defect introduced here):** a
+dev-only Next.js console warning ("eval() is not supported... make sure
+`unsafe-eval` is included") and a blocked HMR websocket both appear locally
+once the new CSP is active — both are Next.js dev-tooling-only behavior
+(React's own message confirms `eval()` is never used in production) and do
+not reflect a production-build or live-site issue.
+
 ## Fourth Stakeholder Document Reconciliation (2026-10-25)
 A fourth document, "ZhypLearn 360° Comprehensive Website Audit & Client
 Feedback Strategy" (**Doc D**), was supplied with the message "attached
@@ -438,9 +475,10 @@ change from this QA pass. Full detail in `PROJECT_STATUS.md` §11.
 1. **Analytics approach is stale.** The original recommendation (Vercel Web
    Analytics) no longer applies — hosting is Cloudflare, not Vercel. Needs a fresh,
    privacy-conscious, free recommendation and your approval.
-2. **Production-detection bug.** `isProductionDeploy()` checks a Netlify-only
-   environment variable and will never correctly detect a real Cloudflare
-   production deploy as-is. Needs fixing before launch; harmless today.
+2. ~~Production-detection bug~~ — **Resolved 2026-10-26 (F-1):**
+   `isProductionDeploy()`/`siteUrl()` now read explicit Cloudflare `vars`
+   (`IS_PRODUCTION`/`SITE_URL`) instead of Netlify's `CONTEXT`. See
+   "Technical Remediation F-1–F-6" above.
 3. ~~Cloudflare Workers free-tier limits need re-confirming~~ — **Resolved during
    this audit.** Confirmed directly from Cloudflare's own docs: **100,000
    requests/day** (resets midnight UTC), 1,000 req/min burst cap, 10ms CPU time per

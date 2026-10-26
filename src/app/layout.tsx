@@ -16,17 +16,34 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const siteDescription =
+  "ZhypLearn is Zhypility InfoSolutions' AI-powered Learning Management System — AI-assisted content creation, assessment and verification, and multilingual, immersive learning.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title: {
     default: "ZhypLearn — AI-Powered Learning Management System",
     template: "%s | ZhypLearn",
   },
-  description:
-    "ZhypLearn is Zhypility InfoSolutions' AI-powered Learning Management System — AI-assisted content creation, assessment and verification, and multilingual, immersive learning.",
+  description: siteDescription,
   robots: isProductionDeploy()
     ? { index: true, follow: true }
     : { index: false, follow: false },
+  // No social-sharing image exists yet (see DECISIONS_LOG.md) — text-only
+  // Open Graph/Twitter metadata for now; "summary" card (not
+  // "summary_large_image", which expects an image) until one is supplied.
+  openGraph: {
+    title: "ZhypLearn — AI-Powered Learning. Reimagined.",
+    description: siteDescription,
+    url: siteUrl(),
+    siteName: "ZhypLearn",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "ZhypLearn — AI-Powered Learning. Reimagined.",
+    description: siteDescription,
+  },
 };
 
 const organizationJsonLd = {
