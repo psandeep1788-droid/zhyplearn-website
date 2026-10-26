@@ -137,6 +137,46 @@ Sandeep reviewed the classification above and made these final calls:
   the Artifact (not a Claude substitute, per `ACCEPTANCE_CRITERIA.md`), and
   final approved product screenshots to replace the 11 placeholders.
 
+## Footer Social Icons — Brand Colours & Hover/Focus Tooltips (2026-10-26)
+Sandeep requested two visual improvements to the footer's 5 social icons:
+individual brand colours instead of a uniform colour, and a small
+platform-name tooltip on hover/keyboard focus.
+
+**Brand colours applied to each icon's glyph** (the circular border stays
+neutral at rest, consistent with the existing minimal footer design —
+only the small icon glyph itself carries the brand colour, so the
+accents read as refined details rather than a loud colour block):
+LinkedIn `#0A66C2`, YouTube `#FF0000`, Facebook `#1877F2`, Instagram a
+5-stop brand gradient (yellow → orange → pink → purple → blue) applied
+directly to the icon's own SVG paths via an embedded `<linearGradient>`
+(a single shared `currentColor` can't produce a gradient, so Instagram is
+special-cased), and X in white rather than literally "black in light
+mode" as the brief's generic platform guidance suggested — **this
+footer's background is always dark charcoal, with no light-mode variant**,
+so white is what actually delivers X's brand-standard contrast here; a
+literal `prefers-color-scheme` toggle would have made the icon invisible
+for any visitor whose OS theme happens to be light, even though the
+footer itself never changes. Flagged to Sandeep rather than implemented
+blindly.
+
+**Tooltip**: pure CSS (`group-hover`/`group-focus-within`), no JS state and
+no new dependency. **Originally positioned above each icon per the brief's
+default, but testing found it overlapping the "CONNECT WITH US" label
+directly above the icon row** — there's no vertical room there. Moved
+below the icon instead, which the brief itself allows ("where space
+permits"). Confirmed via live testing: no clipping at the first icon
+(tightest case, 6px from the mobile viewport's left edge) or the last:
+same for tablet and desktop. The tooltip carries `aria-hidden="true"`
+since each link's existing `aria-label` already supplies the accessible
+name — confirmed this prevents the duplicate-announcement risk the brief
+flagged. Keyboard-focusing an icon shows its tooltip via `:focus-within`,
+same timing/styling as mouse hover.
+
+All 5 URLs, `target="_blank"`, `rel="noopener noreferrer"`, icon shapes,
+layout, spacing and responsive behavior confirmed unchanged — only colour
+classes and the tooltip markup were added to `Footer.tsx`; no other file
+touched.
+
 ## Footer Social Media Links — Verified Official Profiles Supplied (2026-10-26)
 Sandeep supplied verified official profile URLs for YouTube, Instagram,
 Facebook and X, replacing the temporary generic-homepage placeholders

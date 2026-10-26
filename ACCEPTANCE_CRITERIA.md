@@ -218,6 +218,49 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [x] `git diff --stat` confirms exactly one file changed: `Footer.tsx` —
       no other footer content, section, or unrelated functionality touched
 
+### Brand Colours & Hover/Focus Tooltips (2026-10-26 addition) — done
+- [x] Each icon's computed `color` confirmed via `getComputedStyle` live:
+      LinkedIn `rgb(10, 102, 194)` (`#0A66C2`), YouTube `rgb(255, 0, 0)`
+      (`#FF0000`), Facebook `rgb(24, 119, 242)` (`#1877F2`), X
+      `rgb(255, 255, 255)` (white — see rationale below)
+- [x] Instagram's gradient confirmed live: its SVG `<rect>` references
+      `stroke="url(#footer-instagram-gradient)"`, and the embedded
+      `<linearGradient>` has exactly 5 stops
+      (`#FEDA75`/`#F58529`/`#DD2A7B`/`#8134AF`/`#515BD4`) — visually
+      confirmed via screenshot/zoom
+- [x] X implemented as white rather than black-in-light-mode — this
+      footer's background is always dark charcoal (no light-mode variant
+      exists for it), so white is what actually provides contrast;
+      documented as a deliberate, flagged deviation from the brief's
+      generic guidance, not an oversight
+- [x] Tooltip appears on mouse hover (`opacity: 1` confirmed via
+      `getComputedStyle` after a real hover) and on keyboard focus
+      (`opacity: 1` confirmed after `.focus()`, with the existing gold
+      `focus-visible` ring also still present)
+- [x] Tooltip text matches each platform's name exactly (LinkedIn, YouTube,
+      Instagram, Facebook, X)
+- [x] Tooltip carries `aria-hidden="true"` on all 5 — confirmed via DOM
+      query — so it doesn't duplicate the link's existing `aria-label`
+      announcement
+- [x] **Position corrected during testing**: originally placed above each
+      icon per the brief's default, but live testing showed it visually
+      overlapping the "CONNECT WITH US" label directly above the icon row
+      (no vertical room there) — moved below the icon instead, which the
+      brief itself permits when space above doesn't allow it. Re-verified
+      clean with no overlap after the fix.
+- [x] No clipping at mobile (375px): first icon's tooltip measured 6px
+      from the viewport's left edge (`getBoundingClientRect`), last icon's
+      tooltip fully within bounds — neither clipped
+- [x] No horizontal overflow introduced at mobile (375px) or tablet
+      (768px) — `scrollWidth`/`clientWidth` match at both
+- [x] All 5 URLs, `target="_blank"`, `rel="noopener noreferrer"` reconfirmed
+      unchanged after this change (not just the color/tooltip addition)
+- [x] No new dependency added — pure Tailwind/CSS (`group-hover`,
+      `group-focus-within`), no JS state
+- [x] `npm run build` and `npm run lint` both exit 0; no new console errors
+      in a fresh tab (only the pre-existing dev-only CSP/eval warning)
+- [x] `git diff --stat` confirms exactly one file changed: `Footer.tsx`
+
 ## Solutions Copy Revision (2026-10-25 addition) — done
 - [x] "Run a professional learning program without a dedicated L&D team"
       (SMEs card, `Solutions.tsx`) replaced with the approved wording
