@@ -165,6 +165,51 @@ external links all verified live, not assumed.
 LinkedIn/YouTube/Instagram/Facebook/X profile URLs before production launch;
 the current `https://www.*.com/` homepage links must not go live as-is.
 
+## Hero Headline & Site-Wide Copy Polish (2026-10-26)
+Sandeep approved, via a two-phase Plan → Review → Approve process, a new
+Hero headline and a site-wide em dash/copy polish pass.
+
+**Hero headline (supersedes the "fixed wording" positioning statement):**
+Eyebrow changed from "AI-Powered Learning Management System" to "The Future
+of Enterprise Learning"; H1 changed from "ZhypLearn — AI-Powered Learning.
+Reimagined." to a two-line "ZhypLearn: A New Era of" (bold charcoal) /
+"AI-Powered Learning." (bold, solid brand gold `#F5A623` via the existing
+`text-gold` token — not the previous 3-stop gradient-clip treatment, and no
+glow, per Sandeep's explicit choice); supporting paragraph changed to
+"ZhypLearn brings learning management, engaging learner experiences, and
+AI-powered content creation together in one intelligent learning platform."
+CTA unchanged (`Book a Demo` → `/book-a-demo`). A non-breaking space between
+"Era" and "of" was added during implementation to prevent an orphaned single
+word on its own line at desktop width — a minimal typography fix, not a
+layout or copy change, caught during live visual testing.
+
+**Metadata updated for consistency, as approved:** the `<title>`
+default (`layout.tsx`), the homepage's own page-level `<title>`
+(`page.tsx` — this overrides the layout default for `/` and needed the
+same update to actually achieve "title consistent with the new
+positioning"), and the Open Graph/Twitter titles all now read "ZhypLearn: A
+New Era of AI-Powered Learning." Meta descriptions were left as approved in
+the Phase A table — only their em dash → colon punctuation changed, no
+content rewritten.
+
+**`MASTER_REQUIREMENTS.md`'s fixed-wording entry updated** to the new
+positioning statement, with a note that it supersedes the original wording
+(not deleted, per this project's standing documentation practice).
+
+**Site-wide copy polish**, applied exactly as approved in the Phase A
+table, across `AIContentCreation.tsx`, `Assessment.tsx`, `Engagement.tsx`,
+`Multilingual.tsx`, `PlatformStrip.tsx`, `Showcase.tsx`,
+`ScreenshotPlaceholder.tsx`, `DemoRequestForm.tsx`, `Footer.tsx`, and
+`FAQs.tsx`. Applied naturally per the safeguards: commas, colons, periods
+or "though" substituted for em dashes based on context, not a mechanical
+find-replace; the two approved SCORM sentences themselves are unchanged —
+only the FAQ's own "Yes — " lead-in (my addition, not part of the protected
+wording) became "Yes, "; all 8 FAQ questions, their order, and the
+single-open accordion behavior are unchanged; code comments, ARIA labels,
+alt text, and the `about`/`privacy` placeholder stub pages were left
+untouched, exactly as scoped. Full before/after evidence in
+`ACCEPTANCE_CRITERIA.md` → "Hero Headline & Site-Wide Copy Polish".
+
 ## FAQs Section — Heading & Accordion Correction (2026-10-26)
 Sandeep reviewed the live FAQs section and requested two targeted
 corrections, supersedes nothing in principle (not a reversal of an earlier

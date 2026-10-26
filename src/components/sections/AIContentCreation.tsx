@@ -27,7 +27,7 @@ export default function AIContentCreation() {
             </h2>
             <p className="text-base text-gray-700">
               Turn learning requirements into engaging digital experiences with ZhypLearn Courz
-              Builder — our AI-assisted authoring workspace — and a rich range of learning
+              Builder, our AI-assisted authoring workspace, and a rich range of learning
               formats, from a structured, branded course outline to the quiz questions that test
               it.
             </p>
@@ -65,7 +65,7 @@ export default function AIContentCreation() {
           </div>
         </div>
         <p className="mt-2 text-right text-[12.5px] text-gray-500">
-          Illustrative placeholders — genuine ZhypLearn screenshots to follow.
+          Illustrative placeholders. Genuine ZhypLearn screenshots to follow.
         </p>
       </div>
     </section>

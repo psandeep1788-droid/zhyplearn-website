@@ -56,7 +56,7 @@ export default function ScreenshotPlaceholder({
           </div>
           <p className="font-display text-[13.5px] font-semibold text-charcoal">{caption}</p>
           <p className="text-[12px] font-medium text-gray-500 italic">
-            Product screenshot — coming soon
+            Coming soon
           </p>
         </div>
       )}

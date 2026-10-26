@@ -16,18 +16,16 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex max-w-6xl flex-wrap items-center gap-16 px-6">
         <div className="flex min-w-[280px] flex-[0.95_1_440px] flex-col gap-5">
           <span className="inline-flex items-center gap-2 text-[13px] font-bold tracking-wide text-gold-dark uppercase">
-            AI-Powered Learning Management System
+            The Future of Enterprise Learning
           </span>
-          <h1 className="font-display text-[34px] leading-[1.12] font-bold text-charcoal sm:text-[44px]">
-            ZhypLearn —{" "}
-            <span className="bg-gradient-to-r from-gold-dark via-gold to-[#FFC861] bg-clip-text text-transparent">
-              AI-Powered Learning.
-            </span>{" "}
-            Reimagined.
+          <h1 className="font-display text-[34px] leading-[1.18] font-bold text-charcoal sm:text-[44px]">
+            ZhypLearn: A New Era{" "}of
+            <br />
+            <span className="text-gold">AI-Powered Learning.</span>
           </h1>
           <p className="max-w-[520px] text-lg text-gray-700">
-            Create engaging learning experiences, deliver interactive training, and bring content,
-            assessment and immersive learning together in one connected platform.
+            ZhypLearn brings learning management, engaging learner experiences, and AI-powered
+            content creation together in one intelligent learning platform.
           </p>
           <div className="mt-1.5 flex flex-wrap gap-3.5">
             <Link

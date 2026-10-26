@@ -28,7 +28,7 @@ export default function Showcase() {
           </p>
         </div>
         <p className="mb-10 text-center text-[12.5px] text-gray-500">
-          Illustrative placeholders — genuine ZhypLearn screenshots to follow.
+          Illustrative placeholders. Genuine ZhypLearn screenshots to follow.
         </p>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SHOTS.map((caption) => (

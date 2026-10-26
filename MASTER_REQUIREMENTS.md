@@ -13,8 +13,13 @@ later decision superseded an earlier one, that is noted explicitly (see
 - Company: **Zhypility InfoSolutions** — kept as a distinct, separate name from the
   product (never "ZhypLearn" and "Zhypility" conflated; company attribution lives in
   the footer only, never the header).
-- Positioning statement (fixed wording): **"ZhypLearn — AI-Powered Learning.
-  Reimagined."**
+- Positioning statement (fixed wording, updated 2026-10-26 — supersedes the
+  original "ZhypLearn — AI-Powered Learning. Reimagined." wording; see
+  `DECISIONS_LOG.md` → "Hero Headline & Site-Wide Copy Polish"): **"ZhypLearn:
+  A New Era of AI-Powered Learning."** — eyebrow: "The Future of Enterprise
+  Learning"; supporting line: "ZhypLearn brings learning management, engaging
+  learner experiences, and AI-powered content creation together in one
+  intelligent learning platform."
 - Tagline: **"Empowering Your Learning Journey."**
 - Objective: a production-ready marketing website that attracts enterprise customers
   and generates qualified demo requests — not a rebuild of the LMS product itself.

@@ -42,7 +42,7 @@ export default function PlatformStrip() {
           </h2>
           <p className="mt-3.5 text-[16.5px] text-gray-700">
             ZhypLearn pairs a reimagined, modern interface with generative AI woven through every
-            course — the foundation the capabilities below are built on.
+            course. It&apos;s the foundation the capabilities below are built on.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

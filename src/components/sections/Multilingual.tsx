@@ -23,7 +23,7 @@ export default function Multilingual() {
           </h2>
           <p className="mt-3.5 text-base text-gray-700">
             Extend learning experiences through multilingual capabilities and immersive
-            technologies that bring digital learning closer to real-world situations — a single
+            technologies that bring digital learning closer to real-world situations: a single
             course, translated and dubbed for every region, delivered through hands-on AR/VR and
             WebXR simulations.
           </p>

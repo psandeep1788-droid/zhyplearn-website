@@ -90,7 +90,7 @@ export default function DemoRequestForm() {
       }
     } catch {
       setStatus("error");
-      setErrorMessage("Network error — please check your connection and try again.");
+      setErrorMessage("Network error. Please check your connection and try again.");
     }
   }
 
@@ -104,7 +104,7 @@ export default function DemoRequestForm() {
         </span>
         <h3 className="font-display text-xl font-bold text-charcoal">Request received</h3>
         <p className="text-gray-700">
-          Thank you — your demo request has been received. Our team will be in touch shortly to
+          Thank you. Your demo request has been received. Our team will be in touch shortly to
           schedule a time.
         </p>
       </div>
@@ -152,7 +152,7 @@ export default function DemoRequestForm() {
           )}
           {field.name === "email" && showEmailHint && (
             <p className="flex items-start justify-between gap-3 rounded-lg bg-gray-100 px-3 py-2 text-[13px] font-normal text-gray-700">
-              <span>A business or institutional email helps our team respond faster — personal addresses are fine too.</span>
+              <span>A business or institutional email helps our team respond faster, though personal addresses are fine too.</span>
               <button
                 type="button"
                 onClick={() => setShowEmailHint(false)}

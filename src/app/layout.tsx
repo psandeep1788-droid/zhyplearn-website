@@ -17,12 +17,14 @@ const inter = Inter({
 });
 
 const siteDescription =
-  "ZhypLearn is Zhypility InfoSolutions' AI-powered Learning Management System — AI-assisted content creation, assessment and verification, and multilingual, immersive learning.";
+  "ZhypLearn is Zhypility InfoSolutions' AI-powered Learning Management System: AI-assisted content creation, assessment and verification, and multilingual, immersive learning.";
+
+const siteTitle = "ZhypLearn: A New Era of AI-Powered Learning.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title: {
-    default: "ZhypLearn — AI-Powered Learning Management System",
+    default: siteTitle,
     template: "%s | ZhypLearn",
   },
   description: siteDescription,
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
   // Open Graph/Twitter metadata for now; "summary" card (not
   // "summary_large_image", which expects an image) until one is supplied.
   openGraph: {
-    title: "ZhypLearn — AI-Powered Learning. Reimagined.",
+    title: siteTitle,
     description: siteDescription,
     url: siteUrl(),
     siteName: "ZhypLearn",
@@ -41,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "ZhypLearn — AI-Powered Learning. Reimagined.",
+    title: siteTitle,
     description: siteDescription,
   },
 };

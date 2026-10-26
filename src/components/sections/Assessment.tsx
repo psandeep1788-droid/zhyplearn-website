@@ -68,7 +68,7 @@ export default function Assessment() {
             </svg>
           </div>
           <p className="mt-3.5 text-[13px] text-gray-700 italic">
-            Sample learner result shown for illustration only — not a real learner record.
+            Sample learner result shown for illustration only, not a real learner record.
           </p>
         </div>
       </div>

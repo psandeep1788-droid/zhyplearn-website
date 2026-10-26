@@ -106,9 +106,9 @@ export default function Footer() {
         </div>
         <div className="flex flex-col gap-3 text-sm">
           <strong className="text-[13px] tracking-wide text-gold">OUR PRESENCE</strong>
-          <span>Mumbai, India — Office</span>
-          <span>UAE — Office</span>
-          <span>Bhubaneswar, India — Development Centre</span>
+          <span>Mumbai, India · Office</span>
+          <span>UAE · Office</span>
+          <span>Bhubaneswar, India · Development Centre</span>
         </div>
       </div>
       <div className="mx-auto mt-10 flex max-w-6xl flex-wrap justify-between gap-3 border-t border-white/10 px-6 pt-5 text-[12.5px] text-white/45">

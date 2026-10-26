@@ -21,7 +21,7 @@ export default function Engagement() {
               className="w-full max-w-[470px]"
             />
             <p className="max-w-[470px] text-[12.5px] text-gray-500">
-              Illustrative placeholder — a genuine ZhypLearn screenshot to follow.
+              Illustrative placeholder. A genuine ZhypLearn screenshot to follow.
             </p>
           </div>
           <div className="flex min-w-[280px] flex-1 flex-col gap-4" style={{ flexBasis: "420px" }}>
@@ -33,7 +33,7 @@ export default function Engagement() {
             </h2>
             <p className="text-base text-gray-700">
               Bring learning to life through interactive content and varied learning experiences
-              that encourage participation and knowledge retention — video-based questions,
+              that encourage participation and knowledge retention: video-based questions,
               flashcards, gamified challenges and more, built into the course itself.
             </p>
             <div className="mt-0.5 flex flex-wrap gap-x-2 gap-y-1 text-[13.5px] font-semibold text-gray-700">

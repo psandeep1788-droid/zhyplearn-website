@@ -7,27 +7,27 @@ const FAQS = [
   {
     question: "What is ZhypLearn?",
     answer:
-      "ZhypLearn is Zhypility InfoSolutions' AI-powered Learning Management System — AI-assisted content creation, assessment and verification, and multilingual, immersive learning.",
+      "ZhypLearn is Zhypility InfoSolutions' AI-powered Learning Management System: AI-assisted content creation, assessment and verification, and multilingual, immersive learning.",
   },
   {
     question: "How can AI help us create training courses?",
     answer:
-      "ZhypLearn Courz Builder, our AI-assisted authoring workspace, turns learning requirements into engaging content — from a structured, branded course outline to the quiz questions that test it — across formats including eLearning videos, flashcards, eBooks and case studies.",
+      "ZhypLearn Courz Builder, our AI-assisted authoring workspace, turns learning requirements into engaging content, from a structured, branded course outline to the quiz questions that test it. Formats include eLearning videos, flashcards, eBooks and case studies.",
   },
   {
     question: "Can we use our existing SCORM courses?",
     answer:
-      "Yes — upload your existing SCORM course packages and manage your learning content in ZhypLearn.",
+      "Yes, upload your existing SCORM course packages and manage your learning content in ZhypLearn.",
   },
   {
     question: "Can we export AI-generated courses as SCORM?",
     answer:
-      "Yes — create AI-powered courses and export them as SCORM packages for use with compatible LMS platforms.",
+      "Yes, create AI-powered courses and export them as SCORM packages for use with compatible LMS platforms.",
   },
   {
     question: "Is ZhypLearn suitable for different types of organisations?",
     answer:
-      "Yes. ZhypLearn is built to adapt to different kinds of organisations — including enterprises, SMEs and educational institutions — each with their own way of structuring and delivering training.",
+      "Yes. ZhypLearn is built to adapt to different kinds of organisations, including enterprises, SMEs and educational institutions, each with their own way of structuring and delivering training.",
   },
   {
     question: "Can ZhypLearn support our organisation's learning requirements?",
@@ -37,7 +37,7 @@ const FAQS = [
   {
     question: "How can we determine whether ZhypLearn is right for our team?",
     answer:
-      "The most practical next step is a live demo — we'll walk through ZhypLearn against your own requirements so you can see it in context before deciding.",
+      "The most practical next step is a live demo. We'll walk through ZhypLearn against your own requirements so you can see it in context before deciding.",
   },
   {
     question: "How do we get started?",

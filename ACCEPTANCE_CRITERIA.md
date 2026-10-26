@@ -12,6 +12,76 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [x] Demo form returns an honest error (not a fake success) when Neon/Resend
       aren't configured — verified against the live UAT URL, not just locally
 
+## Hero Headline & Site-Wide Copy Polish (2026-10-26 addition) — done
+- [x] Hero eyebrow reads "The Future of Enterprise Learning" — verified live
+      via DOM text content
+- [x] Hero H1 renders as exactly one `<h1>`, two lines: "ZhypLearn: A New
+      Era of" in bold charcoal (`rgb(26, 26, 26)`), then "AI-Powered
+      Learning." in bold, solid gold (`rgb(245, 166, 35)` = `#F5A623`
+      exactly) — verified via computed styles on both the text node and the
+      gold `<span>`
+- [x] Supporting paragraph reads exactly "ZhypLearn brings learning
+      management, engaging learner experiences, and AI-powered content
+      creation together in one intelligent learning platform." — verified
+      live
+- [x] Primary CTA still reads "Book a Demo" and links to `/book-a-demo` —
+      unchanged, verified live
+- [x] No orphaned single word on its own line at desktop width (1280px) —
+      a non-breaking space between "Era" and "of" keeps that pair together;
+      verified via screenshot before and after the fix
+- [x] No horizontal overflow at 375px (mobile) or 768px (tablet) — measured
+      via `scrollWidth`/`clientWidth`
+- [x] Existing hero illustration, background gradient/glow, animations,
+      secondary "Explore the Platform" CTA, and the 4 capability checkmarks
+      all unchanged — confirmed via diff (only the eyebrow `<span>`, `<h1>`,
+      and supporting `<p>` text/styling changed in `Hero.tsx`)
+- [x] `<title>` (both `layout.tsx`'s default and `page.tsx`'s
+      homepage-specific override), Open Graph title, and Twitter title all
+      read "ZhypLearn: A New Era of AI-Powered Learning." — verified via
+      `document.title` and direct `<meta>` tag inspection live
+- [x] Meta/OG descriptions retained their existing content; only their em
+      dash was changed to a colon, per the approved Phase A table — verified
+      via direct `<meta>` tag inspection live
+- [x] `MASTER_REQUIREMENTS.md`'s fixed-wording positioning statement updated
+      to the new headline, with a note that it supersedes the prior wording
+- [x] Approved copy/punctuation changes applied exactly as specified in the
+      Phase A table across `AIContentCreation.tsx`, `Assessment.tsx`,
+      `Engagement.tsx`, `Multilingual.tsx`, `PlatformStrip.tsx`,
+      `Showcase.tsx`, `ScreenshotPlaceholder.tsx`, `DemoRequestForm.tsx`,
+      `Footer.tsx`, `FAQs.tsx` — verified live: Footer's 3 "Our Presence"
+      lines now use "·"; all 11 screenshot-placeholder instances now read
+      "Coming soon"; the 3 "Illustrative placeholder(s)" disclaimers now use
+      a period; the demo form's business-email hint now reads "...respond
+      faster, though personal addresses are fine too." (confirmed live by
+      triggering it with a `gmail.com` address and tabbing away)
+- [x] The demo form's "Network error..." and "Thank you..." strings were
+      updated and confirmed correct by direct code inspection — neither is
+      practically triggerable live in this environment (the first requires
+      a genuine fetch failure, the second requires Neon actually configured,
+      which it still isn't), so these two are **verified by reading the
+      source, not by a live trigger** — flagged rather than claimed as
+      live-tested
+- [x] FAQs: all 8 questions, their order, and single-open accordion
+      behavior confirmed unchanged live; both SCORM core sentences
+      ("upload your existing SCORM course packages and manage your learning
+      content in ZhypLearn." / "create AI-powered courses and export them
+      as SCORM packages for use with compatible LMS platforms.") confirmed
+      byte-for-byte identical — only the "Yes — " lead-in became "Yes, "
+- [x] Code comments, ARIA labels/`alt` text, and the `about`/`privacy`
+      placeholder stub pages confirmed untouched — `git diff` shows no
+      changes to `Nav.tsx`, and the only comment-adjacent lines in changed
+      files are unrelated to this edit
+- [x] `robots.txt` still returns `Disallow: /`; CSP and other security
+      headers unchanged; `X-Powered-By` still absent — confirmed no
+      regression to unrelated configuration
+- [x] `npm run build` and `npm run lint` both exit 0; no new console errors
+      in a fresh tab (only the pre-existing dev-only CSP/eval warning)
+- [x] `git diff --stat` confirms exactly 14 files changed, matching the
+      approved scope: `MASTER_REQUIREMENTS.md`, `src/app/layout.tsx`,
+      `src/app/page.tsx`, and the 10 approved copy-polish component files
+      plus `Hero.tsx` — no unrelated section, nav, SEO config, or
+      deployment infrastructure touched
+
 ## Header Navigation — Product Dropdown (2026-10-26 addition) — done
 - [x] Desktop nav (≥1024px) collapsed to: Product (dropdown) · Solutions ·
       About · Contact · Login · Book a Demo — reduced from 6 flat items to 4,
