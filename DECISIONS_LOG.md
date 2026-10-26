@@ -165,6 +165,29 @@ external links all verified live, not assumed.
 LinkedIn/YouTube/Instagram/Facebook/X profile URLs before production launch;
 the current `https://www.*.com/` homepage links must not go live as-is.
 
+## FAQs Section — Heading & Accordion Correction (2026-10-26)
+Sandeep reviewed the live FAQs section and requested two targeted
+corrections, supersedes nothing in principle (not a reversal of an earlier
+decision, just a refinement of the first implementation):
+1. **Heading simplified further than originally built:** the small gold-dark
+   uppercase "FAQs" eyebrow label and the subtitle sentence are both removed.
+   Only the single `<h2>FAQs</h2>` remains, recolored from charcoal to the
+   brand gold (`#F5A623` exactly, via the existing `text-gold` token — not
+   `text-gold-dark`, which is a different, darker shade used elsewhere), kept
+   bold and centered.
+2. **Accordion behavior changed from independent-multi-open to
+   single-open:** opening one question now auto-closes whichever other
+   question was open; clicking the open question again closes it. Still
+   built on native `<button aria-expanded>` semantics — no new dependency,
+   no new interaction pattern, just a one-line change to how the open state
+   is tracked (`number | null` instead of a per-item boolean map).
+
+Both changes are scoped to `src/components/sections/FAQs.tsx` only — no
+other file touched. All 8 approved questions/answers, the two exact SCORM
+answers, the `/book-a-demo` CTA, and the section's placement/background/card
+styling are unchanged. Full verification evidence in
+`ACCEPTANCE_CRITERIA.md` → "FAQs Section — Heading & Accordion Correction".
+
 ## FAQs Section (2026-10-26)
 Sandeep approved a new FAQs section for the homepage after a two-round
 read-only proposal (placement, design, and all 8 questions/answers reviewed

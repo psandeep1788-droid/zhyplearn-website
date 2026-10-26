@@ -215,6 +215,38 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
 - [x] No dependency installed, no unrelated section modified, no production
       config touched
 
+## FAQs Section — Heading & Accordion Correction (2026-10-26) — done
+**Supersedes two items above** (the eyebrow+H2 bullet and the
+independent-with-multiple-open bullet): Sandeep requested a single gold
+heading (no eyebrow, no subtitle) and single-open accordion behavior,
+correcting the original implementation.
+- [x] Heading: exactly one `<h2>FAQs</h2>` remains in the section — the
+      small uppercase eyebrow `<span>` and the subtitle `<p>` were removed
+      entirely. Verified live: `#faqs` contains exactly 1 `<h2>`, its
+      computed color is `rgb(245, 166, 35)` (`#F5A623` exactly), `font-weight:
+      700`, centered — no eyebrow span or subtitle text found in the DOM.
+- [x] Accordion: changed from independent multi-open (`Record<number,
+      boolean>` state) to single-open (`number | null` state) — opening an
+      item closes any other open item; clicking the open item again closes
+      it, leaving all closed. Verified live: opening item 0 then item 1
+      shows item 0's `aria-expanded` flip to `"false"` and its panel removed
+      from the DOM while item 1 opens; clicking item 1 again returns all 8
+      items to `aria-expanded="false"`.
+- [x] `aria-expanded` confirmed accurate at every step of the above sequence
+- [x] Keyboard: `Enter` opens the focused item, `Space` closes it, focus
+      stays on the trigger, visible focus outline unchanged
+      (`rgb(229,151,0) auto 1px`)
+- [x] No horizontal overflow at 375px or 768px, with an item open, both
+      before and after this change
+- [x] All 8 questions and answers confirmed unchanged and in original order;
+      Q3/Q4 SCORM answers byte-for-byte identical; CTA still links to
+      `/book-a-demo`
+- [x] `npm run build` and `npm run lint` both exit 0; no new console errors
+      (only the pre-existing dev-only CSP/eval warning, reproduced in a
+      fresh tab)
+- [x] `git diff --stat` confirms exactly one file changed:
+      `src/components/sections/FAQs.tsx` — no other file touched
+
 ## Demo-Request Workflow (Phase 2) — not yet met
 - [ ] A real submission on the live site creates a row in the Neon database
 - [ ] A real submission triggers a Resend email to elearning@Zhypility.com

@@ -100,21 +100,17 @@ function FAQItem({
 }
 
 export default function FAQs() {
-  const [openItems, setOpenItems] = useState<Record<number, boolean>>({});
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   function toggle(id: number) {
-    setOpenItems((prev) => ({ ...prev, [id]: !prev[id] }));
+    setOpenIndex((prev) => (prev === id ? null : id));
   }
 
   return (
     <section id="faqs" className="bg-gray-100 py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto mb-11 max-w-[620px] text-center">
-          <span className="text-[13px] font-bold tracking-wide text-gold-dark uppercase">FAQs</span>
-          <h2 className="font-display mt-3 text-[26px] font-bold text-charcoal sm:text-[30px]">FAQs</h2>
-          <p className="mt-3.5 text-base text-gray-700">
-            Straight answers to the questions prospective customers ask most often.
-          </p>
+        <div className="mx-auto mb-10 max-w-[620px] text-center">
+          <h2 className="font-display text-[26px] font-bold text-gold sm:text-[30px]">FAQs</h2>
         </div>
         <div className="mx-auto flex max-w-[760px] flex-col gap-4">
           {FAQS.map((faq, i) => (
@@ -123,7 +119,7 @@ export default function FAQs() {
               id={i}
               question={faq.question}
               answer={faq.answer}
-              open={Boolean(openItems[i])}
+              open={openIndex === i}
               onToggle={() => toggle(i)}
             />
           ))}
