@@ -94,11 +94,11 @@ export default function Footer() {
               the logo image already contains it. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/zhypility-logo.webp"
-            alt="Zhypility InfoSolutions — Empowering Your Learning Journey"
-            width={1500}
-            height={456}
-            className="h-14 w-auto self-start"
+            src="/zhyplearn-logo.png"
+            alt="ZhypLearn — AI Powered LMS"
+            width={1628}
+            height={574}
+            className="h-20 w-auto self-start"
           />
           <div className="mt-2 flex flex-col gap-2.5">
             <strong className="text-[13px] tracking-wide text-white">CONNECT WITH US</strong>
