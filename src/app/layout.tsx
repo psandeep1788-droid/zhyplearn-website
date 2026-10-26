@@ -4,6 +4,7 @@ import "./globals.css";
 import { isProductionDeploy, siteUrl } from "@/lib/env";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
+import HashScrollFix from "@/components/HashScrollFix";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        <HashScrollFix />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

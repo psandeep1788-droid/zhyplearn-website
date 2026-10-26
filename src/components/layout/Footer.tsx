@@ -154,7 +154,10 @@ export default function Footer() {
       </div>
       <div className="mx-auto mt-10 flex max-w-6xl flex-wrap justify-between gap-3 border-t border-white/10 px-6 pt-5 text-[12.5px] text-white/45">
         <span>© 2026 Zhypility InfoSolutions. ZhypLearn is a product of Zhypility InfoSolutions. All rights reserved.</span>
-        <Link href="/privacy">Privacy &amp; Legal</Link>
+        <div className="flex flex-wrap gap-4">
+          <Link href="/legal#privacy">Privacy Statement</Link>
+          <Link href="/legal#disclaimer">Legal Disclaimer</Link>
+        </div>
       </div>
     </footer>
   );
