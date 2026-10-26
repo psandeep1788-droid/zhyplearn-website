@@ -101,7 +101,7 @@ export default function Footer() {
             className="h-20 w-auto self-start"
           />
           <div className="mt-2 flex flex-col gap-2.5">
-            <strong className="text-[13px] tracking-wide text-white">CONNECT WITH US</strong>
+            <strong className="text-[13px] tracking-wide text-white">Follow us</strong>
             <div className="flex flex-wrap items-center gap-2.5">
               {SOCIAL_LINKS.map((social) => (
                 <div key={social.name} className="group relative">
