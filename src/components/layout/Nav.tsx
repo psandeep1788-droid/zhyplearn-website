@@ -119,16 +119,12 @@ export default function Nav() {
           ))}
         </div>
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            disabled
-            aria-disabled="true"
-            title="Login access coming soon"
-            aria-label="Login (coming soon)"
-            className="hidden shrink-0 cursor-not-allowed rounded-full border-[1.5px] border-gray-200 px-5 py-2.5 text-[13.5px] font-semibold whitespace-nowrap text-gray-400 lg:inline-block"
+          <a
+            href="https://app.ignitenx.com/zhypility/login"
+            className="hidden shrink-0 rounded-full border-[1.5px] border-charcoal px-5 py-2.5 text-[13.5px] font-semibold whitespace-nowrap text-charcoal transition hover:bg-charcoal hover:text-white lg:inline-block"
           >
             Login
-          </button>
+          </a>
           <Link
             href="/book-a-demo"
             className="hidden shrink-0 rounded-full bg-gold px-5 py-2.5 text-[13.5px] font-semibold whitespace-nowrap text-white transition hover:bg-gold-dark lg:inline-block"
@@ -169,16 +165,13 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
-          <button
-            type="button"
-            disabled
-            aria-disabled="true"
-            title="Login access coming soon"
-            aria-label="Login (coming soon)"
-            className="cursor-not-allowed border-b border-gray-100 py-3 text-left font-semibold text-gray-400"
+          <a
+            href="https://app.ignitenx.com/zhypility/login"
+            onClick={() => setOpen(false)}
+            className="border-b border-gray-100 py-3 text-left font-semibold"
           >
             Login
-          </button>
+          </a>
           <Link href="/book-a-demo" onClick={() => setOpen(false)} className="py-3 font-bold text-gold-dark">
             Book a Demo
           </Link>
