@@ -137,6 +137,22 @@ Sandeep reviewed the classification above and made these final calls:
   the Artifact (not a Claude substitute, per `ACCEPTANCE_CRITERIA.md`), and
   final approved product screenshots to replace the 11 placeholders.
 
+## Footer Social Icons — Favicon-Style Badges (2026-10-26)
+Sandeep clarified the request further: the icons should look like how
+these platforms' own favicons render in a desktop browser tab — a solid
+brand-coloured (or gradient) rounded-square badge with a white glyph —
+not a colour applied to an otherwise neutral circular button. Rebuilt all
+5 as full badges: the badge itself (brand colour/gradient, rounded-square,
+filling nearly the whole 34px button) replaced the previous neutral
+circular border + separately-coloured glyph. LinkedIn is blue with a
+white "in"; YouTube is red with a white play triangle; Instagram is the
+gradient badge with a white camera outline; Facebook is blue with a white
+"f"; X is black with a bold white X. Hover changed from a border-colour
+swap to a slight scale + shadow lift, since there's no neutral border left
+to recolour. All 5 URLs, `target`/`rel`, and the hover/focus tooltip are
+unchanged — confirmed live, including a close-up screenshot comparison
+against the prior round. Build and lint clean.
+
 ## Footer Social Icons — Solid Brand Glyphs (2026-10-26)
 Sandeep reported that the brand-coloured icons "aren't coming up as per
 their natural presence" after the previous round. Checked the live render

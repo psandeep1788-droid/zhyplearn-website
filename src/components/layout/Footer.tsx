@@ -7,22 +7,21 @@ import Link from "next/link";
  * profile) — replace its `href` once the official LinkedIn profile URL
  * is supplied, before production launch.
  */
+// Each icon is a full brand-coloured badge with a white glyph — the same
+// "coloured square app icon" look these platforms use for their own
+// favicons — rather than a tinted outline on a neutral button.
 const SOCIAL_LINKS = [
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/",
-    // Brand blue (#0A66C2).
-    color: "text-[#0A66C2]",
-    hoverBorder: "hover:border-[#0A66C2]",
-    // Solid "in" lettermark, matching LinkedIn's actual brand icon (not
-    // an outline) so it reads as the real logo, not a tinted line.
     icon: (
       <>
-        <rect x="4" y="9.3" width="3.2" height="9.7" fill="currentColor" stroke="none" />
-        <circle cx="5.6" cy="5.7" r="1.9" fill="currentColor" stroke="none" />
+        <rect x="1" y="1" width="22" height="22" rx="5" fill="#0A66C2" stroke="none" />
+        <rect x="5.2" y="9.3" width="3" height="9.2" fill="white" stroke="none" />
+        <circle cx="6.7" cy="5.9" r="1.8" fill="white" stroke="none" />
         <path
-          d="M10.6 9.3h3.1v1.7c.5-.9 1.7-1.9 3.4-1.9 3.1 0 4.5 2 4.5 5V19h-3.2v-4.6c0-1.5-.5-2.5-1.8-2.5-1 0-1.7.7-2 1.4-.1.3-.1.6-.1 1V19h-3.2V9.3z"
-          fill="currentColor"
+          d="M10.6 9.3h2.9v1.6c.5-.8 1.6-1.8 3.2-1.8 3 0 4.3 1.9 4.3 4.8v4.6h-3v-4.3c0-1.4-.5-2.3-1.7-2.3-.9 0-1.5.6-1.8 1.3-.1.3-.1.6-.1 1v4.3h-3V9.3z"
+          fill="white"
           stroke="none"
         />
       </>
@@ -31,28 +30,16 @@ const SOCIAL_LINKS = [
   {
     name: "YouTube",
     href: "https://www.youtube.com/@zhypilityinfosolutions718",
-    // Brand red (#FF0000).
-    color: "text-[#FF0000]",
-    hoverBorder: "hover:border-[#FF0000]",
-    // Solid filled "TV" badge with a white play triangle, matching the
-    // real YouTube mark instead of an outlined rectangle.
     icon: (
       <>
-        <rect x="3" y="6" width="18" height="12" rx="4" fill="currentColor" stroke="none" />
-        <path d="M10.3 9.3l5.2 2.7-5.2 2.7z" fill="white" stroke="none" />
+        <rect x="1" y="1" width="22" height="22" rx="5" fill="#FF0000" stroke="none" />
+        <path d="M9.6 8.4l6.3 3.6-6.3 3.6z" fill="white" stroke="none" />
       </>
     ),
   },
   {
     name: "Instagram",
     href: "https://www.instagram.com/zhypilityinfosolutions/",
-    // Gradient is applied directly on the icon's own paths below (SVG
-    // strokes/fills can't follow a single `currentColor`), so no text
-    // color class is needed here.
-    color: "",
-    hoverBorder: "hover:border-[#E1306C]",
-    // Solid gradient-filled badge with a white lens ring and dot,
-    // matching the real Instagram mark instead of a gradient outline.
     icon: (
       <>
         <defs>
@@ -64,34 +51,36 @@ const SOCIAL_LINKS = [
             <stop offset="100%" stopColor="#515BD4" />
           </linearGradient>
         </defs>
-        <rect x="3" y="3" width="18" height="18" rx="5" fill="url(#footer-instagram-gradient)" stroke="none" />
-        <circle cx="12" cy="12" r="4.2" fill="none" stroke="white" strokeWidth="1.8" />
-        <circle cx="17.1" cy="6.9" r="1.1" fill="white" stroke="none" />
+        <rect x="1" y="1" width="22" height="22" rx="5" fill="url(#footer-instagram-gradient)" stroke="none" />
+        <rect x="7" y="7" width="10" height="10" rx="3" fill="none" stroke="white" strokeWidth="1.6" />
+        <circle cx="12" cy="12" r="2.6" fill="none" stroke="white" strokeWidth="1.6" />
+        <circle cx="16.3" cy="7.7" r="1" fill="white" stroke="none" />
       </>
     ),
   },
   {
     name: "Facebook",
     href: "https://www.facebook.com/zhypility.infosolutions.7/",
-    // Brand blue (#1877F2).
-    color: "text-[#1877F2]",
-    hoverBorder: "hover:border-[#1877F2]",
-    // Solid filled "f" mark (same path as before, now filled instead of
-    // stroked) matching the real Facebook logo.
-    icon: <path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1z" fill="currentColor" stroke="none" />,
+    icon: (
+      <>
+        <rect x="1" y="1" width="22" height="22" rx="5" fill="#1877F2" stroke="none" />
+        <path
+          d="M13.5 9h2.3V6.2h-2.3c-2 0-3.3 1.4-3.3 3.4V11H8.4v2.8h1.8V18h2.9v-4.2h2.1l.4-2.8h-2.5V9.9c0-.5.3-.9.9-.9z"
+          fill="white"
+          stroke="none"
+        />
+      </>
+    ),
   },
   {
     name: "X",
     href: "https://x.com/ZhypLearn?s=20",
-    // White, not black: this footer's background is always dark charcoal
-    // (no light-mode variant exists for it), so white is what actually
-    // gives X's brand-standard contrast here.
-    color: "text-white",
-    hoverBorder: "hover:border-white",
-    // X's mark is bold crossing strokes, not a filled shape — a thicker,
-    // round-capped stroke reads closer to the real logo than the thin
-    // shared line weight used elsewhere.
-    icon: <path d="M4 4l16 16M20 4L4 20" strokeWidth="2.6" strokeLinecap="round" />,
+    icon: (
+      <>
+        <rect x="1" y="1" width="22" height="22" rx="5" fill="#000000" stroke="none" />
+        <path d="M7 7l10 10M17 7L7 17" stroke="white" strokeWidth="2" strokeLinecap="round" />
+      </>
+    ),
   },
 ];
 
@@ -121,17 +110,9 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.name}
-                    className={`flex h-[34px] w-[34px] items-center justify-center rounded-full border border-white/20 ${social.color} transition ${social.hoverBorder} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold`}
+                    className="flex h-[34px] w-[34px] items-center justify-center overflow-hidden rounded-[9px] transition hover:scale-105 hover:shadow-[0_6px_16px_rgba(0,0,0,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
                   >
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      aria-hidden="true"
-                    >
+                    <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
                       {social.icon}
                     </svg>
                   </a>
