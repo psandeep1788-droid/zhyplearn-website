@@ -137,6 +137,44 @@ Sandeep reviewed the classification above and made these final calls:
   the Artifact (not a Claude substitute, per `ACCEPTANCE_CRITERIA.md`), and
   final approved product screenshots to replace the 11 placeholders.
 
+## Footer Social Icons — Solid Brand Glyphs (2026-10-26)
+Sandeep reported that the brand-coloured icons "aren't coming up as per
+their natural presence" after the previous round. Checked the live render
+and found the real cause: every icon on this site, including these, is
+drawn as a thin stroke/outline shape — a design language that works fine
+when every icon shares one neutral colour, but real brand marks (LinkedIn's
+filled blue square, YouTube's solid red play badge, Facebook's filled "f",
+Instagram's gradient-filled camera) are recognisable specifically because
+they're solid shapes. Recolouring a thin outline only produced a faint
+tinted line, not a recognisable logo.
+
+**Asked Sandeep** whether to redraw the icons as solid brand-style glyphs
+or just thicken the existing outline style; he chose solid brand icons.
+
+**Implemented, each kept inside the same neutral circular button** (no
+layout change):
+- LinkedIn: solid "in" lettermark (hand-built from a rect, circle and path
+  — no new dependency), filled in brand blue
+- YouTube: solid filled red rounded "TV" badge with a white play triangle
+  on top (matches the real mark; previously an outlined badge)
+- Facebook: the existing "f" path, now filled instead of stroked — no new
+  path needed, this path was already closed/fill-ready
+- Instagram: the gradient-filled rounded square now has a **white** lens
+  ring and dot (previously the ring/dot were gradient-stroked against a
+  transparent background) — matches the real Instagram mark's solid
+  gradient badge with a white camera glyph
+- X: kept as crossing lines (the real X mark genuinely is bold crossing
+  strokes, not a fillable shape) but thickened from 1.8 to 2.6 with
+  rounded line caps, closer to the brand's actual stroke weight
+
+**Verified, not just changed**: scaled the icon row 4x via a temporary
+runtime style (reverted immediately after, never touched the source) to
+visually confirm each icon reads as its real logo before finalizing —
+screenshotted at that scale and at normal mobile/desktop size. All 5 URLs,
+`target="_blank"`, `rel="noopener noreferrer"`, hover/focus tooltip
+behaviour, and colours from the prior round confirmed unchanged; only the
+icon artwork itself changed.
+
 ## Footer Social Icons — Brand Colours & Hover/Focus Tooltips (2026-10-26)
 Sandeep requested two visual improvements to the footer's 5 social icons:
 individual brand colours instead of a uniform colour, and a small

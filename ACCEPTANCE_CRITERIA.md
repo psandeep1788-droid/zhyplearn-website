@@ -261,6 +261,39 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       in a fresh tab (only the pre-existing dev-only CSP/eval warning)
 - [x] `git diff --stat` confirms exactly one file changed: `Footer.tsx`
 
+### Solid Brand Glyphs (2026-10-26 addition) — done
+- [x] **Root cause diagnosed, not guessed**: checked the live render after
+      Sandeep's "not coming up as per their natural presence" feedback —
+      icons were thin outline strokes in brand colour, which doesn't read
+      as a real logo; confirmed by screenshot/zoom before changing anything
+- [x] User explicitly chose "solid brand icons" over "thicker outline" via
+      an asked question before implementation
+- [x] LinkedIn: solid "in" lettermark (hand-built shapes, no new
+      dependency) — verified via 4x runtime-scaled screenshot (reverted
+      immediately after, never part of the committed change)
+- [x] YouTube: solid red badge with white play triangle — verified via
+      screenshot, matches the real mark
+- [x] Facebook: existing "f" path now filled instead of stroked — verified
+      via screenshot
+- [x] Instagram: gradient-filled badge with a white lens ring and dot
+      (previously gradient-stroked against transparent) — verified via
+      screenshot
+- [x] X: crossing-line mark thickened (1.8 → 2.6, rounded caps) rather than
+      filled, since the real X mark is genuinely bold strokes, not a fillable
+      shape — verified via screenshot
+- [x] All 5 icons re-confirmed recognizable at actual render size (not just
+      the 4x debug scale) via mobile (375px) and desktop screenshots
+- [x] No horizontal overflow re-confirmed at mobile (375px) after the icon
+      redesign — `scrollWidth`/`clientWidth` match
+- [x] Tooltip hover/focus-within behavior re-confirmed working
+      (`opacity: 1`) after the icon changes — unaffected, since only the
+      icon artwork (not the tooltip markup) changed
+- [x] All 5 URLs, `target="_blank"`, `rel="noopener noreferrer"` re-confirmed
+      unchanged
+- [x] `npm run build` and `npm run lint` both exit 0; no new console errors
+      in a fresh tab (only the pre-existing dev-only CSP/eval warning)
+- [x] `git diff --stat` confirms exactly one file changed: `Footer.tsx`
+
 ## Solutions Copy Revision (2026-10-25 addition) — done
 - [x] "Run a professional learning program without a dedicated L&D team"
       (SMEs card, `Solutions.tsx`) replaced with the approved wording

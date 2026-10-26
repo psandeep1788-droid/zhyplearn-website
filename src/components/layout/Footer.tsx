@@ -14,10 +14,17 @@ const SOCIAL_LINKS = [
     // Brand blue (#0A66C2).
     color: "text-[#0A66C2]",
     hoverBorder: "hover:border-[#0A66C2]",
+    // Solid "in" lettermark, matching LinkedIn's actual brand icon (not
+    // an outline) so it reads as the real logo, not a tinted line.
     icon: (
       <>
-        <rect x="3" y="3" width="18" height="18" rx="3" />
-        <path d="M8 10.5v6M8 7.8v.2M12.5 16.5v-3.5c0-1.2.8-2 2-2s2 .8 2 2v3.5" />
+        <rect x="4" y="9.3" width="3.2" height="9.7" fill="currentColor" stroke="none" />
+        <circle cx="5.6" cy="5.7" r="1.9" fill="currentColor" stroke="none" />
+        <path
+          d="M10.6 9.3h3.1v1.7c.5-.9 1.7-1.9 3.4-1.9 3.1 0 4.5 2 4.5 5V19h-3.2v-4.6c0-1.5-.5-2.5-1.8-2.5-1 0-1.7.7-2 1.4-.1.3-.1.6-.1 1V19h-3.2V9.3z"
+          fill="currentColor"
+          stroke="none"
+        />
       </>
     ),
   },
@@ -27,10 +34,12 @@ const SOCIAL_LINKS = [
     // Brand red (#FF0000).
     color: "text-[#FF0000]",
     hoverBorder: "hover:border-[#FF0000]",
+    // Solid filled "TV" badge with a white play triangle, matching the
+    // real YouTube mark instead of an outlined rectangle.
     icon: (
       <>
-        <rect x="3" y="6" width="18" height="12" rx="4" />
-        <path d="M10.3 9.3l5.2 2.7-5.2 2.7z" fill="currentColor" stroke="none" />
+        <rect x="3" y="6" width="18" height="12" rx="4" fill="currentColor" stroke="none" />
+        <path d="M10.3 9.3l5.2 2.7-5.2 2.7z" fill="white" stroke="none" />
       </>
     ),
   },
@@ -42,6 +51,8 @@ const SOCIAL_LINKS = [
     // color class is needed here.
     color: "",
     hoverBorder: "hover:border-[#E1306C]",
+    // Solid gradient-filled badge with a white lens ring and dot,
+    // matching the real Instagram mark instead of a gradient outline.
     icon: (
       <>
         <defs>
@@ -53,9 +64,9 @@ const SOCIAL_LINKS = [
             <stop offset="100%" stopColor="#515BD4" />
           </linearGradient>
         </defs>
-        <rect x="3" y="3" width="18" height="18" rx="5" stroke="url(#footer-instagram-gradient)" />
-        <circle cx="12" cy="12" r="4" stroke="url(#footer-instagram-gradient)" />
-        <circle cx="17.2" cy="6.8" r="1" fill="url(#footer-instagram-gradient)" stroke="none" />
+        <rect x="3" y="3" width="18" height="18" rx="5" fill="url(#footer-instagram-gradient)" stroke="none" />
+        <circle cx="12" cy="12" r="4.2" fill="none" stroke="white" strokeWidth="1.8" />
+        <circle cx="17.1" cy="6.9" r="1.1" fill="white" stroke="none" />
       </>
     ),
   },
@@ -65,7 +76,9 @@ const SOCIAL_LINKS = [
     // Brand blue (#1877F2).
     color: "text-[#1877F2]",
     hoverBorder: "hover:border-[#1877F2]",
-    icon: <path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1z" />,
+    // Solid filled "f" mark (same path as before, now filled instead of
+    // stroked) matching the real Facebook logo.
+    icon: <path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1z" fill="currentColor" stroke="none" />,
   },
   {
     name: "X",
@@ -75,7 +88,10 @@ const SOCIAL_LINKS = [
     // gives X's brand-standard contrast here.
     color: "text-white",
     hoverBorder: "hover:border-white",
-    icon: <path d="M4 4l16 16M20 4L4 20" />,
+    // X's mark is bold crossing strokes, not a filled shape — a thicker,
+    // round-capped stroke reads closer to the real logo than the thin
+    // shared line weight used elsewhere.
+    icon: <path d="M4 4l16 16M20 4L4 20" strokeWidth="2.6" strokeLinecap="round" />,
   },
 ];
 
