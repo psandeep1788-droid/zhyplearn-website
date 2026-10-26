@@ -1,9 +1,11 @@
 import Link from "next/link";
 
 /**
- * TEMPORARY placeholder destinations — these are generic platform homepages,
- * not Zhypility InfoSolutions' or ZhypLearn's official profiles. Replace each
- * `href` with the verified official profile URL before production launch.
+ * YouTube, Instagram, Facebook and X are verified official Zhypility
+ * InfoSolutions profiles, supplied 2026-10-26. LinkedIn remains a
+ * TEMPORARY placeholder (a generic platform homepage, not a verified
+ * profile) — replace its `href` once the official LinkedIn profile URL
+ * is supplied, before production launch.
  */
 const SOCIAL_LINKS = [
   {
@@ -18,7 +20,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: "YouTube",
-    href: "https://www.youtube.com/",
+    href: "https://www.youtube.com/@zhypilityinfosolutions718",
     icon: (
       <>
         <rect x="3" y="6" width="18" height="12" rx="4" />
@@ -28,7 +30,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: "Instagram",
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/zhypilityinfosolutions/",
     icon: (
       <>
         <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -39,12 +41,12 @@ const SOCIAL_LINKS = [
   },
   {
     name: "Facebook",
-    href: "https://www.facebook.com/",
+    href: "https://www.facebook.com/zhypility.infosolutions.7/",
     icon: <path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1z" />,
   },
   {
     name: "X",
-    href: "https://x.com/",
+    href: "https://x.com/ZhypLearn?s=20",
     icon: <path d="M4 4l16 16M20 4L4 20" />,
   },
 ];

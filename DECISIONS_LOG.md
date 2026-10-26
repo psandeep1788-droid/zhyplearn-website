@@ -137,6 +137,38 @@ Sandeep reviewed the classification above and made these final calls:
   the Artifact (not a Claude substitute, per `ACCEPTANCE_CRITERIA.md`), and
   final approved product screenshots to replace the 11 placeholders.
 
+## Footer Social Media Links — Verified Official Profiles Supplied (2026-10-26)
+Sandeep supplied verified official profile URLs for YouTube, Instagram,
+Facebook and X, replacing the temporary generic-homepage placeholders
+recorded below. LinkedIn's URL was explicitly not supplied this round and
+remains the temporary placeholder (`https://www.linkedin.com/`), unchanged,
+per Sandeep's explicit instruction not to invent or modify it.
+
+**Updated in `Footer.tsx`'s `SOCIAL_LINKS` config only:**
+- YouTube: `https://www.youtube.com/@zhypilityinfosolutions718`
+- Instagram: `https://www.instagram.com/zhypilityinfosolutions/`
+- Facebook: `https://www.facebook.com/zhypility.infosolutions.7/`
+- X: `https://x.com/ZhypLearn?s=20`
+
+**Live-verified** by navigating to each URL directly: Facebook's page title
+reads "Zhypility Infosolutions (@zhypility.infosolutions.7) • Facebook";
+YouTube's reads "Zhypility InfoSolutions - YouTube"; X's reads "ZHYPILITY
+INFOSOLUTIONS (@ZhypLearn) / X" — all three confirm the correct company
+name on the actual destination page, not just a correctly-formed URL.
+**Instagram could not be fully content-verified**: an automated/unauthenticated
+browser session is redirected to Instagram's login wall, with the exact
+target handle preserved in the login redirect's `next` parameter — this
+confirms the URL routes to that specific handle, but the profile's content
+itself wasn't visible without signing in, which wasn't done. Flagged rather
+than claimed as fully verified.
+
+Icons, styling, layout, hover states, `target="_blank"`,
+`rel="noopener noreferrer"`, and each link's `aria-label` were all
+preserved exactly — only the 4 `href` values and the file's leading
+comment changed. The comment itself was corrected to reflect the current,
+accurate, mixed state (4 verified, 1 still a placeholder) rather than
+re-stating the old blanket "all temporary" framing.
+
 ## Footer Social Media Icons — Explicit Decision Reversal (2026-10-25)
 Earlier in this project, the Artifact's original placeholder social icons
 (linking to `#`) were dropped when the footer was rebuilt around the real

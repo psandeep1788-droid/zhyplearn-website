@@ -190,6 +190,34 @@ command, a verified live-browser check, or a reviewed file) — not an assumptio
       other file touched, no existing footer content removed or altered
 - [x] Build and lint clean, no console errors
 
+### Verified Official Profiles Supplied (2026-10-26 addition) — done
+- [x] YouTube, Instagram, Facebook, X `href` values updated to the exact
+      supplied URLs — verified via DOM inspection
+      (`https://www.youtube.com/@zhypilityinfosolutions718`,
+      `https://www.instagram.com/zhypilityinfosolutions/`,
+      `https://www.facebook.com/zhypility.infosolutions.7/`,
+      `https://x.com/ZhypLearn?s=20`)
+- [x] LinkedIn's `href` confirmed unchanged
+      (`https://www.linkedin.com/`) — not modified or invented, per explicit
+      instruction
+- [x] Live-navigated to each of the 4 updated URLs: Facebook, YouTube and X
+      all confirmed via the destination page's own title showing the
+      correct company name. **Instagram not fully content-verified** — an
+      automated browser session hits Instagram's login wall; the exact
+      target handle is preserved in the login redirect's `next` parameter,
+      confirming correct URL routing, but the profile content itself
+      wasn't viewable without signing in
+- [x] `target="_blank"`, `rel="noopener noreferrer"`, and each `aria-label`
+      confirmed unchanged on all 5 links via DOM inspection
+- [x] Icon shapes, hover states (`hover:border-gold hover:text-gold`), and
+      layout confirmed unchanged — verified via screenshot at mobile (375px)
+      and no horizontal overflow
+- [x] No console errors in a fresh tab (only the pre-existing dev-only
+      CSP/eval warning)
+- [x] `npm run build` and `npm run lint` both exit 0
+- [x] `git diff --stat` confirms exactly one file changed: `Footer.tsx` —
+      no other footer content, section, or unrelated functionality touched
+
 ## Solutions Copy Revision (2026-10-25 addition) — done
 - [x] "Run a professional learning program without a dedicated L&D team"
       (SMEs card, `Solutions.tsx`) replaced with the approved wording
