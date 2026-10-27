@@ -163,9 +163,15 @@ export default function Footer() {
           >
             OUR PRESENCE
           </Link>
-          <span>Mumbai, India · Office</span>
-          <span>UAE · Office</span>
-          <span>Bhubaneswar, India · Development Centre</span>
+          <Link href="/contact" className="w-fit underline-offset-4 transition hover:text-white hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
+            Mumbai, India · Office
+          </Link>
+          <Link href="/contact" className="w-fit underline-offset-4 transition hover:text-white hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
+            UAE · Office
+          </Link>
+          <Link href="/contact" className="w-fit underline-offset-4 transition hover:text-white hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
+            Bhubaneswar, India · Development Centre
+          </Link>
         </div>
       </div>
       <div className="mx-auto mt-10 flex max-w-6xl flex-wrap justify-between gap-3 border-t border-white/10 px-6 pt-5 text-[12.5px] text-white/45">
