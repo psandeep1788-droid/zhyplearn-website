@@ -50,29 +50,39 @@ const OFFICES: Office[] = [
   },
 ];
 
+// Precise coordinates of the "ZHYPILITY INFOSOLUTIONS" Google Maps place
+// pin at the Corporate Office address, extracted from the verified
+// https://maps.app.goo.gl/GeZJ4pyaRXzBhJKN7 redirect (not guessed/geocoded
+// from the address text).
+const MUMBAI_OFFICE_COORDS = { lat: 19.1985595, lng: 72.9559074 };
+const MUMBAI_MAP_EMBED_SRC = `https://www.google.com/maps?q=${MUMBAI_OFFICE_COORDS.lat},${MUMBAI_OFFICE_COORDS.lng}&z=17&output=embed`;
+const MUMBAI_MAP_LINK = "https://maps.app.goo.gl/GeZJ4pyaRXzBhJKN7";
+
 function formatTelHref(phone: string): string {
   return `tel:${phone.replace(/[^+\d]/g, "")}`;
 }
 
 function OfficeCard({ office }: { office: Office }) {
   return (
-    <div className="flex flex-col gap-3.5 rounded-[20px] border border-gray-200 bg-white p-7 shadow-[0_8px_24px_rgba(26,26,26,0.05)] transition hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_16px_36px_rgba(26,26,26,0.1)]">
-      <div className="flex h-12 w-12 items-center justify-center rounded-[14px] border border-gold/22 bg-gradient-to-br from-gold/22 to-gold/6 text-gold-dark">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M3 21h18M6 21V8l6-4 6 4v13M9 21v-6h6v6" />
-        </svg>
+    <div className="flex flex-col gap-2.5 rounded-2xl border border-gray-200 bg-white p-5 shadow-[0_6px_18px_rgba(26,26,26,0.04)] transition hover:border-gold/40 hover:shadow-[0_10px_26px_rgba(26,26,26,0.08)]">
+      <div className="flex items-center gap-2.5">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[11px] border border-gold/22 bg-gradient-to-br from-gold/22 to-gold/6 text-gold-dark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M3 21h18M6 21V8l6-4 6 4v13M9 21v-6h6v6" />
+          </svg>
+        </span>
+        <h3 className="font-display text-base font-bold text-charcoal">{office.name}</h3>
       </div>
-      <h3 className="font-display text-lg font-bold text-charcoal">{office.name}</h3>
-      <div className="flex flex-col gap-1 text-[15px] text-gray-700">
+      <div className="flex flex-col gap-0.5 pl-[46px] text-[14.5px] text-gray-700">
         {office.companyLine && <span className="font-semibold text-charcoal">{office.companyLine}</span>}
         {office.addressLines.map((line) => (
           <span key={line}>{line}</span>
         ))}
       </div>
       {office.phones && office.phones.length > 0 && (
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-0.5 pl-[46px]">
           {office.phones.map((phone) => (
-            <a key={phone} href={formatTelHref(phone)} className="text-[15px] font-semibold text-gold-dark hover:underline">
+            <a key={phone} href={formatTelHref(phone)} className="text-[14.5px] font-semibold text-gold-dark hover:underline">
               {phone}
             </a>
           ))}
@@ -83,10 +93,10 @@ function OfficeCard({ office }: { office: Office }) {
           href={office.mapHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-1 inline-flex items-center gap-1.5 text-[14px] font-semibold text-gold-dark hover:underline"
+          className="ml-[46px] mt-0.5 inline-flex w-fit items-center gap-1.5 text-[13.5px] font-semibold text-gold-dark hover:underline"
         >
           View on map
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M7 17L17 7M7 7h10v10" />
           </svg>
         </a>
@@ -116,22 +126,51 @@ export default function ContactPage() {
         </a>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {OFFICES.map((office) => (
-          <OfficeCard key={office.name} office={office} />
-        ))}
-      </div>
+      <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
+        <div className="flex flex-col gap-4">
+          {OFFICES.map((office) => (
+            <OfficeCard key={office.name} office={office} />
+          ))}
+        </div>
 
-      <div className="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
-        <div className="max-w-[480px]">
+        <div className="rounded-[20px] border border-gray-200 bg-white p-7 shadow-[0_8px_24px_rgba(26,26,26,0.05)] sm:p-9">
           <h2 className="font-display text-2xl font-bold text-charcoal">Send Us a Message</h2>
           <p className="mt-3 text-[15.5px] text-gray-700">
             Tell us what you need and our team will respond as soon as possible.
           </p>
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
-        <div className="rounded-[20px] border border-gray-200 bg-white p-7 shadow-[0_8px_24px_rgba(26,26,26,0.05)] sm:p-9">
-          <ContactForm />
+      </div>
+
+      <div className="mt-20">
+        <h2 className="font-display text-2xl font-bold text-charcoal">Find Our Mumbai Office</h2>
+        <p className="mt-3 max-w-[640px] text-[15.5px] text-gray-700">
+          Zhypility InfoSolutions, 506, 5th Floor, Primus Business Park, Thane, Mumbai 400604,
+          India.
+        </p>
+        <div className="mt-6 overflow-hidden rounded-[20px] border border-gray-200 shadow-[0_8px_24px_rgba(26,26,26,0.05)]">
+          <iframe
+            title="Zhypility InfoSolutions — Corporate Office, Thane, Mumbai"
+            src={MUMBAI_MAP_EMBED_SRC}
+            className="h-[320px] w-full sm:h-[380px] lg:h-[440px]"
+            style={{ border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
+        <a
+          href={MUMBAI_MAP_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex w-fit items-center gap-1.5 text-[14.5px] font-semibold text-gold-dark hover:underline"
+        >
+          Get directions
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M7 17L17 7M7 7h10v10" />
+          </svg>
+        </a>
       </div>
     </section>
   );

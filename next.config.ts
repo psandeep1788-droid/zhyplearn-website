@@ -9,6 +9,8 @@ import type { NextConfig } from "next";
 // attributes used throughout the homepage sections — none of these use
 // nonces, and wiring nonce-based CSP through is a larger change than this
 // fix's scope. Everything else stays locked to same-origin.
+// frame-src is scoped to Google's own maps domain only, for the embedded
+// Mumbai office map on the Contact page (the only iframe on the site).
 const CSP = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
@@ -16,6 +18,7 @@ const CSP = [
   "img-src 'self' data:",
   "font-src 'self' data:",
   "connect-src 'self'",
+  "frame-src https://www.google.com",
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",
