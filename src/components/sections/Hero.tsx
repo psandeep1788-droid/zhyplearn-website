@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HeroVideo from "@/components/ui/HeroVideo";
 
 const CHECKS = ["Reimagined UI", "Built-in GenAI", "AI Proctoring", "AI Authoring Tool"];
 
@@ -66,70 +67,8 @@ export default function Hero() {
         </div>
 
         <div className="flex min-w-[300px] flex-[1.15_1_480px] justify-center">
-          <div className="animate-float relative">
-            <svg
-              width="500"
-              height="360"
-              viewBox="0 0 500 360"
-              role="img"
-              aria-label="Preview of the ZhypLearn dashboard showing a navigation sidebar, course overview, an AI content-creation panel, learning modules and assessment activity"
-              className="h-auto max-w-full drop-shadow-[0_28px_56px_rgba(26,26,26,0.18)]"
-            >
-              <rect x="2" y="2" width="496" height="356" rx="22" fill="#FFFFFF" stroke="#E5E7EB" strokeWidth="1.5" />
-              <path d="M2 24a22 22 0 0 1 22-22h450a22 22 0 0 1 22 22v18H2z" fill="#1A1A1A" />
-              <circle cx="28" cy="24" r="5.5" fill="#F5A623" />
-              <circle cx="48" cy="24" r="5.5" fill="#4B5563" />
-              <circle cx="68" cy="24" r="5.5" fill="#4B5563" />
-              <rect x="24" y="60" width="112" height="276" rx="14" fill="#F5F6F8" />
-              <rect x="38" y="76" width="84" height="26" rx="8" fill="#F5A623" />
-              <circle cx="52" cy="152" r="5" fill="none" stroke="#9CA3AF" strokeWidth="1.6" />
-              <rect x="64" y="147" width="54" height="9" rx="4.5" fill="#2B2B2B" />
-              <circle cx="52" cy="184" r="5" fill="none" stroke="#9CA3AF" strokeWidth="1.6" />
-              <rect x="64" y="179" width="54" height="9" rx="4.5" fill="#9CA3AF" />
-              <circle cx="52" cy="216" r="5" fill="none" stroke="#9CA3AF" strokeWidth="1.6" />
-              <rect x="64" y="211" width="54" height="9" rx="4.5" fill="#9CA3AF" />
-              <circle cx="52" cy="248" r="5" fill="none" stroke="#9CA3AF" strokeWidth="1.6" />
-              <rect x="64" y="243" width="54" height="9" rx="4.5" fill="#9CA3AF" />
-              <rect x="152" y="60" width="160" height="128" rx="14" fill="#F5F6F8" />
-              <rect x="166" y="76" width="92" height="9" rx="4.5" fill="#1A1A1A" />
-              <rect x="182" y="100" width="10" height="58" rx="3" fill="#F5A623" />
-              <rect x="200" y="118" width="10" height="40" rx="3" fill="#1A1A1A" />
-              <rect x="218" y="92" width="10" height="66" rx="3" fill="#F5A623" />
-              <rect x="236" y="126" width="10" height="32" rx="3" fill="#E5E7EB" />
-              <rect x="254" y="108" width="10" height="50" rx="3" fill="#1A1A1A" />
-              <rect x="272" y="96" width="10" height="62" rx="3" fill="#F5A623" />
-              <rect x="328" y="60" width="148" height="128" rx="14" fill="#FFFFFF" stroke="#F5A623" strokeWidth="1.6" />
-              <path d="M346 80l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#F5A623" />
-              <rect x="364" y="78" width="96" height="9" rx="4.5" fill="#1A1A1A" />
-              <rect x="342" y="102" width="118" height="7" rx="3.5" fill="#E5E7EB" />
-              <rect x="342" y="116" width="90" height="7" rx="3.5" fill="#E5E7EB" />
-              <rect x="342" y="140" width="76" height="20" rx="10" fill="#F5A623" />
-              <rect x="152" y="200" width="160" height="136" rx="14" fill="#FFFFFF" stroke="#E5E7EB" strokeWidth="1.2" />
-              <rect x="166" y="214" width="84" height="9" rx="4.5" fill="#1A1A1A" />
-              <circle cx="176" cy="244" r="7" fill="#F5A623" />
-              <path d="M172 244l3 3 6-6" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              <rect x="190" y="240" width="98" height="8" rx="4" fill="#2B2B2B" />
-              <circle cx="176" cy="270" r="7" fill="none" stroke="#DD8F16" strokeWidth="1.8" />
-              <rect x="190" y="266" width="98" height="8" rx="4" fill="#E5E7EB" />
-              <circle cx="176" cy="296" r="7" fill="none" stroke="#DD8F16" strokeWidth="1.8" />
-              <rect x="190" y="292" width="80" height="8" rx="4" fill="#E5E7EB" />
-              <rect x="328" y="200" width="148" height="136" rx="14" fill="#F5F6F8" />
-              <circle cx="384" cy="266" r="34" fill="none" stroke="#E5E7EB" strokeWidth="9" />
-              <circle
-                cx="384"
-                cy="266"
-                r="34"
-                fill="none"
-                stroke="#F5A623"
-                strokeWidth="9"
-                strokeDasharray="160 214"
-                strokeLinecap="round"
-                transform="rotate(-90 384 266)"
-              />
-              <rect x="430" y="230" width="34" height="9" rx="4.5" fill="#1A1A1A" />
-              <rect x="430" y="248" width="40" height="16" rx="8" fill="#F5A623" />
-              <rect x="430" y="276" width="42" height="18" rx="9" fill="#E8F6EE" />
-            </svg>
+          <div className="animate-float relative w-full max-w-[500px]">
+            <HeroVideo />
 
             <div className="absolute -right-4 -bottom-5 hidden items-center gap-2.5 rounded-2xl border border-gray-200 bg-white px-4 py-3 whitespace-nowrap shadow-[0_14px_32px_rgba(26,26,26,0.14)] sm:flex">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DD8F16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
