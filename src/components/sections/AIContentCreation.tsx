@@ -56,7 +56,11 @@ export default function AIContentCreation() {
           <div className="flex min-w-[280px] flex-1 justify-center" style={{ flexBasis: "440px" }}>
             <div className="relative w-full max-w-[470px]">
               <div className="animate-float">
-                <ScreenshotPlaceholder caption="Course Builder Workspace" aspectRatio="470 / 300" />
+                <ScreenshotPlaceholder
+                  caption="Course Builder Workspace"
+                  src="/zhyplearn-ai-content-creation-course-builder-workspace.webp"
+                  aspectRatio="470 / 300"
+                />
               </div>
               <div className="relative z-10 -mt-12 -mr-4 ml-auto w-[58%]">
                 <ScreenshotPlaceholder caption="AI-Authored Course" aspectRatio="4 / 3" />
@@ -64,9 +68,6 @@ export default function AIContentCreation() {
             </div>
           </div>
         </div>
-        <p className="mt-2 text-right text-[12.5px] text-gray-500">
-          Illustrative placeholders. Genuine ZhypLearn screenshots to follow.
-        </p>
       </div>
     </section>
   );
