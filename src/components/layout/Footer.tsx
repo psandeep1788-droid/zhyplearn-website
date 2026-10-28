@@ -11,7 +11,7 @@ import Link from "next/link";
 const SOCIAL_LINKS = [
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/company/zhypility-infosolutions/?viewAsMember=true",
+    href: "https://in.linkedin.com/company/zhypility-infosolutions",
     icon: (
       <>
         <rect x="1" y="1" width="22" height="22" rx="5" fill="#0A66C2" stroke="none" />
