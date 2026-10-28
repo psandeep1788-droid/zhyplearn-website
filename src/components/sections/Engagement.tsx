@@ -17,12 +17,10 @@ export default function Engagement() {
           <div className="flex min-w-[280px] flex-1 flex-col gap-2" style={{ flexBasis: "440px" }}>
             <ScreenshotPlaceholder
               caption="AI Tutor"
+              src="/zhyplearn-engagement-ai-tutor.webp"
               aspectRatio="470 / 300"
               className="w-full max-w-[470px]"
             />
-            <p className="max-w-[470px] text-[12.5px] text-gray-500">
-              Illustrative placeholder. A genuine ZhypLearn screenshot to follow.
-            </p>
           </div>
           <div className="flex min-w-[280px] flex-1 flex-col gap-4" style={{ flexBasis: "420px" }}>
             <span className="text-[13px] font-bold tracking-wide text-gold-dark uppercase">
