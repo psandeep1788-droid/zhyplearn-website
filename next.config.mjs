@@ -1,5 +1,3 @@
-import type { NextConfig } from "next";
-
 // Baseline CSP for a server-rendered Next.js app with no third-party
 // scripts/embeds today (confirmed: no analytics, no Calendly/Stripe/HubSpot,
 // next/font self-hosts fonts at build time — no external font requests).
@@ -24,7 +22,8 @@ const CSP = [
   "form-action 'self'",
 ].join("; ");
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   /* config options here */
   // Disabled: Next.js 16's Cache Components relies on a setTimeout
   // behavior the Cloudflare Workers runtime doesn't support yet, which
