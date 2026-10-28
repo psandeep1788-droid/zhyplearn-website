@@ -10,7 +10,7 @@ const PRODUCT_LINKS = [
 ];
 
 const NAV_LINKS = [
-  { href: "https://www.zhypility.com", label: "Solutions" },
+  { href: "https://www.zhypility.com", label: "Solutions", external: true },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -113,7 +113,13 @@ export default function Nav() {
         <div className="hidden shrink-0 items-center gap-5 text-[14.5px] font-semibold whitespace-nowrap lg:flex xl:gap-8">
           <ProductDropdown />
           {NAV_LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="hover:text-gold-dark">
+            <Link
+              key={l.href}
+              href={l.href}
+              target={l.external ? "_blank" : undefined}
+              rel={l.external ? "noopener noreferrer" : undefined}
+              className="hover:text-gold-dark"
+            >
               {l.label}
             </Link>
           ))}
@@ -121,6 +127,8 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <a
             href="https://app.ignitenx.com/zhypility/login"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden shrink-0 rounded-full border-[1.5px] border-charcoal px-5 py-2.5 text-[13.5px] font-semibold whitespace-nowrap text-charcoal transition hover:bg-charcoal hover:text-white lg:inline-block"
           >
             Login
@@ -159,6 +167,8 @@ export default function Nav() {
             <Link
               key={l.href}
               href={l.href}
+              target={l.external ? "_blank" : undefined}
+              rel={l.external ? "noopener noreferrer" : undefined}
               onClick={() => setOpen(false)}
               className="border-b border-gray-100 py-3 font-semibold"
             >
@@ -167,6 +177,8 @@ export default function Nav() {
           ))}
           <a
             href="https://app.ignitenx.com/zhypility/login"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="border-b border-gray-100 py-3 text-left font-semibold"
           >
