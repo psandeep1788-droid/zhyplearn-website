@@ -4,9 +4,10 @@ import { saveDemoRequest, markEmailNotified } from "@/lib/db";
 import { sendDemoRequestNotification } from "@/lib/email";
 import { isRateLimited } from "@/lib/rate-limit";
 import { isDatabaseConfigured } from "@/lib/env";
+import { getClientIp } from "@/lib/request";
 
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const ip = getClientIp(req);
   if (isRateLimited(ip)) {
     return NextResponse.json(
       { ok: false, error: "Too many requests — please try again later." },
