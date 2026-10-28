@@ -27,12 +27,15 @@ const OFFICES: Office[] = [
   },
   {
     name: "Development Center",
-    addressLines: ["HIG-148, Sailashree Vihar", "Bhubaneswar, Odisha-21", "India"],
-    // No map link: the only map link associated with this office on the
-    // live reference site actually resolves to Primus Business Park in
-    // Thane (the Corporate Office's building), not Bhubaneswar — so it is
-    // not a verified destination for this address. Omitted rather than
-    // shown incorrectly; needs a verified link supplied before launch.
+    addressLines: [
+      "Plot No- 81, 2nd Floor",
+      "Sai Saraswati Complex,",
+      "District Center, Chandrasekharpur",
+      "Bhubaneswar – 751016",
+    ],
+    // No map link: no verified Google Maps destination has been supplied
+    // for this address yet. Omitted rather than shown incorrectly, or
+    // invented — needs a verified link supplied before launch.
   },
   {
     name: "UAE Office",
