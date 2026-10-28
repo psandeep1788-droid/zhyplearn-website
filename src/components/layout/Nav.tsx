@@ -10,7 +10,7 @@ const PRODUCT_LINKS = [
 ];
 
 const NAV_LINKS = [
-  { href: "/#solutions", label: "Solutions" },
+  { href: "https://www.zhypility.com", label: "Solutions" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
