@@ -1,11 +1,9 @@
 import Link from "next/link";
 
 /**
- * YouTube, Instagram, Facebook and X are verified official Zhypility
- * InfoSolutions profiles, supplied 2026-10-26. LinkedIn remains a
- * TEMPORARY placeholder (a generic platform homepage, not a verified
- * profile) — replace its `href` once the official LinkedIn profile URL
- * is supplied, before production launch.
+ * All five socials are verified official Zhypility InfoSolutions
+ * profiles. LinkedIn supplied 2026-10-28 (YouTube, Instagram, Facebook
+ * and X supplied 2026-10-26).
  */
 // Each icon is a full brand-coloured badge with a white glyph — the same
 // "coloured square app icon" look these platforms use for their own
@@ -13,7 +11,7 @@ import Link from "next/link";
 const SOCIAL_LINKS = [
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    href: "https://www.linkedin.com/company/zhypility-infosolutions/?viewAsMember=true",
     icon: (
       <>
         <rect x="1" y="1" width="22" height="22" rx="5" fill="#0A66C2" stroke="none" />
