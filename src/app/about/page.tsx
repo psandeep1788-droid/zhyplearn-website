@@ -98,9 +98,9 @@ export default function AboutPage() {
               intelligent eLearning solutions.
             </p>
             <p>
-              Our Head Office is located in Mumbai along with a dedicated development center
-              based out of Bhubaneswar, Odisha, serving as the hub for our operations and
-              innovation.
+              Our offices in Mumbai and the UAE, supported by our dedicated development center in
+              Bhubaneswar, Odisha, enable us to serve clients globally with technology-driven
+              learning solutions and a commitment to continuous innovation.
             </p>
           </div>
         </div>
