@@ -33,6 +33,7 @@ const OFFICES: Office[] = [
       "District Center, Chandrasekharpur",
       "Bhubaneswar – 751016",
     ],
+    phones: ["+91 9337127011"],
     // No map link: no verified Google Maps destination has been supplied
     // for this address yet. Omitted rather than shown incorrectly, or
     // invented — needs a verified link supplied before launch.
